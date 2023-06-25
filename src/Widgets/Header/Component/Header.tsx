@@ -11,17 +11,17 @@ export const Header = () => {
             <Container>
                 <div className="header_component">
                     <nav className="nav">
-                        <ul>
-                            <li>
+                        <ul className="list">
+                            <li className="list_item">
                                 <NavLink to={'#'}>main</NavLink>
                             </li>
-                            <li>
+                            <li className="list_item">
                                 <NavLink to={'#'}>posts</NavLink>
                             </li>
-                            <li>
+                            <li className="list_item">
                                 <NavLink to={'#'}>projects</NavLink>
                             </li>
-                            <li>
+                            <li className="list_item">
                                 <NavLink to={'#'}>help</NavLink>
                             </li>
                         </ul>
