@@ -33,7 +33,7 @@ export const Header = () => {
                         <li>
                             <NavLink to={'#'}>sign in</NavLink>
                         </li>
-                        <li>
+                        <li className="line">
                             <img src={lineIcon} alt=""/>
                         </li>
                         <li>

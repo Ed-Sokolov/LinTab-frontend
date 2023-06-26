@@ -1,6 +1,9 @@
 .header {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.60) 100%);
   backdrop-filter: blur(4px);
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
 }
 
 .header_component {
@@ -34,6 +37,12 @@
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 0.8px;
+
+    .line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   a:hover {

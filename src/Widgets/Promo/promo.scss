@@ -1,0 +1,158 @@
+.promo_section {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  .promo {
+    left: 0;
+
+    transition: .4s cubic-bezier(.2, .49, .32, .99);
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .layer0 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+  }
+
+  .layer1 {
+    position: absolute;
+    width: 100vw;
+
+    z-index: 2;
+  }
+
+  .layer2 {
+    position: absolute;
+    width: 30vw;
+    top: 5%;
+    left: 60%;
+
+    z-index: 3;
+  }
+
+  .layer3 {
+    position: absolute;
+    width: 100vw;
+    top: 10%;
+
+    z-index: 4;
+  }
+
+  .subtitle {
+    position: absolute;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 64px;
+    letter-spacing: 5.12px;
+
+    z-index: 5;
+
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    pointer-events: auto;
+    user-select: auto;
+  }
+
+  .layer4 {
+    position: absolute;
+    width: 100vw;
+    top: auto;
+    bottom: -10vh;
+
+    z-index: 6;
+  }
+
+  .layer5 {
+    position: absolute;
+    width: 100vw;
+    top: auto;
+    bottom: -10vh;
+
+    z-index: 7;
+  }
+
+  .title {
+    position: absolute;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 128px;
+    letter-spacing: 15.36px;
+
+    z-index: 8;
+
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    pointer-events: auto;
+    user-select: auto;
+  }
+
+  .layer6 {
+    position: absolute;
+    width: 100vw;
+    top: auto;
+    bottom: -10vh;
+
+    z-index: 9;
+  }
+
+  .layer7 {
+    position: absolute;
+    width: 80vw;
+    top: auto;
+    bottom: -2vh;
+
+    z-index: 10;
+  }
+
+  .layer8 {
+    position: absolute;
+    width: 100vw;
+    top: auto;
+    bottom: -25vh;
+
+    z-index: 11;
+  }
+
+  .layer9 {
+    position: absolute;
+    width: 100vw;
+    top: auto;
+    bottom: -10vh;
+
+    z-index: 12;
+  }
+
+  .vignette {
+    position: absolute;
+    z-index: 13;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+                    ellipse at center,
+                    rgba(0, 0, 0, 0) 84%,
+                    rgba(0, 0, 0, 0.7));
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  ::selection {
+    background-color: #DF9A57BB;
+  }
+}
