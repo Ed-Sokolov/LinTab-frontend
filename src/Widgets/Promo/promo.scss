@@ -1,3 +1,33 @@
+.parallax {
+  position: relative;
+  height: 170vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.promo {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: .4s cubic-bezier(.2, .49, .32, .99);
+
+  pointer-events: none;
+  user-select: none;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
 .promo_section {
   height: 100vh;
   width: 100%;
@@ -9,44 +39,31 @@
   font-weight: 700;
   text-transform: uppercase;
 
-  .promo {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-
-    top: 0;
-    left: 0;
-
-    transition: .4s cubic-bezier(.2, .49, .32, .99);
-
-    pointer-events: none;
-    user-select: none;
-
-    img {
-      position: absolute;
-      width: 100%;
-
-      object-fit: cover;
-    }
-  }
-
   .layer0 img {
-    height: 100%;
+    width: 105%;
+    height: 105%;
     z-index: 1;
   }
 
   .layer1 img {
+    width: 105%;
     z-index: 2;
   }
 
   .layer2 img {
-    width: 30vw;
-    left: 55%;
+    width: 500px;
+    height: 500px;
+    top: -25%;
+    left: 25%;
+
+    //object-fit: cover;
 
     z-index: 3;
   }
 
   .layer3 img {
+    width: 100%;
+
     top: 10%;
 
     z-index: 4;
@@ -61,24 +78,20 @@
 
     z-index: 5;
 
-    top: 34%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: -10%;
 
     pointer-events: auto;
     user-select: auto;
   }
 
   .layer4 img {
-    top: auto;
-    bottom: 0;
+    width: 100%;
 
     z-index: 6;
   }
 
   .layer5 img {
-    top: auto;
-    bottom: 0;
+    width: 105%;
 
     z-index: 7;
   }
@@ -91,49 +104,47 @@
 
     z-index: 8;
 
-    top: 46%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
 
     pointer-events: auto;
     user-select: auto;
   }
 
   .layer6 img {
-    width: 101%;
-
-    top: auto;
-    bottom: 0;
+    width: 105%;
 
     z-index: 9;
   }
 
   .layer7 img {
-    width: 101%;
-
-    top: auto;
-    bottom: 0;
+    width: 105%;
 
     z-index: 10;
   }
 
   .layer8 img {
-    width: 101%;
-
-    top: auto;
-    bottom: 0;
+    width: 105%;
 
     z-index: 11;
   }
 
-  .layer9 img {
-    top: auto;
-    bottom: 0;
-
-    z-index: 12;
-  }
-
   ::selection {
     background-color: #DF9A57BB;
+  }
+}
+
+.layer9 {
+  width: 105%;
+  height: 170vh;
+
+  z-index: 12;
+
+  img {
+    position: absolute;
+    width: 105%;
+
+    top: 8%;
+
+    object-fit: cover;
   }
 }
