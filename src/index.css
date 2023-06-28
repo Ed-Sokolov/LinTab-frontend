@@ -1,5 +1,20 @@
 @import "Assets/Fonts/fonts.css";
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FEA135;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
 body {
     margin: 0;
     background-color: #FFFFFF;

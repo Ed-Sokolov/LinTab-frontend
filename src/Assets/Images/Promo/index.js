@@ -8,5 +8,5 @@ export const layers = {
     layer6: require('./Layer_6.png'),
     layer7: require('./Layer_7.png'),
     layer8: require('./Layer_8.png'),
-    layer9: require('./Layer_9.png')
+    layer9: require('./Layer_9.png'),
 }

@@ -7,7 +7,7 @@ export const Header = () => {
     const lineIcon: string = require('../../../Assets/Icons/line.svg').default
 
     return (
-        <header className="header">
+        <header className="header" data-aos="fade-down" data-aos-delay={1800}>
             <Container>
                 <div className="header_component">
                     <nav className="nav">
