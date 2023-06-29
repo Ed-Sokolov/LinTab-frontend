@@ -5,12 +5,13 @@ export const PostCard = () => {
     let img = require('../../Assets/Images/PostCard/Test_post_card_image.jpg')
 
     return (
-        <article className="post_card">
+        <article className="post_card" data-aos="fade-up">
             <div className="promo_img">
                 <img src={img}/>
             </div>
             <div className="content">
-                <div className="main_content">
+                <div className="empty_field"></div>
+                <div className="main_content" data-aos="fade-right">
                     <ul className="information">
                         <li className="created_at">06.29.2023</li>
                         <li className="views">100</li>
@@ -19,8 +20,7 @@ export const PostCard = () => {
                     <p className="author">by <a href="#" className="move_to_author">author</a></p>
                     <a href="#" className="move_to_post">Read</a>
                 </div>
-                <div className="empty_field"></div>
-                <ul className="interactions">
+                <ul className="interactions" data-aos="fade-left">
                     <li className="interaction">100</li>
                     <li className="interaction">100</li>
                 </ul>
