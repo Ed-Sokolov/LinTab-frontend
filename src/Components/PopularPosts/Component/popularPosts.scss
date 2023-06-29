@@ -5,4 +5,25 @@
   z-index: 20;
 
   margin-bottom: 128px;
+
+  .popular_posts_content {
+    .posts_columns {
+      display: flex;
+      justify-content: center;
+      gap: 94px;
+      padding: 0 46px;
+
+      .posts_list {
+        display: flex;
+        flex-direction: column;
+        gap: 170px;
+      }
+
+      .right_column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
 }

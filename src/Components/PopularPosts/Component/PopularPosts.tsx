@@ -9,7 +9,25 @@ export const PopularPosts = () => {
             <Container>
                 <div className="popular_posts_content">
                     <H2 color="gold">popular posts</H2>
-                    <PostCard></PostCard>
+                    <ul className="posts_columns">
+                        <li className="left_column">
+                            <ul className="posts_list">
+                                <li className="post_item">
+                                    <PostCard></PostCard>
+                                </li>
+                                <li className="post_item">
+                                    <PostCard></PostCard>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="right_column">
+                            <ul className="posts_list">
+                                <li className="post_item">
+                                    <PostCard></PostCard>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </Container>
         </section>
