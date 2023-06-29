@@ -1,10 +1,10 @@
 import {NavLink} from "react-router-dom";
 import './header.scss';
 import {Container} from "../../Container/Container";
+import {AuthField} from "../../AuthField/AuthField";
 
 export const Header = () => {
     const warningIcon: string = require('../../../Assets/Icons/warning.svg').default
-    const lineIcon: string = require('../../../Assets/Icons/line.svg').default
 
     return (
         <header className="header" data-aos="fade-down" data-aos-delay={1800}>
@@ -29,17 +29,7 @@ export const Header = () => {
                     <div className="warning">
                         <img src={warningIcon} alt=""/>
                     </div>
-                    <ul className="auth">
-                        <li>
-                            <NavLink to={'#'}>sign in</NavLink>
-                        </li>
-                        <li className="line">
-                            <img src={lineIcon} alt=""/>
-                        </li>
-                        <li>
-                            <NavLink to={'#'}>sign up</NavLink>
-                        </li>
-                    </ul>
+                    <AuthField></AuthField>
                 </div>
             </Container>
         </header>

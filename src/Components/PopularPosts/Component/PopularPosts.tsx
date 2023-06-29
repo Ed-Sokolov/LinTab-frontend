@@ -2,6 +2,8 @@ import {Container} from "../../../Widgets/Container/Container";
 import "./popularPosts.scss"
 import {H2} from "../../../Widgets/Headings/H2/H2";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
+import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import {Button} from "../../../Widgets/Button/Button";
 
 export const PopularPosts = () => {
     return (
@@ -30,6 +32,7 @@ export const PopularPosts = () => {
                     </ul>
                 </div>
             </Container>
+            <MoveToAuthTab></MoveToAuthTab>
         </section>
     )
 }
