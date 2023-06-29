@@ -4,6 +4,7 @@ import {H2} from "../../../Widgets/Headings/H2/H2";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 import {Button} from "../../../Widgets/Button/Button";
+import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
 
 export const PopularPosts = () => {
     return (
@@ -33,6 +34,7 @@ export const PopularPosts = () => {
                 </div>
             </Container>
             <MoveToAuthTab></MoveToAuthTab>
+            <ExtraAction></ExtraAction>
         </section>
     )
 }

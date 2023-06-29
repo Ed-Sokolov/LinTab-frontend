@@ -1,7 +1,16 @@
 import "./button.scss"
+import React from "react";
 
-export const Button = () => {
+type ButtonType = {
+    text?: string;
+    classes?: string;
+}
+
+export const Button: React.FC<ButtonType> = ({
+                                                 text = "Read more",
+                                                 classes = "btn btn-outline-dark"
+                                             }) => {
     return (
-        <button>Read more</button>
+        <button className={classes}>{text}</button>
     )
 }
