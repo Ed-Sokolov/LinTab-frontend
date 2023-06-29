@@ -1,5 +1,5 @@
 import React from "react";
-import "./h2.scss"
+import "./h2.scss";
 
 type H2Type = {
     children: string,
