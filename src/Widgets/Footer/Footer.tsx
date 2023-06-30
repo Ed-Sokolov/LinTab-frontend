@@ -38,10 +38,10 @@ export const Footer = () => {
                             <nav className="nav">
                                 <ul className="menu_list">
                                     <li className="menu_item">
-                                        <NavLink to={"#"}>Main</NavLink>
+                                        <NavLink to={"/"}>Main</NavLink>
                                     </li>
                                     <li className="menu_item">
-                                        <NavLink to={"#"}>Posts</NavLink>
+                                        <NavLink to={"/posts"}>Posts</NavLink>
                                     </li>
                                     <li className="menu_item">
                                         <NavLink to={"#"}>Projects</NavLink>
