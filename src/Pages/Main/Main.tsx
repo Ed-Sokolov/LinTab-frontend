@@ -3,6 +3,7 @@ import {Promo} from "../../Widgets/Promo/Promo";
 import {useEffect} from "react";
 import Aos from "aos";
 import {PopularPostsContainer} from "../../Components/PopularPosts/PopularPostsContainer";
+import {Footer} from "../../Widgets/Footer/Footer";
 
 export const Main = () => {
     useEffect(() => {
@@ -16,6 +17,7 @@ export const Main = () => {
             <HeaderContainer></HeaderContainer>
             <Promo></Promo>
             <PopularPostsContainer></PopularPostsContainer>
+            <Footer></Footer>
         </div>
     )
 }
