@@ -43,30 +43,46 @@
     .search_icon {
       width: 24px;
       height: 24px;
+
+      transition: transform .1s;
     }
 
     &:hover {
       background-color: #F6C244;
+    }
+
+    &:active .search_icon {
+      transform: rotate(-32deg);
+    }
+
+    &:disabled {
+      &:hover {
+        background: rgba(255, 255, 255, 0.64);
+      }
+
+      &:active .search_icon {
+        transform: rotate(0);
+      }
     }
   }
 
   &::before {
     content: '';
     position: absolute;
-    width: 0;
-    height: 0;
-    top: 8px;
-    left: 8px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     background-color: transparent;
     border-radius: 34px;
 
-    transition: width .8s, height .8s, background-color .8s;
+    transition: top .4s, left .4s, background-color .4s;
   }
 
   &:focus-within {
     &:before {
-      width: 100%;
-      height: 100%;
+      top: 8px;
+      left: 8px;
       background-color: #F6C244;
     }
   }
