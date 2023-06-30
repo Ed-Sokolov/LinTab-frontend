@@ -3,7 +3,6 @@ import "./popularPosts.scss"
 import {H2} from "../../../Widgets/Headings/H2/H2";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
-import {Button} from "../../../Widgets/Button/Button";
 import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
 
 export const PopularPosts = () => {
@@ -11,7 +10,7 @@ export const PopularPosts = () => {
         <section className="popular_posts_section">
             <Container>
                 <div className="popular_posts_content">
-                    <H2 color="gold">popular posts</H2>
+                    <div data-aos="fade-right"><H2 color="gold">popular posts</H2></div>
                     <ul className="posts_columns">
                         <li className="left_column">
                             <ul className="posts_list">
