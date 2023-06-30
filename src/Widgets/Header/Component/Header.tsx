@@ -6,16 +6,16 @@ import {UseSvg} from "../../UseSvg/UseSvg";
 
 export const Header = () => {
     return (
-        <header className="header" data-aos="fade-down" data-aos-delay={1800}>
+        <header className="header" data-aos="fade-down" data-aos-delay={600}>
             <Container>
                 <div className="header_component">
                     <nav className="nav">
                         <ul className="list">
                             <li className="list_item">
-                                <NavLink to={'#'}>main</NavLink>
+                                <NavLink to={'/'}>main</NavLink>
                             </li>
                             <li className="list_item">
-                                <NavLink to={'#'}>posts</NavLink>
+                                <NavLink to={'/posts'}>posts</NavLink>
                             </li>
                             <li className="list_item">
                                 <NavLink to={'#'}>projects</NavLink>
