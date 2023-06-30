@@ -1,0 +1,96 @@
+.sort_list {
+  display: flex;
+  gap: 16px;
+
+  .sort_item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    text-align: center;
+
+    .icons_list {
+      display: flex;
+      gap: 16px;
+
+      .icon_item {
+        position: relative;
+
+        width: 52px;
+        height: 52px;
+
+        .sort_icon_wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 52px;
+          height: 52px;
+
+          border-radius: 16px;
+
+          background: rgba(255, 255, 255, 0.64);
+          backdrop-filter: blur(4px);
+
+          transition: box-shadow .4s;
+
+          .sort_icon {
+            width: 28px;
+            height: 28px;
+
+            opacity: .75;
+
+            transition: opacity .4s;
+          }
+        }
+
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 16px;
+          background-color: transparent;
+
+          transition: background-color .4s, top .4s, left .4s;
+        }
+
+        &:hover {
+          &:before {
+            background-color: #F6C244;
+          }
+
+          .sort_icon_wrapper {
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+
+            .sort_icon {
+              opacity: .86;
+            }
+          }
+        }
+
+        &.active {
+          &:before {
+            top: 4px;
+            left: 4px;
+            background-color: #F6C244;
+          }
+
+          .sort_icon_wrapper {
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+
+            .sort_icon {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .sort_name {
+      letter-spacing: 0.56px;
+    }
+  }
+}

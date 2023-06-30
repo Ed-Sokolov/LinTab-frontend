@@ -3,6 +3,8 @@
   width: max-content;
   border-radius: 34px;
 
+  height: max-content;
+
   position: relative;
 
   .search_input {
@@ -82,8 +84,6 @@
 
   &:hover {
     &:before {
-      top: 2px;
-      left: 2px;
       background-color: #FED655;
     }
   }
