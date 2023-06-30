@@ -29,6 +29,16 @@
     }
   }
 
+  .warning {
+    stroke: #FFFFFF;
+    color: transparent;
+
+    .warning_icon {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
   a:hover {
     color: rgba(255, 255, 255, 1);
   }

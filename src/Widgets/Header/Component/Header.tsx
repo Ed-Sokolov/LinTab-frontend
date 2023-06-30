@@ -2,10 +2,9 @@ import {NavLink} from "react-router-dom";
 import './header.scss';
 import {Container} from "../../Container/Container";
 import {AuthField} from "../../AuthField/AuthField";
+import {UseSvg} from "../../UseSvg/UseSvg";
 
 export const Header = () => {
-    const warningIcon: string = require('../../../Assets/Icons/warning.svg').default
-
     return (
         <header className="header" data-aos="fade-down" data-aos-delay={1800}>
             <Container>
@@ -27,7 +26,7 @@ export const Header = () => {
                         </ul>
                     </nav>
                     <div className="warning">
-                        <img src={warningIcon} alt=""/>
+                        <UseSvg spriteName={"warning"} className={"warning_icon"}></UseSvg>
                     </div>
                     <AuthField></AuthField>
                 </div>
