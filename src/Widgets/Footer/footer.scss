@@ -45,6 +45,17 @@
           .social_item {
             font-size: 20px;
             letter-spacing: 0.8px;
+
+            .social_link {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+
+              .social_icon {
+                width: 24px;
+                height: 24px;
+              }
+            }
           }
         }
       }

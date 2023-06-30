@@ -1,6 +1,8 @@
 import {Container} from "../Container/Container";
 import "./footer.scss"
 import {H4} from "../Headings/H4/H4";
+import {NavLink} from "react-router-dom";
+import {UseSvg} from "../UseSvg/UseSvg";
 
 export const Footer = () => {
     return (
@@ -11,19 +13,42 @@ export const Footer = () => {
                         <div className="company_links">
                             <H4>Lintab</H4>
                             <ul className="social_list">
-                                <li className="social_item">telegram</li>
-                                <li className="social_item">instagram</li>
-                                <li className="social_item">lintab@gmail.com</li>
+                                <li className="social_item">
+                                    <NavLink to={"#"} className="social_link">
+                                        <UseSvg spriteName={"telegram"} className={"social_icon"}></UseSvg>
+                                        telegram
+                                    </NavLink>
+                                </li>
+                                <li className="social_item">
+                                    <NavLink to={"#"} className="social_link">
+                                        <UseSvg spriteName={"instagram"} className={"social_icon"}></UseSvg>
+                                        instagram
+                                    </NavLink>
+                                </li>
+                                <li className="social_item">
+                                    <NavLink to={"mailto:lintab@gmail.com"} className="social_link">
+                                        <UseSvg spriteName={"email"} className={"social_icon"}></UseSvg>
+                                        lintab@gmail.com
+                                    </NavLink>
+                                </li>
                             </ul>
                         </div>
                         <div className="menu">
                             <p className="menu_title">Menu</p>
                             <nav className="nav">
                                 <ul className="menu_list">
-                                    <li className="menu_item">Main</li>
-                                    <li className="menu_item">Posts</li>
-                                    <li className="menu_item">Projects</li>
-                                    <li className="menu_item">Help</li>
+                                    <li className="menu_item">
+                                        <NavLink to={"#"}>Main</NavLink>
+                                    </li>
+                                    <li className="menu_item">
+                                        <NavLink to={"#"}>Posts</NavLink>
+                                    </li>
+                                    <li className="menu_item">
+                                        <NavLink to={"#"}>Projects</NavLink>
+                                    </li>
+                                    <li className="menu_item">
+                                        <NavLink to={"#"}>Help</NavLink>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
