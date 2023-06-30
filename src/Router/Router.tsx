@@ -1,7 +1,11 @@
-export const Router = () => {
+import {Route, Routes} from "react-router-dom";
+import {Main} from "../Pages/Main/Main";
+
+export const Routing = () => {
     return (
-        <div>
-            Router
-        </div>
+        <Routes>
+            <Route path={'/'} element={<Main/>}/>
+            <Route path={'/posts'} element={<Main/>}/>
+        </Routes>
     )
 }
