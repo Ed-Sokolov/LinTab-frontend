@@ -6,6 +6,7 @@
   position: relative;
 
   .search_input {
+    position: relative;
     width: 448px;
     outline: none;
     border-radius: 34px 0px 0px 34px;
@@ -77,6 +78,14 @@
     border-radius: 34px;
 
     transition: top .4s, left .4s, background-color .4s;
+  }
+
+  &:hover {
+    &:before {
+      top: 2px;
+      left: 2px;
+      background-color: #FED655;
+    }
   }
 
   &:focus-within {
