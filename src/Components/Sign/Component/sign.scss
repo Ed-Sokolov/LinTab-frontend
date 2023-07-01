@@ -1,5 +1,6 @@
 .sign_wrapper {
   position: relative;
+  overflow: hidden;
 
   .sign_background {
     position: absolute;
@@ -16,7 +17,7 @@
     display: flex;
     justify-content: right;
 
-    .sign_in__content {
+    .sign__content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,6 +94,19 @@
             color: transparent;
             stroke: #FFF;
           }
+        }
+      }
+    }
+
+    &.right {
+      left: auto;
+      right: -50%;
+
+      justify-content: left;
+
+      .sign__content {
+        .switch {
+          align-items: flex-end;
         }
       }
     }
