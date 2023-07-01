@@ -17,8 +17,84 @@
     justify-content: right;
 
     .sign_in__content {
-      padding: 208px 64px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
+      width: 598px;
+      padding: 0 64px 0;
+
+      color: #FFF;
+
+      .title {
+        color: #FFF;
+
+        text-transform: none;
+
+        margin-bottom: 32px;
+      }
+
+      .sign_form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        margin-bottom: 64px;
+
+        .form_group {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .label {
+            font-size: 24px;
+            letter-spacing: 0.96px;
+          }
+
+          .input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+
+            padding: 12px 14px;
+
+            color: #FFF;
+            font-size: 20px;
+            letter-spacing: 0.8px;
+
+            border-bottom: 2px solid #F1BA55;
+          }
+        }
+      }
+
+      .switch {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .text {
+          font-size: 28px;
+          letter-spacing: 1.12px;
+        }
+
+        .switch_link {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          font-size: 28px;
+          letter-spacing: 1.12px;
+          text-transform: uppercase;
+
+          .full_arrow_icon {
+            width: 32px;
+            height: 32px;
+
+            color: transparent;
+            stroke: #FFF;
+          }
+        }
+      }
     }
   }
 }

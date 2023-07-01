@@ -21,13 +21,13 @@ export const Sign = () => {
                             </div>
                             <div className="form_group">
                                 <label className="label" htmlFor="">Password</label>
-                                <input type="text" className="input" placeholder="Password"/>
+                                <input type="password" className="input" placeholder="Password"/>
                             </div>
-                            <Button>sign in</Button>
+                            <Button classes={"btn btn-outline-white btn_sign"} isDisabled={true}>sign in</Button>
                         </form>
                         <div className="switch">
                             <p className="text">You are here at the first time?</p>
-                            <NavLink to={"#"}>
+                            <NavLink to={"#"} className="switch_link">
                                 sign up
                                 <UseSvg spriteName={"full_arrow_right"} className={"full_arrow_icon"}/>
                             </NavLink>
