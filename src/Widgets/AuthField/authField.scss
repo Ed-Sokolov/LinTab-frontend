@@ -8,6 +8,22 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
 
+  &.center {
+    width: 100%;
+
+    .auth_item {
+      flex-basis: 50%;
+
+      &:first-child {
+        text-align: right;
+      }
+
+      &:last-child {
+        text-align: left;
+      }
+    }
+  }
+
   .line {
     display: flex;
     align-items: center;
