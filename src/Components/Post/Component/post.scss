@@ -111,8 +111,8 @@
       gap: 8px;
 
       .edit_icon {
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
 
         color: transparent;
         stroke: #000;
@@ -124,6 +124,8 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
+
+    margin-bottom: 64px;
 
     .p_wrapper {
       margin: 0 auto;
@@ -138,14 +140,81 @@
     .img {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       gap: 50px;
 
       img {
-        width: 521px;
+        width: 522px;
+        height: 294px;
 
         object-fit: cover;
       }
     }
+  }
+
+  .just_like_it_wrapper {
+    width: max-content;
+    margin: 0 auto 128px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    .agitation {
+      font-size: 20px;
+      letter-spacing: 0.82px;
+    }
+
+    .pointer {
+      height: 36px;
+
+      .pointer_icon {
+        width: 28px;
+        height: 28px;
+
+        color: transparent;
+        stroke: #000;
+
+        animation: .6s linear 0s infinite alternate pointer;
+      }
+
+      @keyframes pointer {
+        from {
+          transform: translateY(8px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .just_like_it {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+
+      .like_it_icon {
+        width: 52px;
+        height: 52px;
+
+        color: transparent;
+        stroke: #000;
+
+        transition: transform .4s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      .count {
+        font-size: 18px;
+        font-family: 'Aldrich', sans-serif;
+        letter-spacing: 0.64px;
+      }
+  }
   }
 }
