@@ -20,7 +20,7 @@
 
         width: 50%;
         min-height: 50vh;
-        height: calc(100vh - 208px);
+        height: calc(100vh - 364px);
 
         padding: 16px 16px 16px 32px;
 
@@ -97,7 +97,7 @@
     font-weight: 500;
     letter-spacing: 0.8px;
 
-    margin-bottom: 64px;
+    margin-bottom: 128px;
 
     .author {
       a {
@@ -177,7 +177,7 @@
         color: transparent;
         stroke: #000;
 
-        animation: .6s linear 0s infinite alternate pointer;
+        animation: .5s linear 0s infinite alternate pointer;
       }
 
       @keyframes pointer {
