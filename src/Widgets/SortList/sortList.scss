@@ -1,6 +1,9 @@
 .sort_list {
   display: flex;
+  justify-content: center;
   gap: 16px;
+
+  width: 516px;
 
   .sort_item {
     display: flex;

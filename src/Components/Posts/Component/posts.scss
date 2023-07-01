@@ -4,8 +4,19 @@
   .posts_page_content {
     .filter_field {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
+      gap: 94px;
+
+      margin-bottom: 64px;
+    }
+
+    .posts_list {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      row-gap: 114px;
+      column-gap: 94px;
     }
   }
 }

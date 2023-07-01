@@ -3,6 +3,7 @@ import {Container} from "../../../Widgets/Container/Container";
 import {H2} from "../../../Widgets/Headings/H2/H2";
 import {SearchField} from "../../../Widgets/SearchField/SearchField";
 import {SortList} from "../../../Widgets/SortList/SortList";
+import {PostCard} from "../../../Widgets/PostCard/PostCard";
 
 export const Posts = () => {
     return (
@@ -13,6 +14,18 @@ export const Posts = () => {
                     <div className="filter_field">
                         <SearchField/>
                         <SortList/>
+                    </div>
+                    <div className="posts_list">
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
+                        <PostCard/>
                     </div>
                 </div>
             </Container>
