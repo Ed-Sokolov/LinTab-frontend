@@ -2,6 +2,7 @@ import "./post.scss"
 import {Container} from "../../../Widgets/Container/Container";
 import {H4} from "../../../Widgets/Headings/H4/H4";
 import {UseSvg} from "../../../Widgets/UseSvg/UseSvg";
+import {NavLink} from "react-router-dom";
 
 export const Post = () => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
@@ -33,6 +34,63 @@ export const Post = () => {
                     <img src={img}/>
                 </div>
             </div>
+            <Container>
+                <>
+                    <ul className="redirects">
+                        <li className="author">
+                            by <NavLink to={'#'}>author</NavLink>
+                        </li>
+                        <li className="edit">
+                            <NavLink to={'#'} className="edit_link">
+                                <UseSvg spriteName={"edit"} className={"edit_icon"}/>
+                                edit
+                            </NavLink>
+                        </li>
+                    </ul>
+                    <div className="post_content">
+                        <div className="p_wrapper">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.</p>
+                        </div>
+                        <div className="img">
+                            <img src={img}/>
+                        </div>
+                        <div className="p_wrapper">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Sit amet mauris commodo quis imperdiet massa tincidunt
+                                nunc pulvinar. Consequat ac felis donec et. Scelerisque viverra mauris in aliquam sem.
+                                Neque
+                                volutpat ac tincidunt vitae semper. Amet cursus sit amet dictum. Tristique risus nec
+                                feugiat in fermentum posuere urna. Posuere ac ut consequat semper viverra. In aliquam
+                                sem
+                                fringilla ut morbi tincidunt augue interdum. Turpis egestas integer eget aliquet nibh.
+                                Ut
+                                venenatis tellus in metus vulputate eu. Nec ullamcorper sit amet risus nullam eget. Eu
+                                scelerisque
+                                felis imperdiet proin fermentum leo. Aliquet enim tortor at auctor urna nunc id cursus.
+                                Sed ullamcorper morbi tincidunt ornare massa. In ante metus dictum at.</p>
+                        </div>
+                        <div className="img">
+                            <img src={img}/>
+                            <img src={img}/>
+                        </div>
+                        <div className="p_wrapper">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.</p>
+                        </div>
+                    </div>
+                </>
+            </Container>
         </div>
     )
 }
