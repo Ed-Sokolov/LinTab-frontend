@@ -24,7 +24,7 @@ export const PostCard = () => {
                         </ul>
                         <H6>Title. Title. Title, title, title, title, title. Title</H6>
                         <p className="author">by <NavLink to="#" className="move_to_author">author</NavLink></p>
-                        <NavLink to="#" className="move_to_post">
+                        <NavLink to="/posts/1" className="move_to_post">
                             Read
                             <UseSvg spriteName={"full_arrow_right"} className={"move_to_post_icon"}></UseSvg>
                         </NavLink>
