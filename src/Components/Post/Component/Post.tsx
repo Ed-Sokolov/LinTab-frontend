@@ -3,6 +3,7 @@ import {Container} from "../../../Widgets/Container/Container";
 import {H4} from "../../../Widgets/Headings/H4/H4";
 import {UseSvg} from "../../../Widgets/UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
+import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 
 export const Post = () => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
@@ -101,6 +102,12 @@ export const Post = () => {
                     </div>
                 </>
             </Container>
+            <MoveToAuthTab
+                title={"Do you want to create a post or leave a comment?"}
+                text={"You can create such post or leave a comment but you need to be authorized"}
+                theme={"dark_brown"}
+                isCenter={true}
+            />
         </div>
     )
 }

@@ -3,11 +3,18 @@ import {UseSvg} from "../../UseSvg/UseSvg";
 import {AuthField} from "../../AuthField/AuthField";
 import React from "react";
 
-export const MoveToAuthTabContent = () => {
+type MoveToAuthTabContentTypes = {
+    title: string;
+    text: string;
+}
+
+export const MoveToAuthTabContent: React.FC<MoveToAuthTabContentTypes> = (
+    {title, text}
+) => {
     return (
         <div className="content">
-            <H5>Do you like these posts?</H5>
-            <p className="subtitle">You can create such posts but you need to be authorized</p>
+            <H5>{title}</H5>
+            <p className="subtitle">{text}</p>
             <div className="pointer">
                 <UseSvg spriteName={"arrow_circle_down"} className={"pointer_icon"}/>
             </div>
