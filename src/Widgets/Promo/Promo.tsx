@@ -1,10 +1,13 @@
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {layers} from "../../Assets/Images/Promo";
 import "./promo.scss";
 import {parallaxEffect} from "./parallaxEffect";
 
-export const Promo = () => {
+type PromoTypes = {
+    isWrapper?: boolean;
+}
 
+export const Promo: React.FC<PromoTypes> = ({isWrapper = false}) => {
     useEffect(() => {
         const parallaxElements = document.querySelectorAll('.promo');
 
@@ -40,7 +43,7 @@ export const Promo = () => {
     }, [])
 
     return (
-        <div className="parallax">
+        <div className={`parallax ${isWrapper && 'wrapper'}`}>
             <section className="promo_section">
                 <div data-aos="fade-up" data-aos-delay="100" className="promo layer0 parallax_scroll"
                      data-speedx="0.01" data-speedy="0.02" data-speedz="0.01" data-rotation="0.01"

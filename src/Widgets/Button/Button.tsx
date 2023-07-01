@@ -2,15 +2,15 @@ import "./button.scss"
 import React from "react";
 
 type ButtonType = {
-    text?: string;
+    children?: string;
     classes?: string;
 }
 
 export const Button: React.FC<ButtonType> = ({
-                                                 text = "Read more",
+                                                 children = "Read more",
                                                  classes = "btn btn-outline-dark"
                                              }) => {
     return (
-        <button className={classes}>{text}</button>
+        <button className={classes}>{children}</button>
     )
 }

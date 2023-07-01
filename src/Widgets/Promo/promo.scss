@@ -3,6 +3,10 @@
   height: 170vh;
   width: 100%;
   overflow: hidden;
+
+  &.wrapper {
+    height: 100vh;
+  }
 }
 
 .promo {
@@ -153,5 +157,13 @@
     top: 8%;
 
     object-fit: cover;
+  }
+}
+
+.parallax.wrapper {
+  .layer9 {
+    img {
+      top: 30%;
+    }
   }
 }
