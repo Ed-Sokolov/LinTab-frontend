@@ -4,12 +4,12 @@ import {UseSvg} from "../UseSvg/UseSvg";
 import React from "react";
 
 type AuthFieldTypes = {
-    extraClass?: boolean
+    isCenter?: boolean
 }
 
-export const AuthField: React.FC<AuthFieldTypes> = ({extraClass = false}) => {
+export const AuthField: React.FC<AuthFieldTypes> = ({isCenter = false}) => {
     return (
-        <ul className={`auth ${extraClass && 'center'}`}>
+        <ul className={`auth ${isCenter && 'center'}`}>
             <li className="auth_item">
                 <NavLink to={'#'}>sign in</NavLink>
             </li>

@@ -4,6 +4,7 @@ import {H2} from "../../../Widgets/Headings/H2/H2";
 import {SearchField} from "../../../Widgets/SearchField/SearchField";
 import {SortList} from "../../../Widgets/SortList/SortList";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
+import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 
 export const Posts = () => {
     return (
@@ -29,6 +30,7 @@ export const Posts = () => {
                     </div>
                 </div>
             </Container>
+            <MoveToAuthTab isCenter={true} theme={"yellow"}/>
         </div>
     )
 }

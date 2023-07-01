@@ -1,12 +1,13 @@
-.move_to_auth {
-  border-radius: 16px 0px 0px 16px;
-  background: #632421;
+@mixin move_to_auth_by_theme ($background: #632421, $color: #FFF) {
+  border-radius: 16px 0 0 16px;
   padding: 32px;
+
+  background: $background;
+  color: $color;
 
   width: 50%;
   margin-left: auto;
   margin-right: 0;
-  color: #FFF;
 
   margin-bottom: 32px;
 
@@ -19,6 +20,10 @@
     gap: 16px;
 
     text-align: center;
+
+    .title {
+      color: $color;
+    }
 
     .subtitle {
       font-size: 20px;
@@ -36,6 +41,8 @@
 
         color: transparent;
 
+        stroke: $color;
+
         animation: .4s linear 0s infinite alternate pointer;
       }
 
@@ -48,5 +55,79 @@
         }
       }
     }
+
+    .auth {
+      .line {
+        .line_icon {
+          stroke: $color;
+        }
+      }
+
+      .auth_item {
+        a {
+          color: rgba($color, .82);
+
+          &:hover {
+            color: rgba($color, 1);
+          }
+        }
+      }
+    }
+  }
+
+  &.center {
+    width: auto;
+    background-color: transparent;
+
+    position: relative;
+
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      background-color: $background;
+
+      z-index: -1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 580px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      background-color: $background;
+
+      transform: translateX(-50%);
+
+      z-index: -1;
+
+      border-radius: 16px 0 0 16px;
+    }
+
+    .content {
+      position: relative;
+      margin: 0 auto;
+    }
+  }
+}
+
+.move_to_auth {
+  &.yellow {
+    @include move_to_auth_by_theme(#F6C244, #000000);
+  }
+
+  &.dark_brown {
+    @include move_to_auth_by_theme(#3C0D07, #FFF);
+  }
+
+  &.brown {
+    @include move_to_auth_by_theme();
   }
 }
