@@ -2,8 +2,13 @@ import {H2} from "../../../../Widgets/Headings/H2/H2";
 import {Button} from "../../../../Widgets/Button/Button";
 import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
+import React from "react";
 
-export const SignUpComponent = () => {
+type SignUpComponentTypes = {
+    setPage: React.Dispatch<React.SetStateAction<'sign-in' | 'sign-up' | 'none'>>
+}
+
+export const SignUpComponent: React.FC<SignUpComponentTypes> = ({setPage}) => {
     return (
         <div className="sign__content right">
             <H2>Sign Up</H2>
@@ -24,10 +29,10 @@ export const SignUpComponent = () => {
             </form>
             <div className="switch">
                 <p className="text">You have an account?</p>
-                <NavLink to={"#"} className="switch_link">
+                <div className="switch_link" onClick={() => setPage('sign-in')}>
                     <UseSvg spriteName={"full_arrow_left"} className={"full_arrow_icon"}/>
                     sign in
-                </NavLink>
+                </div>
             </div>
         </div>
     )

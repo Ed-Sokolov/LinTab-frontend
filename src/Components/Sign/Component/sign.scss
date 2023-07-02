@@ -2,111 +2,138 @@
   position: relative;
   overflow: hidden;
 
-  .sign_background {
+  .sign {
     position: absolute;
-    width: 100%;
+    width: 200%;
     height: 100%;
     top: 0;
-    left: -50%;
+    left: 0;
 
     z-index: 15;
 
-    background: rgba(0, 0, 0, 0.50);
-    backdrop-filter: blur(4px);
-
     display: flex;
-    justify-content: right;
 
-    .sign__content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    &.load {
+      left: -50%
+    }
 
-      width: 598px;
-      padding: 0 64px 0;
-
-      color: #FFF;
-
-      .title {
-        color: #FFF;
-
-        text-transform: none;
-
-        margin-bottom: 32px;
-      }
-
-      .sign_form {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-
-        margin-bottom: 64px;
-
-        .form_group {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-
-          .label {
-            font-size: 24px;
-            letter-spacing: 0.96px;
-          }
-
-          .input {
-            border: none;
-            outline: none;
-            background-color: transparent;
-
-            padding: 12px 14px;
-
-            color: #FFF;
-            font-size: 20px;
-            letter-spacing: 0.8px;
-
-            border-bottom: 2px solid #F1BA55;
-          }
-        }
-      }
-
-      .switch {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-
-        .text {
-          font-size: 28px;
-          letter-spacing: 1.12px;
-        }
-
-        .switch_link {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-
-          font-size: 28px;
-          letter-spacing: 1.12px;
-          text-transform: uppercase;
-
-          .full_arrow_icon {
-            width: 32px;
-            height: 32px;
-
-            color: transparent;
-            stroke: #FFF;
-          }
-        }
-      }
+    &.left {
+      left: 0;
     }
 
     &.right {
-      left: auto;
-      right: -50%;
+      left: -100%;
+    }
 
-      justify-content: left;
+    transition: left .8s;
+
+    .empty_space {
+      width: 100%;
+    }
+
+    .sign_background {
+      display: flex;
+
+      width: 50%;
+      height: 100%;
+
+      background: rgba(0, 0, 0, 0.50);
+      backdrop-filter: blur(4px);
+
+      &:first-child {
+        justify-content: right;
+      }
+
+      &:last-child {
+        justify-content: flex-start;
+
+        .sign__content {
+          .switch {
+            align-items: flex-end;
+          }
+        }
+      }
 
       .sign__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 598px;
+        padding: 0 64px 0;
+
+        color: #FFF;
+
+        .title {
+          color: #FFF;
+
+          text-transform: none;
+
+          margin-bottom: 32px;
+        }
+
+        .sign_form {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          margin-bottom: 64px;
+
+          .form_group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .label {
+              font-size: 24px;
+              letter-spacing: 0.96px;
+            }
+
+            .input {
+              border: none;
+              outline: none;
+              background-color: transparent;
+
+              padding: 12px 14px;
+
+              color: #FFF;
+              font-size: 20px;
+              letter-spacing: 0.8px;
+
+              border-bottom: 2px solid #F1BA55;
+            }
+          }
+        }
+
         .switch {
-          align-items: flex-end;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          .text {
+            font-size: 28px;
+            letter-spacing: 1.12px;
+          }
+
+          .switch_link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            font-size: 28px;
+            letter-spacing: 1.12px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            .full_arrow_icon {
+              width: 32px;
+              height: 32px;
+
+              color: transparent;
+              stroke: #FFF;
+            }
+          }
         }
       }
     }
