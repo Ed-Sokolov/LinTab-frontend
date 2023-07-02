@@ -100,7 +100,12 @@
               font-size: 20px;
               letter-spacing: 0.8px;
 
-              border-bottom: 2px solid #F1BA55;
+              border-bottom: 2px solid #F6C244;
+
+              &:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 1000px  #F6C244 inset;
+                -webkit-text-fill-color: #000;
+              }
             }
           }
         }

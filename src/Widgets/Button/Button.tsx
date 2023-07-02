@@ -4,17 +4,19 @@ import React from "react";
 type ButtonType = {
     children?: string;
     classes?: string;
-    isDisabled?: boolean
+    isDisabled?: boolean;
+    type?: 'button' | 'reset' | 'submit'
 }
 
 export const Button: React.FC<ButtonType> = (
     {
         children = "Read more",
         classes = "btn btn-outline-dark",
-        isDisabled = false
+        isDisabled = false,
+        type = 'button'
     }
 ) => {
     return (
-        <button className={classes} disabled={isDisabled}>{children}</button>
+        <button type={type} className={classes} disabled={isDisabled}>{children}</button>
     )
 }
