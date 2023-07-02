@@ -3,7 +3,7 @@ import {UseSvg} from "../UseSvg/UseSvg";
 
 export const SortList = () => {
     return (
-        <ul className="sort_list">
+        <ul className="sort_list" data-aos="fade-left">
             <li className="sort_item">
                 <ul className="icons_list">
                     <li className="icon_item">

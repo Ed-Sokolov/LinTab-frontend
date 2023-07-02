@@ -6,7 +6,7 @@ import {UseSvg} from "../UseSvg/UseSvg";
 
 export const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className="footer" data-aos="fade-up">
             <div className="footer_content">
                 <Container>
                     <div className="footer_content_body">

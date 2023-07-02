@@ -11,7 +11,7 @@ export const Posts = () => {
         <div className="posts_page">
             <Container>
                 <div className="posts_page_content">
-                    <H2>Posts</H2>
+                    <div data-aos="fade-down"><H2>Posts</H2></div>
                     <div className="filter_field">
                         <SearchField/>
                         <SortList/>

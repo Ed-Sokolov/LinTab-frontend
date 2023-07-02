@@ -5,7 +5,7 @@ import "./extraAction.scss"
 export const ExtraAction = () => {
     return (
         <Container>
-            <div className="extra_action">
+            <div className="extra_action" data-aos="fade-up">
                 <p className="message">You can read other posts</p>
                 <Button></Button>
             </div>
