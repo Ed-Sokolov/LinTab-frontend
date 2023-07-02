@@ -3,32 +3,24 @@ import {Promo} from "../../../Widgets/Promo/Promo";
 import {Container} from "../../../Widgets/Container/Container";
 import {SignInComponent} from "./SignIn/SignInComponent";
 import {SignUpComponent} from "./SignUp/SignUpComponent";
-import {useEffect, useState} from "react";
+import React from "react";
 
-export const Sign = () => {
-    let [page, setPage] = useState<'sign-in' | 'sign-up' | 'none'>('none');
+type SignTypes = {
+    pageName: 'sign-in' | 'sign-up' | 'none'
+}
 
-    const content = {
-        'sign-in': 'left',
-        'sign-up': 'right',
-        'none': 'load',
-    }
-
-    useEffect(() => {
-        setPage('sign-in')
-    }, [])
-
+export const Sign: React.FC<SignTypes> = ({pageName}) => {
     return (
         <div className="sign_wrapper">
             <Promo isWrapper={true}/>
             <Container>
-                <div className={`sign ${content[page]}`}>
+                <div className={`sign ${pageName}`}>
                     <div className="sign_background">
-                        <SignInComponent setPage={setPage}/>
+                        <SignInComponent/>
                     </div>
                     <div className="empty_space"></div>
                     <div className="sign_background">
-                        <SignUpComponent setPage={setPage}/>
+                        <SignUpComponent/>
                     </div>
                 </div>
             </Container>

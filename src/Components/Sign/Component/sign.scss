@@ -13,15 +13,15 @@
 
     display: flex;
 
-    &.load {
+    &.none {
       left: -50%
     }
 
-    &.left {
+    &.sign-in {
       left: 0;
     }
 
-    &.right {
+    &.sign-up {
       left: -100%;
     }
 

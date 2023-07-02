@@ -4,11 +4,7 @@ import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
 
-type SignUpComponentTypes = {
-    setPage: React.Dispatch<React.SetStateAction<'sign-in' | 'sign-up' | 'none'>>
-}
-
-export const SignUpComponent: React.FC<SignUpComponentTypes> = ({setPage}) => {
+export const SignUpComponent: React.FC = () => {
     return (
         <div className="sign__content right">
             <H2>Sign Up</H2>
@@ -29,10 +25,10 @@ export const SignUpComponent: React.FC<SignUpComponentTypes> = ({setPage}) => {
             </form>
             <div className="switch">
                 <p className="text">You have an account?</p>
-                <div className="switch_link" onClick={() => setPage('sign-in')}>
+                <NavLink to={"/sign-in"} className="switch_link">
                     <UseSvg spriteName={"full_arrow_left"} className={"full_arrow_icon"}/>
                     sign in
-                </div>
+                </NavLink>
             </div>
         </div>
     )
