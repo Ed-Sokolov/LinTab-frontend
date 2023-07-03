@@ -6,12 +6,14 @@ export const checkAuth = createAsyncThunk<any, undefined, {rejectValue: any}>(
     'auth/check',
     async (_, {rejectWithValue}) => {
         try {
-            const response = await instance.get('/api/auth/check');
+            const response = await instance.get('/api/user');
 
             console.log(response);
         } catch (error) {
             if(axios.isAxiosError(error)) {
                 console.log(error.response);
+
+                return rejectWithValue(error.response?.status)
             }
         }
     }
@@ -30,6 +32,21 @@ export const login = createAsyncThunk<any, any, {rejectValue: any}>(
             if (axios.isAxiosError(error)) {
                 console.log(error.response);
                 console.log(error.response?.status);
+            }
+        }
+    }
+)
+
+export const logOut = createAsyncThunk<any, undefined, {rejectValue: any}>(
+    'auth/logout',
+    async (_, {rejectWithValue}) => {
+        try {
+            const response = await instance.post('/logout');
+
+            console.log(response);
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.log(error.response);
             }
         }
     }

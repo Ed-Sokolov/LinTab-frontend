@@ -4,20 +4,26 @@ import {UseSvg} from "../UseSvg/UseSvg";
 import React from "react";
 
 type AuthFieldTypes = {
-    isCenter?: boolean
+    isCenter?: boolean;
+    isAuth?: boolean;
+    handleLogOut?: () => any;
 }
 
-export const AuthField: React.FC<AuthFieldTypes> = ({isCenter = false}) => {
+export const AuthField: React.FC<AuthFieldTypes> = ({isCenter = false, isAuth = false, handleLogOut}) => {
     return (
         <ul className={`auth ${isCenter && 'center'}`}>
             <li className="auth_item">
-                <NavLink to={'/sign-in'}>sign in</NavLink>
+                {
+                    isAuth ? <NavLink to={'#'}>personal</NavLink> : <NavLink to={'/sign-in'}>sign in</NavLink>
+                }
             </li>
             <li className="line">
                 <UseSvg spriteName={"line"} className={"line_icon"}></UseSvg>
             </li>
             <li className="auth_item">
-                <NavLink to={'/sign-up'}>sign up</NavLink>
+                {
+                    isAuth ? <p onClick={handleLogOut}>sign out</p> : <NavLink to={'/sign-up'}>sign up</NavLink>
+                }
             </li>
         </ul>
     )
