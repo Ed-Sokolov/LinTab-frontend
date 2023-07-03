@@ -14,31 +14,33 @@ export const User: React.FC<UserTypes> = ({user}) => {
     return (
         <div className="profile_wrapper">
             <div className="profile_back">
-                <Container>
-                    <div className="user_data">
-                        <div className="main_data">
-                            <div className="user_avatar_wrapper">
-                                <div className="user_avatar">
-                                    <UseSvg spriteName={"default_avatar"} className={"avatar"}/>
+                {user &&
+                    <Container>
+                        <div className="user_data">
+                            <div className="main_data">
+                                <div className="user_avatar_wrapper">
+                                    <div className="user_avatar">
+                                        <UseSvg spriteName={"default_avatar"} className={"avatar"}/>
+                                    </div>
+                                </div>
+                                <div className="user_names">
+                                    <H3>{user.nickname}</H3>
+                                    {user.name && <p className="user_name">{user.name}</p>}
                                 </div>
                             </div>
-                            <div className="user_names">
-                                <H3>Nickname</H3>
-                                <p className="user_name">{user?.name}</p>
+                            <div className="about_field">
+                                <p className="about_title">About {user.nickname}</p>
+                                <p className="about_information">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div className="move_to_setting_wrapper">
+                                <NavLink to={'#'} className="move_to_setting">
+                                    <UseSvg spriteName={'settings'} className={"setting_icon"}/>
+                                    settings
+                                </NavLink>
                             </div>
                         </div>
-                        <div className="about_field">
-                            <p className="about_title">About {user?.name}</p>
-                            <p className="about_information">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div className="move_to_setting_wrapper">
-                            <NavLink to={'#'} className="move_to_setting">
-                                <UseSvg spriteName={'settings'} className={"setting_icon"}/>
-                                settings
-                            </NavLink>
-                        </div>
-                    </div>
-                </Container>
+                    </Container>
+                }
             </div>
         </div>
     )

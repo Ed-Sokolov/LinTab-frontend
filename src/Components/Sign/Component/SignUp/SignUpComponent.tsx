@@ -9,7 +9,7 @@ import {register} from "../../../../API/AuthApi";
 
 type SignUpTypes = {
     email: string | '';
-    name: string | '';
+    nickname: string | '';
     password: string | '';
     password_confirmation: string | ''
 }
@@ -19,7 +19,7 @@ export const SignUpComponent: React.FC = () => {
 
     const initValues: SignUpTypes = {
         email: '',
-        name: '',
+        nickname: '',
         password: '',
         password_confirmation: ''
     }
@@ -39,8 +39,8 @@ export const SignUpComponent: React.FC = () => {
                         <Field type="email" name="email" id="email_up" className="input" placeholder="Email"/>
                     </div>
                     <div className="form_group">
-                        <label className="label" htmlFor="name_up">Name</label>
-                        <Field type="text" name="name" id="name_up" className="input" placeholder="Name"/>
+                        <label className="label" htmlFor="nickname_up">Nickname</label>
+                        <Field type="text" name="nickname" id="nickname_up" className="input" placeholder="Nickname"/>
                     </div>
                     <div className="form_group">
                         <label className="label" htmlFor="password_up">Password</label>
