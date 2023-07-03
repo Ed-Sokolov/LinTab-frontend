@@ -2,13 +2,13 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {instance} from "../Instance/instance";
 import axios from "axios";
 
-export const checkAuth = createAsyncThunk<any, undefined, {rejectValue: any}>(
+export const checkAuth = createAsyncThunk<number, undefined, {rejectValue: any}>(
     'auth/check',
     async (_, {rejectWithValue}) => {
         try {
             const response = await instance.get('/api/user');
 
-            console.log(response);
+            return response.data.id;
         } catch (error) {
             if(axios.isAxiosError(error)) {
                 console.log(error.response);

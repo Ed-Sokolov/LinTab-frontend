@@ -20,12 +20,15 @@ const authSlice = createSlice({
             })
             .addCase(checkAuth.fulfilled, (state, action) => {
                 state.isAuth = true;
+                state.profileId = action.payload;
             })
             .addCase(checkAuth.rejected, (state) => {
                 state.isAuth = false;
+                state.profileId = null;
             })
             .addCase(logOut.fulfilled, (state) => {
                 state.isAuth = false;
+                state.profileId = null;
             })
     }
 })
