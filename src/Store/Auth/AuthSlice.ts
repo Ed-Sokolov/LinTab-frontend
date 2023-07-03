@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {login, register} from "../../API/AuthApi";
+import {checkAuth, login, register} from "../../API/AuthApi";
 
 const initialState = {
     isAuth: false as boolean,
@@ -17,6 +17,12 @@ const authSlice = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.isAuth = true;
+            })
+            .addCase(checkAuth.fulfilled, (state, action) => {
+                state.isAuth = true;
+            })
+            .addCase(checkAuth.rejected, (state) => {
+                state.isAuth = false;
             })
     }
 })
