@@ -19,3 +19,21 @@ export const login = createAsyncThunk<any, any, {rejectValue: any}>(
         }
     }
 )
+
+export const register = createAsyncThunk<any, any, {rejectValue: any}>(
+    'auth/register',
+    async (data, {rejectWithValue}) => {
+        try {
+            await instance.get('/sanctum/csrf-cookie');
+
+            const response = await instance.post('/register', data);
+
+            console.log(response);
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.log(error.response);
+                console.log(error.response?.status);
+            }
+        }
+    }
+)

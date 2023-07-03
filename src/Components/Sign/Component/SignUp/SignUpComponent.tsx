@@ -4,22 +4,29 @@ import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
 import {Field, Form, Formik, FormikHelpers} from "formik";
+import {useAppDispatch} from "../../../../Store/Hook/hook";
+import {register} from "../../../../API/AuthApi";
 
 type SignUpTypes = {
     email: string | '';
     name: string | '';
-    password: string | ''
+    password: string | '';
+    password_confirmation: string | ''
 }
 
 export const SignUpComponent: React.FC = () => {
+    const dispatch = useAppDispatch();
+
     const initValues: SignUpTypes = {
         email: '',
         name: '',
-        password: ''
+        password: '',
+        password_confirmation: ''
     }
 
     const signUp = (values: SignUpTypes, actions: FormikHelpers<SignUpTypes>) => {
-        console.log(values);
+        values.password_confirmation = values.password;
+        dispatch(register(values))
     }
 
     return (
