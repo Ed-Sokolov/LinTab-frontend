@@ -7,10 +7,11 @@ import React from "react";
 
 type HeaderTypes = {
     isAuth: boolean;
+    profileId: number | null;
     handleLogOut: () => any
 }
 
-export const Header: React.FC<HeaderTypes> = ({isAuth, handleLogOut}) => {
+export const Header: React.FC<HeaderTypes> = ({isAuth, profileId, handleLogOut}) => {
     return (
         <header className="header" data-aos="fade-down" data-aos-delay={600}>
             <Container>
@@ -34,7 +35,7 @@ export const Header: React.FC<HeaderTypes> = ({isAuth, handleLogOut}) => {
                     <div className="warning">
                         <UseSvg spriteName={"warning"} className={"warning_icon"}></UseSvg>
                     </div>
-                    <AuthField isAuth={isAuth} handleLogOut={handleLogOut}/>
+                    <AuthField isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}/>
                 </div>
             </Container>
         </header>

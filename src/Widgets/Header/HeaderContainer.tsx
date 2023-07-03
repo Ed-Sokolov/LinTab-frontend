@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
 import {logOut} from "../../API/AuthApi";
 
 export const HeaderContainer = () => {
-    const isAuth = useAppSelector(state => state.auth.isAuth);
+    const {isAuth, profileId} = useAppSelector(state => state.auth);
 
     const dispatch = useAppDispatch();
 
@@ -11,5 +11,5 @@ export const HeaderContainer = () => {
         dispatch(logOut())
     }
 
-    return <Header isAuth={isAuth} handleLogOut={handleLogOut}/>
+    return <Header isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}/>
 }
