@@ -3,26 +3,45 @@ import {Button} from "../../../../Widgets/Button/Button";
 import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
+import {Field, Form, Formik, FormikHelpers} from "formik";
+
+type SignUpTypes = {
+    email: string | '';
+    name: string | '';
+    password: string | ''
+}
 
 export const SignUpComponent: React.FC = () => {
+    const initValues: SignUpTypes = {
+        email: '',
+        name: '',
+        password: ''
+    }
+
+    const signUp = (values: SignUpTypes, actions: FormikHelpers<SignUpTypes>) => {
+        console.log(values);
+    }
+
     return (
         <div className="sign__content right">
             <H2>Sign Up</H2>
-            <form action="" className="sign_form">
-                <div className="form_group">
-                    <label className="label" htmlFor="">Nickname</label>
-                    <input type="text" className="input" placeholder="Nickname"/>
-                </div>
-                <div className="form_group">
-                    <label className="label" htmlFor="">Email</label>
-                    <input type="email" className="input" placeholder="Email"/>
-                </div>
-                <div className="form_group">
-                    <label className="label" htmlFor="">Password</label>
-                    <input type="password" className="input" placeholder="Password"/>
-                </div>
-                <Button classes={"btn btn-outline-white btn_sign"} isDisabled={true}>sign up</Button>
-            </form>
+            <Formik initialValues={initValues} onSubmit={signUp}>
+                <Form className="sign_form">
+                    <div className="form_group">
+                        <label className="label" htmlFor="email_up">Email</label>
+                        <Field type="email" name="email" id="email_up" className="input" placeholder="Email"/>
+                    </div>
+                    <div className="form_group">
+                        <label className="label" htmlFor="name_up">Name</label>
+                        <Field type="text" name="name" id="name_up" className="input" placeholder="Name"/>
+                    </div>
+                    <div className="form_group">
+                        <label className="label" htmlFor="password_up">Password</label>
+                        <Field type="password" name="password" id="password_up" className="input" placeholder="Password"/>
+                    </div>
+                    <Button type={"submit"} classes={"btn btn-outline-white btn_sign"}>sign up</Button>
+                </Form>
+            </Formik>
             <div className="switch">
                 <p className="text">You have an account?</p>
                 <NavLink to={"/sign-in"} className="switch_link">

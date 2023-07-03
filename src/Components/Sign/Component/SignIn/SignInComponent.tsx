@@ -20,14 +20,14 @@ export const SignInComponent: React.FC = () => {
         password: ''
     }
 
-    const submit = (values: SignInTypes, actions: FormikHelpers<SignInTypes>) => {
+    const signIn = (values: SignInTypes, actions: FormikHelpers<SignInTypes>) => {
         dispatch(login(values))
     }
 
     return (
         <div className="sign__content">
             <H2>Sign In</H2>
-            <Formik initialValues={initValues} onSubmit={submit}>
+            <Formik initialValues={initValues} onSubmit={signIn}>
                 <Form className="sign_form">
                     <div className="form_group">
                         <label className="label" htmlFor="email_in">Email</label>
