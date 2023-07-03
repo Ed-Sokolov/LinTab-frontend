@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
 import {Field, Form, Formik, FormikHelpers} from "formik";
+import {useAppDispatch} from "../../../../Store/Hook/hook";
+import {login} from "../../../../API/AuthApi";
 
 type SignInTypes = {
     email: string;
@@ -11,13 +13,15 @@ type SignInTypes = {
 }
 
 export const SignInComponent: React.FC = () => {
+    const dispatch = useAppDispatch();
+
     const initValues: SignInTypes = {
         email: '',
         password: ''
     }
 
     const submit = (values: SignInTypes, actions: FormikHelpers<SignInTypes>) => {
-        console.log(values)
+        dispatch(login(values))
     }
 
     return (
