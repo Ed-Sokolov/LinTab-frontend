@@ -6,7 +6,7 @@ export const checkAuth = createAsyncThunk<number, undefined, {rejectValue: any}>
     'auth/check',
     async (_, {rejectWithValue}) => {
         try {
-            const response = await instance.get('/api/user');
+            const response = await instance.get('/api/auth/check');
 
             return response.data.id;
         } catch (error) {

@@ -5,6 +5,7 @@
 
   .profile_back {
     position: relative;
+    margin-bottom: 128px;
 
     &::before {
       content: '';
@@ -61,11 +62,12 @@
         }
 
         .user_names {
+          flex-basis: 46%;
           display: flex;
           flex-direction: column;
           gap: 32px;
 
-          padding: 48px 8px;
+          padding: 32px 8px;
 
           .user_name {
             font-size: 32px;
