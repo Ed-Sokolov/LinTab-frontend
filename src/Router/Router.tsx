@@ -26,16 +26,18 @@ export const Routing = () => {
     }, [pathname])
 
     return (
-        <div>
+        <div className="app_wrapper">
             <HeaderContainer/>
-            <Routes>
-                <Route path={'/'} element={<Main/>}/>
-                <Route path={'/posts'} element={<Posts/>}/>
-                <Route path={'/posts/:id'} element={<Post/>}/>
-                <Route path={'/users/:id'} element={<User/>}/>
-                <Route path={'/sign-in'} element={<Sign/>}/>
-                <Route path={'/sign-up'} element={<Sign/>}/>
-            </Routes>
+            <div className="main_content">
+                <Routes>
+                    <Route path={'/'} element={<Main/>}/>
+                    <Route path={'/posts'} element={<Posts/>}/>
+                    <Route path={'/posts/:id'} element={<Post/>}/>
+                    <Route path={'/users/:id'} element={<User/>}/>
+                    <Route path={'/sign-in'} element={<Sign/>}/>
+                    <Route path={'/sign-up'} element={<Sign/>}/>
+                </Routes>
+            </div>
             {
                 showFooter && <Footer/>
             }

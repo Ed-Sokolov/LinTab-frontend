@@ -39,3 +39,14 @@ ul {
     list-style: none;
     padding: 0;
 }
+
+.app_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
+.app_wrapper > .main_content {
+    flex-grow: 1;
+}
