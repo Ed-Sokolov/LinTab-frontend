@@ -1,4 +1,4 @@
-import {SettingsContainer} from "../../Components/Setting/SettingsContainer";
+import {SettingsContainer} from "../../Components/Settings/SettingsContainer";
 
 export const Settings = () => {
     return <SettingsContainer/>
