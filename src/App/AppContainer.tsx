@@ -1,11 +1,10 @@
-import {Routing} from "./Router/Router";
 import {useEffect} from "react";
+import {useAppDispatch} from "../Store/Hook/hook";
+import {checkAuth} from "../API/AuthApi";
 import Aos from "aos";
-import 'aos/dist/aos.css';
-import {useAppDispatch} from "./Store/Hook/hook";
-import {checkAuth} from "./API/AuthApi";
+import {App} from "./App";
 
-export const App = () => {
+export const AppContainer = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -16,5 +15,5 @@ export const App = () => {
         })
     }, [dispatch])
 
-    return <Routing/>
+    return <App/>
 }

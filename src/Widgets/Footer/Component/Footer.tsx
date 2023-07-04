@@ -1,8 +1,8 @@
-import {Container} from "../Container/Container";
+import {Container} from "../../Container/Container";
 import "./footer.scss"
-import {H4} from "../Headings/H4/H4";
+import {H4} from "../../Headings/H4/H4";
 import {NavLink} from "react-router-dom";
-import {UseSvg} from "../UseSvg/UseSvg";
+import {UseSvg} from "../../UseSvg/UseSvg";
 
 export const Footer = () => {
     return (
