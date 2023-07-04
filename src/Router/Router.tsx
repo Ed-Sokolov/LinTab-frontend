@@ -4,6 +4,7 @@ import {Posts} from "../Pages/Posts/Posts";
 import {Post} from "../Pages/Post/Post";
 import {Sign} from "../Pages/Sign/Sign";
 import {User} from "../Pages/User/User";
+import {Settings} from "../Pages/Settings/Settings";
 
 export const Routing = () => {
     return (
@@ -14,6 +15,7 @@ export const Routing = () => {
             <Route path={'/users/:id'} element={<User/>}/>
             <Route path={'/sign-in'} element={<Sign/>}/>
             <Route path={'/sign-up'} element={<Sign/>}/>
+            <Route path={'/settings'} element={<Settings/>}/>
         </Routes>
     )
 }

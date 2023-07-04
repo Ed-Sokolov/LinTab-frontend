@@ -33,7 +33,7 @@ export const User: React.FC<UserTypes> = ({user}) => {
                                 <p className="about_information">Lorem ipsum dolor sit amet.</p>
                             </div>
                             <div className="move_to_setting_wrapper">
-                                <NavLink to={'#'} className="move_to_setting">
+                                <NavLink to={'/settings'} className="move_to_setting">
                                     <UseSvg spriteName={'settings'} className={"setting_icon"}/>
                                     settings
                                 </NavLink>
