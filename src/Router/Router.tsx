@@ -15,7 +15,7 @@ export const Routing = () => {
             <Route path={'/users/:id'} element={<User/>}/>
             <Route path={'/sign-in'} element={<Sign/>}/>
             <Route path={'/sign-up'} element={<Sign/>}/>
-            <Route path={'/settings'} element={<Settings/>}/>
+            <Route path={'/settings/:item?'} element={<Settings/>}/>
         </Routes>
     )
 }
