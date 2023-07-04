@@ -2,21 +2,27 @@ import {Field, Form, Formik, FormikHelpers} from "formik";
 import React from "react";
 import {Button} from "../../../../../Widgets/Button/Button";
 import "./about.scss"
+import {UserType} from "../../../../../Types/User/UserType";
 
 type AboutTypes = {
+    user: UserType | null;
+}
+
+type AboutFormTypes = {
     nickname: string;
     name: string;
     about: string;
 }
 
-export const About = () => {
-    const initValues: AboutTypes = {
-        nickname: '',
-        name: '',
-        about: ''
+export const About: React.FC<AboutTypes> = ({user}) => {
+    console.log(user);
+    const initValues: AboutFormTypes = {
+        nickname: user?.nickname ? user.nickname : '',
+        name: user?.name ? user.name : '',
+        about: user?.about ? user.about : ''
     }
 
-    const handleSubmit = (values: AboutTypes, actions: FormikHelpers<AboutTypes>) => {
+    const handleSubmit = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
         console.log(values);
     }
 

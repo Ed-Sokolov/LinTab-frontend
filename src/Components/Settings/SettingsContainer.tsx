@@ -6,13 +6,26 @@ import {About} from "./Component/Items/About/About";
 import {Privacy} from "./Component/Items/Privacy/Privacy";
 import {Setups} from "./Component/Items/Setups/Setups";
 import {ActivatedItemType, ContentsType} from "./Types";
+import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
+import {getUser} from "../../API/UserApi";
 
 export const SettingsContainer = () => {
+    let {profileId} = useAppSelector(state => state.auth);
+    let user = useAppSelector(state => state.user.user);
+
+    const dispatch = useAppDispatch();
+
     let [activatedItem, setActivatedItem] = useState<ActivatedItemType>('avatar');
 
     const navigate = useNavigate();
 
     let {item} = useParams();
+
+    useEffect(() => {
+        if (profileId) {
+            dispatch(getUser(profileId));
+        }
+    }, [profileId, dispatch]);
 
     useEffect(() => {
         switch (item) {
@@ -39,10 +52,10 @@ export const SettingsContainer = () => {
 
     const contents: ContentsType = {
         avatar: <Avatar/>,
-        about: <About/>,
+        about: <About user={user}/>,
         privacy: <Privacy/>,
         setups: <Setups/>
     }
 
-    return <Settings activatedItem={activatedItem} contents={contents}/>
+    return user && <Settings activatedItem={activatedItem} contents={contents}/>
 }
