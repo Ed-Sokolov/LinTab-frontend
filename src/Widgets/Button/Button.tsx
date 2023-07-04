@@ -11,7 +11,7 @@ type ButtonType = {
 export const Button: React.FC<ButtonType> = (
     {
         children = "Read more",
-        classes = "btn btn-outline-dark",
+        classes = "btn btn-outline-brown",
         isDisabled = false,
         type = 'button'
     }
