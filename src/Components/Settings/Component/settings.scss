@@ -1,0 +1,103 @@
+.settings_wrapper {
+  background-color: #F6C244;
+  padding-top: 228px;
+
+  .settings_back {
+    background-color: #FFF;
+    border-radius: 128px 128px 0 0;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.32);
+
+    .settings {
+      padding: 64px;
+
+      .title {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .settings_content {
+        display: flex;
+
+        .settings_nav {
+          position: relative;
+          padding: 16px 0 16px 64px;
+
+          display: flex;
+          align-items: flex-start;
+
+          &::before {
+            position: absolute;
+            content: '';
+            width: 2px;
+            height: 100%;
+            top: 0;
+            left: calc(100% - 1px);
+
+            background-color: #F6C244;
+            border-radius: 2px;
+
+            z-index: 1;
+          }
+
+          .settings_list {
+            position: sticky;
+            top: 16px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .settings_item {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+
+              width: 256px;
+              padding: 10px 16px;
+
+              opacity: .5;
+
+              transition: background-color .8s, opacity .8s;
+
+              border-radius: 50px 0 0 50px;
+
+              cursor: pointer;
+
+              .settings_icon {
+                width: 24px;
+                height: 24px;
+
+                color: transparent;
+                stroke: #000;
+              }
+
+              .name {
+                flex-grow: 1;
+
+                font-size: 18px;
+                letter-spacing: 0.72px;
+                text-align: center;
+                text-transform: uppercase;
+              }
+
+              &:hover {
+                background-color: #F6C244;
+              }
+
+              &.active {
+                opacity: 1;
+                background-color: #F6C244;
+              }
+            }
+          }
+        }
+
+        .selected_settings {
+          flex-grow: 1;
+          padding: 16px 64px;
+        }
+      }
+    }
+  }
+}
