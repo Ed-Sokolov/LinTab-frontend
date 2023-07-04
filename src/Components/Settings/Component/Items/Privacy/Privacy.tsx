@@ -1,5 +1,5 @@
 export const Privacy = () => {
     return (
-        <div>Privacy item</div>
+        <div>Soon...</div>
     )
 }

@@ -1,5 +1,5 @@
 export const Avatar = () => {
     return (
-        <div>Avatar item</div>
+        <div>Soon...</div>
     )
 }

@@ -8,10 +8,10 @@ import {useAppDispatch} from "../../../../Store/Hook/hook";
 import {register} from "../../../../API/AuthApi";
 
 type SignUpTypes = {
-    email: string | '';
-    nickname: string | '';
-    password: string | '';
-    password_confirmation: string | ''
+    email: string;
+    nickname: string;
+    password: string;
+    password_confirmation: string
 }
 
 export const SignUpComponent: React.FC = () => {
