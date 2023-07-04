@@ -3,6 +3,8 @@ import React from "react";
 import {Button} from "../../../../../Widgets/Button/Button";
 import "./about.scss"
 import {UserType} from "../../../../../Types/User/UserType";
+import {useAppDispatch} from "../../../../../Store/Hook/hook";
+import {updateAbout} from "../../../../../API/SettingsApi";
 
 type AboutTypes = {
     user: UserType | null;
@@ -15,7 +17,8 @@ type AboutFormTypes = {
 }
 
 export const About: React.FC<AboutTypes> = ({user}) => {
-    console.log(user);
+    const dispatch = useAppDispatch();
+
     const initValues: AboutFormTypes = {
         nickname: user?.nickname ? user.nickname : '',
         name: user?.name ? user.name : '',
@@ -24,6 +27,8 @@ export const About: React.FC<AboutTypes> = ({user}) => {
 
     const handleSubmit = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
         console.log(values);
+
+        dispatch(updateAbout(values));
     }
 
     return (

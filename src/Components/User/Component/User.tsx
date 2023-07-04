@@ -30,7 +30,7 @@ export const User: React.FC<UserTypes> = ({user}) => {
                             </div>
                             <div className="about_field">
                                 <p className="about_title">About {user.nickname}</p>
-                                <p className="about_information">Lorem ipsum dolor sit amet.</p>
+                                <p className="about_information">{user.about}</p>
                             </div>
                             <div className="move_to_setting_wrapper">
                                 <NavLink to={'/settings'} className="move_to_setting">
