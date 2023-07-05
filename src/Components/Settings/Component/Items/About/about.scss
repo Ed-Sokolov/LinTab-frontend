@@ -20,6 +20,8 @@
 
       border-radius: 12px;
 
+      width: 100%;
+
       padding: 12px 14px;
 
       font-family: 'Inter', sans-serif;
@@ -30,6 +32,16 @@
     .textarea {
       height: 196px;
       resize: none;
+    }
+
+    .input_wrapper {
+      position: relative;
+
+      &:has(.error_field) {
+        .input, .textarea {
+          padding: 12px 50px 12px 14px;
+        }
+      }
     }
   }
 

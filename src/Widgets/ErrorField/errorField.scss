@@ -1,0 +1,61 @@
+.error_field {
+  position: absolute;
+
+  top: 26px;
+  left: calc(100% - 28px);
+
+  transform: translate(-50%, -50%);
+
+  .error_content {
+    position: relative;
+    width: 28px;
+    height: 28px;
+
+    .error_icon {
+      width: 28px;
+      height: 28px;
+
+      color: transparent;
+      stroke: #F00;
+
+      transition: transform .4s;
+    }
+
+    .error_message {
+      position: absolute;
+
+      top: 100%;
+      left: 100%;
+
+      transform: translate(-100%, 16%) rotateX(90deg);
+      opacity: 0;
+      visibility: hidden;
+
+      transform-origin: right top;
+
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #F00;
+
+      width: max-content;
+
+      color: #FFF;
+      font-size: 20px;
+      letter-spacing: 0.8px;
+
+      transition: transform .4s, opacity .4s, visibility .4s;
+    }
+
+    &:hover {
+      .error_icon {
+        transform: rotate(45deg) scale(1.1);
+      }
+
+      .error_message {
+        transform: translate(-100%, 16%) rotateX(0deg);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
