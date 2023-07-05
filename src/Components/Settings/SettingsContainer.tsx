@@ -5,9 +5,11 @@ import {Avatar} from "./Component/Items/Avatar/Avatar";
 import {About} from "./Component/Items/About/About";
 import {Privacy} from "./Component/Items/Privacy/Privacy";
 import {Setups} from "./Component/Items/Setups/Setups";
-import {ActivatedItemType, ContentsType} from "./Types";
+import {AboutFormTypes, ActivatedItemType, ContentsType} from "./Types";
 import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
 import {getUser} from "../../API/UserApi";
+import {FormikHelpers} from "formik";
+import {updateAbout} from "../../API/SettingsApi";
 
 export const SettingsContainer = () => {
     let {profileId} = useAppSelector(state => state.auth);
@@ -48,11 +50,23 @@ export const SettingsContainer = () => {
                 navigate('/', {replace: true});
                 break;
         }
-    }, [item, navigate])
+    }, [item, navigate]);
+
+    const initValuesAbout: AboutFormTypes = {
+        nickname: user?.nickname ? user.nickname : '',
+        name: user?.name ? user.name : '',
+        about: user?.about ? user.about : ''
+    }
+
+    const handleSubmitAbout = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
+        console.log(values);
+
+        dispatch(updateAbout(values));
+    }
 
     const contents: ContentsType = {
         avatar: <Avatar/>,
-        about: <About user={user}/>,
+        about: <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout}/>,
         privacy: <Privacy/>,
         setups: <Setups/>
     }
