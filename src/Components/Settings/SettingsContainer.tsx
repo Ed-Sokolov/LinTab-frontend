@@ -10,6 +10,7 @@ import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
 import {getUser} from "../../API/UserApi";
 import {FormikHelpers} from "formik";
 import {updateAbout} from "../../API/SettingsApi";
+import {AboutSchema} from "./Validation/About";
 
 export const SettingsContainer = () => {
     let {profileId} = useAppSelector(state => state.auth);
@@ -66,7 +67,7 @@ export const SettingsContainer = () => {
 
     const contents: ContentsType = {
         avatar: <Avatar/>,
-        about: <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout}/>,
+        about: <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout} AboutSchema={AboutSchema}/>,
         privacy: <Privacy/>,
         setups: <Setups/>
     }

@@ -1,5 +1,7 @@
 import {JSX} from "react";
 import {FormikHelpers} from "formik";
+import {AnyObject, ObjectSchema} from "yup";
+import {AboutSchema} from "../Validation/About";
 
 export type ActivatedItemType = 'avatar' | 'about' | 'privacy' | 'setups';
 
@@ -13,6 +15,7 @@ export type ContentsType = {
 export type AboutTypes = {
     initValuesAbout: AboutFormTypes;
     handleSubmitAbout: (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => void;
+    AboutSchema: typeof AboutSchema;
 }
 
 export type AboutFormTypes = {
