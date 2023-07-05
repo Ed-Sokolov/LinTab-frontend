@@ -9,7 +9,7 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
     return (
         <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema}>
             {
-                ({errors, touched}) => <Form className="form">
+                ({errors, touched, isValid}) => <Form className="form">
                     <div className="form_group">
                         <label className="label" htmlFor="nickname">Nickname</label>
                         <div className="input_wrapper">
@@ -31,7 +31,7 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                             {(errors.about && touched.about) && <ErrorField message={errors.about}/>}
                         </div>
                     </div>
-                    <Button type={"submit"} classes="btn btn-orange">apply</Button>
+                    <Button type={"submit"} classes="btn btn-orange" isDisabled={!isValid}>apply</Button>
                 </Form>
             }
         </Formik>
