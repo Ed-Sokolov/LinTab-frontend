@@ -28,10 +28,11 @@ export const User: React.FC<UserTypes> = ({user}) => {
                                     {user.name && <p className="user_name">{user.name}</p>}
                                 </div>
                             </div>
-                            <div className="about_field">
-                                <p className="about_title">About {user.nickname}</p>
-                                <p className="about_information">{user.about}</p>
-                            </div>
+                            {
+                                user.about && <div className="about_field">
+                                    <p className="about_information">{user.about}</p>
+                                </div>
+                            }
                             <div className="move_to_setting_wrapper">
                                 <NavLink to={'/settings'} className="move_to_setting">
                                     <UseSvg spriteName={'settings'} className={"setting_icon"}/>
