@@ -6,7 +6,7 @@ import {About} from "./Component/Items/About/About";
 import {Privacy} from "./Component/Items/Privacy/Privacy";
 import {Setups} from "./Component/Items/Setups/Setups";
 import {AboutFormTypes, ActivatedItemType, ContentsType} from "./Types";
-import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
+import {useAppDispatch, useAppSelector} from "../../Hooks/hooks";
 import {getUser} from "../../API/UserApi";
 import {FormikHelpers} from "formik";
 import {updateAbout} from "../../API/SettingsApi";

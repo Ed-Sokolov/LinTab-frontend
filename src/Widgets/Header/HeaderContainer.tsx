@@ -1,8 +1,9 @@
 import {Header} from "./Component/Header";
-import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
+import {useAppDispatch, useAppSelector, useIsShowComponent} from "../../Hooks/hooks";
 import {logOut} from "../../API/AuthApi";
 
 export const HeaderContainer = () => {
+    let isShowComponent = useIsShowComponent();
     const {isAuth, profileId} = useAppSelector(state => state.auth);
 
     const dispatch = useAppDispatch();
@@ -11,5 +12,5 @@ export const HeaderContainer = () => {
         dispatch(logOut())
     }
 
-    return <Header isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}/>
+    return <Header isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut} isShowComponent={isShowComponent}/>
 }

@@ -1,23 +1,8 @@
 import {Footer} from "./Component/Footer";
-import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useIsShowComponent} from "../../Hooks/hooks";
 
 export const FooterContainer = () => {
-    let [showFooter, setShowFooter] = useState<boolean | 'load'>('load');
+    let isShowComponent = useIsShowComponent();
 
-    let pathname = useLocation().pathname;
-
-    useEffect(() => {
-        switch (pathname) {
-            case '/sign-in':
-            case '/sign-up':
-                setShowFooter(false);
-                break;
-            default:
-                setShowFooter(true);
-                break;
-        }
-    }, [pathname])
-
-    return showFooter ? <Footer/> : <></>
+    return isShowComponent ? <Footer/> : <></>
 }

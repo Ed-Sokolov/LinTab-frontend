@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
 import {Field, Form, Formik, FormikHelpers} from "formik";
-import {useAppDispatch} from "../../../../Store/Hook/hook";
+import {useAppDispatch} from "../../../../Hooks/hooks";
 import {login} from "../../../../API/AuthApi";
 import {SignInSchema} from "../../Validation/SignIn";
 import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";

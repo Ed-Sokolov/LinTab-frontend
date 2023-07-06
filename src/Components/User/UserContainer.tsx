@@ -1,5 +1,5 @@
 import {User} from "./Component/User";
-import {useAppDispatch, useAppSelector} from "../../Store/Hook/hook";
+import {useAppDispatch, useAppSelector} from "../../Hooks/hooks";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {getUser} from "../../API/UserApi";

@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {useAppDispatch} from "../Store/Hook/hook";
+import {useAppDispatch} from "../Hooks/hooks";
 import {checkAuth} from "../API/AuthApi";
 import Aos from "aos";
 import {App} from "./App";
