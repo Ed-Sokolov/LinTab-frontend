@@ -30,8 +30,7 @@ export const login = createAsyncThunk<any, any, {rejectValue: any}>(
             console.log(response);
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                console.log(error.response);
-                console.log(error.response?.status);
+                return rejectWithValue(error.response?.data)
             }
         }
     }

@@ -24,6 +24,11 @@ export const SignInComponent: React.FC = () => {
 
     const signIn = (values: SignInTypes, actions: FormikHelpers<SignInTypes>) => {
         dispatch(login(values))
+            .catch(error => {
+                for (const errorKey in error.errors) {
+                    actions.setFieldError(errorKey, error.errors[errorKey][0])
+                }
+            })
     }
 
     return (
@@ -47,7 +52,8 @@ export const SignInComponent: React.FC = () => {
                                 {(errors.password && touched.password) && <ErrorField message={errors.password}/>}
                             </div>
                         </div>
-                        <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign in</Button>
+                        <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign
+                            in</Button>
                     </Form>
                 }
             </Formik>
