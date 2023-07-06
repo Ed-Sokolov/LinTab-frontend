@@ -6,6 +6,8 @@ import React from "react";
 import {Field, Form, Formik, FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../Store/Hook/hook";
 import {login} from "../../../../API/AuthApi";
+import {SignInSchema} from "../../Validation/SignIn";
+import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
 
 type SignInTypes = {
     email: string;
@@ -27,23 +29,27 @@ export const SignInComponent: React.FC = () => {
     return (
         <div className="sign__content">
             <H2>Sign In</H2>
-            <Formik initialValues={initValues} onSubmit={signIn}>
-                <Form className="sign_form">
-                    <div className="form_group">
-                        <label className="label" htmlFor="email_in">Email</label>
-                        <div className="input_wrapper">
-                            <Field type="text" id="email_in" name="email" className="input" placeholder="Email"/>
+            <Formik initialValues={initValues} onSubmit={signIn} validationSchema={SignInSchema} validateOnMount={true}>
+                {
+                    ({errors, touched, isValid}) => <Form className="sign_form">
+                        <div className="form_group">
+                            <label className="label" htmlFor="email_in">Email</label>
+                            <div className="input_wrapper">
+                                <Field type="text" id="email_in" name="email" className="input" placeholder="Email"/>
+                                {(errors.email && touched.email) && <ErrorField message={errors.email}/>}
+                            </div>
                         </div>
-                    </div>
-                    <div className="form_group">
-                        <label className="label" htmlFor="password_in">Password</label>
-                        <div className="input_wrapper">
-                            <Field type="password" id="password_in" name="password" className="input"
-                                   placeholder="Password"/>
+                        <div className="form_group">
+                            <label className="label" htmlFor="password_in">Password</label>
+                            <div className="input_wrapper">
+                                <Field type="password" id="password_in" name="password" className="input"
+                                       placeholder="Password"/>
+                                {(errors.password && touched.password) && <ErrorField message={errors.password}/>}
+                            </div>
                         </div>
-                    </div>
-                    <Button type={"submit"} classes={"btn btn-outline-white btn_sign"}>sign in</Button>
-                </Form>
+                        <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign in</Button>
+                    </Form>
+                }
             </Formik>
             <div className="switch">
                 <p className="text">You are here at the first time?</p>
