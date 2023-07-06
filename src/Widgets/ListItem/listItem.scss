@@ -1,0 +1,22 @@
+.list_custom_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .list_custom_item_icon {
+    width: 16px;
+    height: 16px;
+
+    color: transparent;
+    stroke: #FFF;
+  }
+
+  .list_custom_item_text {
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.64px;
+    text-transform: lowercase;
+  }
+}

@@ -1,38 +1,102 @@
 .hint {
   position: relative;
 
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    50% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
   .hint_icon {
     width: 36px;
     height: 36px;
 
     stroke: #000;
     color: transparent;
+
+    animation: fade 4s ease-in-out infinite;
   }
 
   .hint_content {
     position: absolute;
+    width: max-content;
     top: 100%;
-    left: 50%;
 
-    transform: translate(-50%, 0%) rotateX(90deg);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
     transform-origin: center top;
     opacity: 0;
     visibility: hidden;
 
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%);
+    background: rgba(0, 0, 0, 0.84);
     backdrop-filter: blur(4px);
 
     padding: 16px;
     border-radius: 8px;
 
     transition: transform .8s, opacity .8s, visibility .8s;
+
+    .title {
+      text-align: center;
+    }
+
+    .hint_content_list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link_title {
+      font-size: 18px;
+      letter-spacing: 0.8px;
+      text-transform: none;
+      text-align: center;
+    }
   }
 
-  &:hover {
+  &.center {
     .hint_content {
-      transform: translate(-50%, 0%) rotateX(0deg);
-      opacity: 1;
-      visibility: visible;
+      left: 50%;
+
+      transform: translate(-50%, 0%) rotateX(90deg);
+    }
+
+    &:hover {
+      .hint_content {
+        transform: translate(-50%, 0%) rotateX(0deg);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &.left {
+    .hint_content {
+      left: 100%;
+
+      transform: translate(-100%, 0%) rotateX(90deg);
+    }
+
+    &:hover {
+      .hint_content {
+        transform: translate(-100%, 0%) rotateX(0deg);
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }

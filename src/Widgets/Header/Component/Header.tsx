@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderTypes> = ({isAuth, profileId, handleLogOut, 
                                 </li>
                             </ul>
                         </nav>
-                        <Hint/>
+                        <Hint alignment={isShowComponent ? 'center' : 'left'}/>
                         {isShowComponent && <AuthField isHeader={true} isAuth={isAuth} profileId={profileId}
                                                                 handleLogOut={handleLogOut}/>}
                     </div>
