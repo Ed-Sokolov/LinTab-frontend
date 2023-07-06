@@ -37,7 +37,7 @@
       width: 50%;
       height: 100%;
 
-      background: rgba(0, 0, 0, 0.50);
+      background: rgba(0, 0, 0, 0.64);
       backdrop-filter: blur(4px);
 
       &:first-child {
@@ -108,11 +108,11 @@
         .switch {
           display: flex;
           flex-direction: column;
-          gap: 32px;
+          gap: 26px;
 
           .text {
-            font-size: 28px;
-            letter-spacing: 1.12px;
+            font-size: 22px;
+            letter-spacing: .86px;
           }
 
           .switch_link {
@@ -120,8 +120,8 @@
             align-items: center;
             gap: 16px;
 
-            font-size: 28px;
-            letter-spacing: 1.12px;
+            font-size: 24px;
+            letter-spacing: .9px;
             text-transform: uppercase;
 
             width: max-content;
@@ -129,8 +129,8 @@
             cursor: pointer;
 
             .full_arrow_icon {
-              width: 32px;
-              height: 32px;
+              width: 28px;
+              height: 28px;
 
               color: transparent;
               stroke: #FFF;

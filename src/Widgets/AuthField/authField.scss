@@ -23,7 +23,7 @@
       }
 
       a {
-        color: rgba(255, 255, 255, 0.86);
+        color: rgba(255, 255, 255, 0.78);
 
         &:hover {
           color: rgba(255, 255, 255, 1);
@@ -47,5 +47,22 @@
 
   .sign_out {
     cursor: pointer;
+  }
+
+  &.header_auth {
+    gap: 14px;
+
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.54px;
+
+    .line {
+      .line_icon {
+        width: 2px;
+        height: 32px;
+
+        stroke: #000;
+      }
+    }
   }
 }

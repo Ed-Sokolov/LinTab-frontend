@@ -19,16 +19,16 @@
       .icon_item {
         position: relative;
 
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
 
         .sort_icon_wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
 
-          width: 52px;
-          height: 52px;
+          width: 48px;
+          height: 48px;
 
           border-radius: 16px;
 
@@ -38,8 +38,8 @@
           transition: box-shadow .4s;
 
           .sort_icon {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
 
             opacity: .75;
 
