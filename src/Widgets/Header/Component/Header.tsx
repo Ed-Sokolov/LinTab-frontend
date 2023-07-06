@@ -4,6 +4,7 @@ import {Container} from "../../Container/Container";
 import {AuthField} from "../../AuthField/AuthField";
 import React from "react";
 import {Hint} from "../../Hint/Hint";
+import {AddContent} from "../../AddContent/AddContent";
 
 type HeaderTypes = {
     isAuth: boolean;
@@ -35,6 +36,7 @@ export const Header: React.FC<HeaderTypes> = ({isAuth, profileId, handleLogOut, 
                                 </li>
                             </ul>
                         </nav>
+                        {isAuth && <AddContent/>}
                         <Hint alignment={isShowComponent ? 'center' : 'left'}/>
                         {isShowComponent && <AuthField isHeader={true} isAuth={isAuth} profileId={profileId}
                                                                 handleLogOut={handleLogOut}/>}
