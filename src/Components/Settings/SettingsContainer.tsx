@@ -36,16 +36,10 @@ export const SettingsContainer = () => {
                 navigate('/settings/avatar', {replace: true});
                 break;
             case 'avatar':
-                setActivatedItem('avatar');
-                break;
             case 'about':
-                setActivatedItem('about');
-                break;
             case 'privacy':
-                setActivatedItem('privacy');
-                break;
             case 'setups':
-                setActivatedItem('setups');
+                setActivatedItem(item);
                 break;
             default:
                 navigate('/', {replace: true});
