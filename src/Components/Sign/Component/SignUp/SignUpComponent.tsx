@@ -27,6 +27,9 @@ export const SignUpComponent: React.FC = () => {
     const signUp = (values: SignUpTypes, actions: FormikHelpers<SignUpTypes>) => {
         values.password_confirmation = values.password;
         dispatch(register(values))
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (

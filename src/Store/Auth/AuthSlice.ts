@@ -3,7 +3,8 @@ import {checkAuth, login, logOut, register} from "../../API/AuthApi";
 
 const initialState = {
     isAuth: false as boolean,
-    profileId: null as number | null
+    profileId: null as number | null,
+    isLoading: false as boolean
 }
 
 const authSlice = createSlice({
@@ -17,6 +18,12 @@ const authSlice = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.isAuth = true;
+            })
+            .addCase(register.rejected, (state, action) => {
+                state.isAuth = false;
+                state.isLoading = false;
+
+                throw action.payload;
             })
             .addCase(checkAuth.fulfilled, (state, action) => {
                 state.isAuth = true;

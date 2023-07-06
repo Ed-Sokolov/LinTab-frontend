@@ -23,7 +23,7 @@ export const AuthField: React.FC<AuthFieldTypes> = ({isCenter = false, isAuth = 
             </li>
             <li className="auth_item">
                 {
-                    isAuth ? <p onClick={handleLogOut}>sign out</p> : <NavLink to={'/sign-up'}>sign up</NavLink>
+                    isAuth ? <p onClick={handleLogOut} className="sign_out">sign out</p> : <NavLink to={'/sign-up'}>sign up</NavLink>
                 }
             </li>
         </ul>
