@@ -1,6 +1,5 @@
 import {JSX} from "react";
 import {FormikHelpers} from "formik";
-import {AnyObject, ObjectSchema} from "yup";
 import {AboutSchema} from "../Validation/About";
 
 export type ActivatedItemType = 'avatar' | 'about' | 'privacy' | 'setups';

@@ -7,7 +7,7 @@ import {ErrorField} from "../../../../../Widgets/ErrorField/ErrorField";
 
 export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout, AboutSchema}) => {
     return (
-        <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema}>
+        <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema} enableReinitialize={true}>
             {
                 ({errors, touched, isValid}) => <Form className="form">
                     <div className="form_group">

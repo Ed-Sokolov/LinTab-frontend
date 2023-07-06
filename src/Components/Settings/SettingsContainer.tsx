@@ -60,14 +60,18 @@ export const SettingsContainer = () => {
     }
 
     const handleSubmitAbout = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
-        console.log(values);
-
-        dispatch(updateAbout(values));
+        dispatch(updateAbout(values))
+            .catch(error => {
+                for (const errorKey in error.errors) {
+                    actions.setFieldError(errorKey, error.errors[errorKey][0]);
+                }
+            });
     }
 
     const contents: ContentsType = {
         avatar: <Avatar/>,
-        about: <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout} AboutSchema={AboutSchema}/>,
+        about: <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout}
+                      AboutSchema={AboutSchema}/>,
         privacy: <Privacy/>,
         setups: <Setups/>
     }
