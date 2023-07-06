@@ -21,15 +21,23 @@
   .error_field {
     position: absolute;
 
-    top: 26px;
+    top: 50%;
     left: calc(100% - 28px);
 
     transform: translate(-50%, -50%);
 
     .error_content {
       position: relative;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background-color: #FFF;
 
       .error_icon {
         width: 28px;
@@ -81,8 +89,18 @@
   }
 
   &:has(.error_field) {
-    .input, .textarea {
+    .input {
       padding: 12px 50px 12px 14px;
+    }
+
+    .textarea {
+      padding: 12px 42px 12px 14px;
+    }
+  }
+
+  &:has(.textarea) {
+    .error_field {
+      top: 26px;
     }
   }
 }

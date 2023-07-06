@@ -30,7 +30,9 @@ export const SignUpComponent: React.FC = () => {
         values.password_confirmation = values.password;
         dispatch(register(values))
             .catch(error => {
-                console.log(error);
+                for (const errorKey in error.errors) {
+                    actions.setFieldError(errorKey, error.errors[errorKey][0]);
+                }
             })
     }
 
@@ -38,7 +40,7 @@ export const SignUpComponent: React.FC = () => {
         <div className="sign__content right">
             <H2>Sign Up</H2>
             <Formik initialValues={initValues} onSubmit={signUp} validationSchema={SignUpSchema}
-                    validateOnMount={true}>
+                    validateOnMount={true} enableReinitialize={true}>
                 {
                     ({errors, touched, isValid}) => <Form className="sign_form">
                         <div className="form_group">
