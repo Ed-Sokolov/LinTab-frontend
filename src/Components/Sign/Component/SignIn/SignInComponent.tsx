@@ -31,11 +31,16 @@ export const SignInComponent: React.FC = () => {
                 <Form className="sign_form">
                     <div className="form_group">
                         <label className="label" htmlFor="email_in">Email</label>
-                        <Field type="text" id="email_in" name="email" className="input" placeholder="Email"/>
+                        <div className="input_wrapper">
+                            <Field type="text" id="email_in" name="email" className="input" placeholder="Email"/>
+                        </div>
                     </div>
                     <div className="form_group">
                         <label className="label" htmlFor="password_in">Password</label>
-                        <Field type="password" id="password_in" name="password" className="input" placeholder="Password"/>
+                        <div className="input_wrapper">
+                            <Field type="password" id="password_in" name="password" className="input"
+                                   placeholder="Password"/>
+                        </div>
                     </div>
                     <Button type={"submit"} classes={"btn btn-outline-white btn_sign"}>sign in</Button>
                 </Form>

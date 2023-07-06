@@ -1,61 +1,88 @@
-.error_field {
-  position: absolute;
+.input_wrapper {
+  position: relative;
 
-  top: 26px;
-  left: calc(100% - 28px);
+  .input, .textarea {
+    outline: none;
 
-  transform: translate(-50%, -50%);
+    width: 100%;
 
-  .error_content {
-    position: relative;
-    width: 28px;
-    height: 28px;
+    padding: 12px 14px;
 
-    .error_icon {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+  }
+
+  .textarea {
+    height: 196px;
+    resize: none;
+  }
+
+  .error_field {
+    position: absolute;
+
+    top: 26px;
+    left: calc(100% - 28px);
+
+    transform: translate(-50%, -50%);
+
+    .error_content {
+      position: relative;
       width: 28px;
       height: 28px;
 
-      color: transparent;
-      stroke: #F00;
-
-      transition: transform .4s;
-    }
-
-    .error_message {
-      position: absolute;
-
-      top: 100%;
-      left: 100%;
-
-      transform: translate(-100%, 16%) rotateX(90deg);
-      opacity: 0;
-      visibility: hidden;
-
-      transform-origin: right top;
-
-      padding: 8px 16px;
-      border-radius: 8px;
-      background: #F00;
-
-      width: max-content;
-
-      color: #FFF;
-      font-size: 20px;
-      letter-spacing: 0.8px;
-
-      transition: transform .4s, opacity .4s, visibility .4s;
-    }
-
-    &:hover {
       .error_icon {
-        transform: rotate(45deg) scale(1.1);
+        width: 28px;
+        height: 28px;
+
+        color: transparent;
+        stroke: #F00;
+
+        transition: transform .4s;
       }
 
       .error_message {
-        transform: translate(-100%, 16%) rotateX(0deg);
-        opacity: 1;
-        visibility: visible;
+        position: absolute;
+
+        top: 100%;
+        left: 100%;
+
+        transform: translate(-100%, 16%) rotateX(90deg);
+        opacity: 0;
+        visibility: hidden;
+
+        transform-origin: right top;
+
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: #F00;
+
+        width: max-content;
+
+        color: #FFF;
+        font-size: 20px;
+        letter-spacing: 0.8px;
+
+        transition: transform .4s, opacity .4s, visibility .4s;
       }
+
+      &:hover {
+        .error_icon {
+          transform: rotate(45deg) scale(1.1);
+        }
+
+        .error_message {
+          transform: translate(-100%, 16%) rotateX(0deg);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &:has(.error_field) {
+    .input, .textarea {
+      padding: 12px 50px 12px 14px;
     }
   }
 }

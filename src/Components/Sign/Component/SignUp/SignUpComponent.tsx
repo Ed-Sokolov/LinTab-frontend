@@ -6,6 +6,8 @@ import React from "react";
 import {Field, Form, Formik, FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../Store/Hook/hook";
 import {register} from "../../../../API/AuthApi";
+import {SignUpSchema} from "../../Validation/SignUp";
+import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
 
 type SignUpTypes = {
     email: string;
@@ -35,22 +37,37 @@ export const SignUpComponent: React.FC = () => {
     return (
         <div className="sign__content right">
             <H2>Sign Up</H2>
-            <Formik initialValues={initValues} onSubmit={signUp}>
-                <Form className="sign_form">
-                    <div className="form_group">
-                        <label className="label" htmlFor="email_up">Email</label>
-                        <Field type="email" name="email" id="email_up" className="input" placeholder="Email"/>
-                    </div>
-                    <div className="form_group">
-                        <label className="label" htmlFor="nickname_up">Nickname</label>
-                        <Field type="text" name="nickname" id="nickname_up" className="input" placeholder="Nickname"/>
-                    </div>
-                    <div className="form_group">
-                        <label className="label" htmlFor="password_up">Password</label>
-                        <Field type="password" name="password" id="password_up" className="input" placeholder="Password"/>
-                    </div>
-                    <Button type={"submit"} classes={"btn btn-outline-white btn_sign"}>sign up</Button>
-                </Form>
+            <Formik initialValues={initValues} onSubmit={signUp} validationSchema={SignUpSchema}
+                    validateOnMount={true}>
+                {
+                    ({errors, touched, isValid}) => <Form className="sign_form">
+                        <div className="form_group">
+                            <label className="label" htmlFor="email_up">Email</label>
+                            <div className="input_wrapper">
+                                <Field type="email" name="email" id="email_up" className="input" placeholder="Email"/>
+                                {(errors.email && touched.email) && <ErrorField message={errors.email}/>}
+                            </div>
+                        </div>
+                        <div className="form_group">
+                            <label className="label" htmlFor="nickname_up">Nickname</label>
+                            <div className="input_wrapper">
+                                <Field type="text" name="nickname" id="nickname_up" className="input"
+                                       placeholder="Nickname"/>
+                                {(errors.nickname && touched.nickname) && <ErrorField message={errors.nickname}/>}
+                            </div>
+                        </div>
+                        <div className="form_group">
+                            <label className="label" htmlFor="password_up">Password</label>
+                            <div className="input_wrapper">
+                                <Field type="password" name="password" id="password_up" className="input"
+                                       placeholder="Password"/>
+                                {(errors.password && touched.password) && <ErrorField message={errors.password}/>}
+                            </div>
+                        </div>
+                        <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign
+                            up</Button>
+                    </Form>
+                }
             </Formik>
             <div className="switch">
                 <p className="text">You have an account?</p>
