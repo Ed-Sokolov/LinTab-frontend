@@ -1,19 +1,31 @@
 import "./createPost.scss"
 import {Container} from "../../../Widgets/Container/Container";
 import {H3} from "../../../Widgets/Headings/H3/H3";
-import {Field, Form, Formik, FormikHelpers} from "formik";
+import {Form, Formik, FormikHelpers} from "formik";
 import {Button} from "../../../Widgets/Button/Button";
 import {CustomInput} from "../../../Widgets/CustomInput/CustomInput";
 import {LabelWrapper} from "../../../Widgets/LabelWrapper/LabelWrapper";
+import {useAppDispatch, useAppSelector} from "../../../Hooks/hooks";
+import {createPost} from "../../../API/PostApi";
 
 export const CreatePost = () => {
+    const dispatch = useAppDispatch();
+    const {profileId} = useAppSelector(state => state.auth);
+
     const initValues = {
         title: '',
         content: ''
     }
 
     const createPostSubmit = (values: typeof initValues, actions: FormikHelpers<typeof initValues>) => {
-        console.log(values);
+        if (profileId) {
+            const data = {
+                title: values.title,
+                content: values.content,
+                author_id: profileId
+            }
+            dispatch(createPost(data))
+        }
     }
 
     return (
@@ -38,7 +50,7 @@ export const CreatePost = () => {
                         </Form>
                     </Formik>
                 </div>
-            </Container>h
+            </Container>
         </div>
     )
 }
