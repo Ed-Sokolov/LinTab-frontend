@@ -1,0 +1,33 @@
+.create_post {
+  padding-top: 228px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 512px;
+    top: 0;
+    left: 0;
+
+    background-color: #F6C244;
+
+    border-radius: 0 0 128px 128px;
+  }
+
+  .create_post_content {
+    position: relative;
+
+    margin: 0 64px;
+
+    border-radius: 32px;
+    background: #FFF;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.64);
+
+    padding: 64px 64px 78px;
+
+    .title {
+      text-align: center;
+      //text-transform: uppercase;
+    }
+  }
+}

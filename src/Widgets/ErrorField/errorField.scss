@@ -1,106 +1,69 @@
-.input_wrapper {
-  position: relative;
+.error_field {
+  position: absolute;
 
-  .input, .textarea {
-    outline: none;
+  top: 50%;
+  left: calc(100% - 28px);
 
-    width: 100%;
+  transform: translate(-50%, -50%);
 
-    padding: 12px 14px;
+  .error_content {
+    position: relative;
+    width: 32px;
+    height: 32px;
 
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.8px;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .textarea {
-    height: 196px;
-    resize: none;
-  }
+    border-radius: 50%;
 
-  .error_field {
-    position: absolute;
+    background-color: #FFF;
 
-    top: 50%;
-    left: calc(100% - 28px);
+    .error_icon {
+      width: 28px;
+      height: 28px;
 
-    transform: translate(-50%, -50%);
+      color: transparent;
+      stroke: #F00;
 
-    .error_content {
-      position: relative;
-      width: 32px;
-      height: 32px;
+      transition: transform .4s;
+    }
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .error_message {
+      position: absolute;
 
-      border-radius: 50%;
+      top: 100%;
+      left: 100%;
 
-      background-color: #FFF;
+      transform: translate(-100%, 16%) rotateX(90deg);
+      opacity: 0;
+      visibility: hidden;
 
+      transform-origin: right top;
+
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #F00;
+
+      width: max-content;
+
+      color: #FFF;
+      font-size: 20px;
+      letter-spacing: 0.8px;
+
+      transition: transform .4s, opacity .4s, visibility .4s;
+    }
+
+    &:hover {
       .error_icon {
-        width: 28px;
-        height: 28px;
-
-        color: transparent;
-        stroke: #F00;
-
-        transition: transform .4s;
+        transform: rotate(45deg) scale(1.1);
       }
 
       .error_message {
-        position: absolute;
-
-        top: 100%;
-        left: 100%;
-
-        transform: translate(-100%, 16%) rotateX(90deg);
-        opacity: 0;
-        visibility: hidden;
-
-        transform-origin: right top;
-
-        padding: 8px 16px;
-        border-radius: 8px;
-        background: #F00;
-
-        width: max-content;
-
-        color: #FFF;
-        font-size: 20px;
-        letter-spacing: 0.8px;
-
-        transition: transform .4s, opacity .4s, visibility .4s;
+        transform: translate(-100%, 16%) rotateX(0deg);
+        opacity: 1;
+        visibility: visible;
       }
-
-      &:hover {
-        .error_icon {
-          transform: rotate(45deg) scale(1.1);
-        }
-
-        .error_message {
-          transform: translate(-100%, 16%) rotateX(0deg);
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-    }
-  }
-
-  &:has(.error_field) {
-    .input {
-      padding: 12px 50px 12px 14px;
-    }
-
-    .textarea {
-      padding: 12px 42px 12px 14px;
-    }
-  }
-
-  &:has(.textarea) {
-    .error_field {
-      top: 26px;
     }
   }
 }

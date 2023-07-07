@@ -8,6 +8,7 @@ import {useAppDispatch} from "../../../../Hooks/hooks";
 import {register} from "../../../../API/AuthApi";
 import {SignUpSchema} from "../../Validation/SignUp";
 import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
+import {CustomInput} from "../../../../Widgets/CustomInput/CustomInput";
 
 type SignUpTypes = {
     email: string;
@@ -45,26 +46,20 @@ export const SignUpComponent: React.FC = () => {
                     ({errors, touched, isValid}) => <Form className="sign_form">
                         <div className="form_group">
                             <label className="label" htmlFor="email_up">Email</label>
-                            <div className="input_wrapper">
-                                <Field type="email" name="email" id="email_up" className="input" placeholder="Email"/>
-                                {(errors.email && touched.email) && <ErrorField message={errors.email}/>}
-                            </div>
+                            <CustomInput type={"email"} className={"input"} id={"email_up"} name={"email"}
+                                         placeholder={"Email"} errorMessage={errors.email} isTouched={touched.email}/>
                         </div>
                         <div className="form_group">
                             <label className="label" htmlFor="nickname_up">Nickname</label>
-                            <div className="input_wrapper">
-                                <Field type="text" name="nickname" id="nickname_up" className="input"
-                                       placeholder="Nickname"/>
-                                {(errors.nickname && touched.nickname) && <ErrorField message={errors.nickname}/>}
-                            </div>
+                            <CustomInput type={"text"} className={"input"} id={"nickname_up"} name={"nickname"}
+                                         placeholder={"Nickname"} errorMessage={errors.nickname}
+                                         isTouched={touched.nickname}/>
                         </div>
                         <div className="form_group">
                             <label className="label" htmlFor="password_up">Password</label>
-                            <div className="input_wrapper">
-                                <Field type="password" name="password" id="password_up" className="input"
-                                       placeholder="Password"/>
-                                {(errors.password && touched.password) && <ErrorField message={errors.password}/>}
-                            </div>
+                            <CustomInput type={"password"} className={"input"} id={"password_up"} name={"password"}
+                                         placeholder={"Password"} errorMessage={errors.password}
+                                         isTouched={touched.password}/>
                         </div>
                         <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign
                             up</Button>
