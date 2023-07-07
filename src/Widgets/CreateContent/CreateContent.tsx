@@ -40,7 +40,7 @@ export const CreateContent = () => {
     return (
         <div className="create_field" ref={createRef}>
             <div className="create_link_wrapper">
-                <NavLink to={"#"} className={"create_link"}>Post</NavLink>
+                <NavLink to={"/posts/create"} className={"create_link"}>Post</NavLink>
             </div>
             <div className="add_circle_wrapper" onClick={changeView}>
                 <UseSvg spriteName={"add_circle"} className={"create_content_icon"}/>
@@ -51,7 +51,7 @@ export const CreateContent = () => {
             <div className="create_content" ref={contentRef}>
                 <ul className="content_items">
                     <li className="content_item">
-                        <NavLink to={"#"} className="content_link">Post</NavLink>
+                        <NavLink to={"/posts/create"} className="content_link">Post</NavLink>
                     </li>
                     <li className="content_item">
                         <NavLink to={"#"} className="content_link">Project</NavLink>
