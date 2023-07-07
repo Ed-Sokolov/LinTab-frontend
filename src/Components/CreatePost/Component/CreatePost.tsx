@@ -22,7 +22,7 @@ export const CreatePost = () => {
                 <div className="create_post_content">
                     <H3>Creating post</H3>
                     <Formik initialValues={initValues} onSubmit={createPostSubmit}>
-                        <Form>
+                        <Form className="form">
                             <LabelWrapper htmlFor={"title"} text={"Title"}>
                                 <CustomInput id={"title"} name={"title"} placeholder={"Title"}
                                              errorMessage={"something"} isTouched={true}/>
@@ -32,8 +32,8 @@ export const CreatePost = () => {
                                              placeholder={"Content"} errorMessage={"Something"} isTouched={true}/>
                             </LabelWrapper>
                             <div className="buttons">
-                                <Button classes={"btn btn-outline-dark"}>cancel</Button>
-                                <Button classes={"btn btn-orange"}>create</Button>
+                                <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>
+                                <Button type={"submit"} classes={"btn btn-orange"}>create</Button>
                             </div>
                         </Form>
                     </Formik>
