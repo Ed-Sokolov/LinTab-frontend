@@ -26,7 +26,7 @@ export const CreatePostContainer = () => {
             const data = {
                 title: values.title,
                 content: values.content,
-                author_id: 10
+                author_id: profileId
             }
             dispatch(createPost(data))
                 .then(response => {
