@@ -58,8 +58,20 @@
     flex-direction: column;
     gap: 8px;
 
-    .sub_header {
-      margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .header_content_wrapper {
+    & > .double_header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .sub_header {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }

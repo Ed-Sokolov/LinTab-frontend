@@ -11,7 +11,7 @@ export const UseSvg: React.FC<UseSvgTypes> = ({title, className, spriteName}) =>
     return (
         <svg className={className} role="img">
             {title && <title>{title}</title>}
-            <use xlinkHref={`${Icons}#${spriteName}`}/>
+            <use xlinkHref={`${Icons}#${spriteName}`} className={`${className}_use`}/>
         </svg>
     )
 }
