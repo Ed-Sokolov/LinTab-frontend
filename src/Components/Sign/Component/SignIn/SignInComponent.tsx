@@ -9,6 +9,7 @@ import {login} from "../../../../API/AuthApi";
 import {SignInSchema} from "../../Validation/SignIn";
 import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
 import {CustomInput} from "../../../../Widgets/CustomInput/CustomInput";
+import {LabelWrapper} from "../../../../Widgets/LabelWrapper/LabelWrapper";
 
 type SignInTypes = {
     email: string;
@@ -38,17 +39,15 @@ export const SignInComponent: React.FC = () => {
             <Formik initialValues={initValues} onSubmit={signIn} validationSchema={SignInSchema} validateOnMount={true}>
                 {
                     ({errors, touched, isValid}) => <Form className="sign_form">
-                        <div className="form_group">
-                            <label className="label" htmlFor="email_in">Email</label>
+                        <LabelWrapper htmlFor={"email_in"} text={"Email"}>
                             <CustomInput type={"email"} className={"input"} id={"email_in"} name={"email"}
                                          placeholder={"Email"} errorMessage={errors.email} isTouched={touched.email}/>
-                        </div>
-                        <div className="form_group">
-                            <label className="label" htmlFor="password_in">Password</label>
+                        </LabelWrapper>
+                        <LabelWrapper htmlFor={"password_in"} text={"Password"}>
                             <CustomInput type={"password"} className={"input"} id={"password_in"} name={"password"}
                                          placeholder={"Password"} errorMessage={errors.password}
                                          isTouched={touched.password}/>
-                        </div>
+                        </LabelWrapper>
                         <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign
                             in</Button>
                     </Form>

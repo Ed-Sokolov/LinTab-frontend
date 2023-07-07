@@ -9,6 +9,7 @@ import {register} from "../../../../API/AuthApi";
 import {SignUpSchema} from "../../Validation/SignUp";
 import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
 import {CustomInput} from "../../../../Widgets/CustomInput/CustomInput";
+import {LabelWrapper} from "../../../../Widgets/LabelWrapper/LabelWrapper";
 
 type SignUpTypes = {
     email: string;
@@ -44,23 +45,20 @@ export const SignUpComponent: React.FC = () => {
                     validateOnMount={true} enableReinitialize={true}>
                 {
                     ({errors, touched, isValid}) => <Form className="sign_form">
-                        <div className="form_group">
-                            <label className="label" htmlFor="email_up">Email</label>
+                        <LabelWrapper htmlFor={"email_up"} text={"Email"}>
                             <CustomInput type={"email"} className={"input"} id={"email_up"} name={"email"}
                                          placeholder={"Email"} errorMessage={errors.email} isTouched={touched.email}/>
-                        </div>
-                        <div className="form_group">
-                            <label className="label" htmlFor="nickname_up">Nickname</label>
+                        </LabelWrapper>
+                        <LabelWrapper htmlFor={"nickname_up"} text={"Nickname"}>
                             <CustomInput type={"text"} className={"input"} id={"nickname_up"} name={"nickname"}
                                          placeholder={"Nickname"} errorMessage={errors.nickname}
                                          isTouched={touched.nickname}/>
-                        </div>
-                        <div className="form_group">
-                            <label className="label" htmlFor="password_up">Password</label>
+                        </LabelWrapper>
+                        <LabelWrapper htmlFor={"password_up"} text={"Password"}>
                             <CustomInput type={"password"} className={"input"} id={"password_up"} name={"password"}
                                          placeholder={"Password"} errorMessage={errors.password}
                                          isTouched={touched.password}/>
-                        </div>
+                        </LabelWrapper>
                         <Button type={"submit"} classes={"btn btn-outline-white btn_sign"} isDisabled={!isValid}>sign
                             up</Button>
                     </Form>

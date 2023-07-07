@@ -4,6 +4,7 @@ import {H3} from "../../../Widgets/Headings/H3/H3";
 import {Field, Form, Formik, FormikHelpers} from "formik";
 import {Button} from "../../../Widgets/Button/Button";
 import {CustomInput} from "../../../Widgets/CustomInput/CustomInput";
+import {LabelWrapper} from "../../../Widgets/LabelWrapper/LabelWrapper";
 
 export const CreatePost = () => {
     const initValues = {
@@ -22,16 +23,14 @@ export const CreatePost = () => {
                     <H3>Creating post</H3>
                     <Formik initialValues={initValues} onSubmit={createPostSubmit}>
                         <Form>
-                            <div className="form_group">
-                                <label htmlFor="title">Title</label>
+                            <LabelWrapper htmlFor={"title"} text={"Title"}>
                                 <CustomInput id={"title"} name={"title"} placeholder={"Title"}
                                              errorMessage={"something"} isTouched={true}/>
-                            </div>
-                            <div className="form_group">
-                                <label htmlFor="content">Content</label>
+                            </LabelWrapper>
+                            <LabelWrapper htmlFor={"content"} text={"Content"}>
                                 <CustomInput as={"textarea"} className={"textarea"} id={"content"} name={"content"}
                                              placeholder={"Content"} errorMessage={"Something"} isTouched={true}/>
-                            </div>
+                            </LabelWrapper>
                             <div className="buttons">
                                 <Button classes={"btn btn-outline-dark"}>cancel</Button>
                                 <Button classes={"btn btn-orange"}>create</Button>
@@ -39,7 +38,7 @@ export const CreatePost = () => {
                         </Form>
                     </Formik>
                 </div>
-            </Container>
+            </Container>h
         </div>
     )
 }
