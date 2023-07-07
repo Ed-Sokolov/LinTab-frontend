@@ -6,7 +6,7 @@ export const createPost = createAsyncThunk<any, any, { rejectValue: any }>(
     'posts/create',
     async (data, {rejectWithValue}) => {
         try {
-            const response = instance.post('/api/posts', data);
+            const response = await instance.post('/api/posts', data);
 
             console.log(response);
         } catch (error) {
