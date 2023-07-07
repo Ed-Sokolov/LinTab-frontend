@@ -1,4 +1,4 @@
-.add_field {
+.create_field {
   position: relative;
 
   display: flex;
@@ -7,7 +7,7 @@
 
   padding: 8px;
 
-  .add_content_icon {
+  .create_content_icon {
     width: 42px;
     height: 42px;
 
@@ -17,7 +17,7 @@
     transition: transform .4s;
   }
 
-  .add_content {
+  .create_content {
     position: absolute;
     padding: 24px 32px;
     top: 100%;
@@ -42,8 +42,8 @@
       .content_link {
         color: rgba(255, 255, 255, 0.78);
         font-family: 'Aldrich', sans-serif;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 20px;
+        line-height: 26px;
         letter-spacing: 0.96px;
 
         transition: color .4s;
@@ -56,11 +56,11 @@
   }
 
   &:hover {
-    .add_content_icon {
+    .create_content_icon {
       transform: rotate(45deg);
     }
 
-    .add_content {
+    .create_content {
       transform: translate(-50%, 0) rotateX(0);
       opacity: 1;
       visibility: visible;
