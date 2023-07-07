@@ -1,9 +1,7 @@
-import {NavLink} from "react-router-dom";
 import './header.scss';
 import {Container} from "../../Container/Container";
-import {AuthField} from "../../AuthField/AuthField";
 import React from "react";
-import {Hint} from "../../Hint/Hint";
+import {HeaderContent} from "./HeaderContent/HeaderContent";
 import {CreateContent} from "../../CreateContent/CreateContent";
 
 type HeaderTypes = {
@@ -18,29 +16,18 @@ export const Header: React.FC<HeaderTypes> = ({isAuth, profileId, handleLogOut, 
         <header className="header" data-aos="fade-down" data-aos-delay={600}>
             <Container>
                 <div className="header_content_wrapper">
-                    <div
-                        className="header_content">
-                        <nav className="nav">
-                            <ul className="list">
-                                <li className="list_item">
-                                    <NavLink to={'/'}>main</NavLink>
-                                </li>
-                                <li className="list_item">
-                                    <NavLink to={'/posts'}>posts</NavLink>
-                                </li>
-                                <li className="list_item">
-                                    <NavLink to={'#'}>projects</NavLink>
-                                </li>
-                                <li className="list_item">
-                                    <NavLink to={'#'}>help</NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-                        {isAuth && <CreateContent/>}
-                        <Hint alignment={isShowComponent ? 'center' : 'left'}/>
-                        {isShowComponent && <AuthField isHeader={true} isAuth={isAuth} profileId={profileId}
-                                                                handleLogOut={handleLogOut}/>}
-                    </div>
+                    {
+                        isAuth ?
+                            <div className="double_header">
+                                <HeaderContent isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}
+                                               isShowComponent={isShowComponent}/>
+                                <div className="sub_header">
+                                    <CreateContent/>
+                                </div>
+                            </div> :
+                            <HeaderContent isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}
+                                           isShowComponent={isShowComponent}/>
+                    }
                 </div>
             </Container>
         </header>

@@ -11,6 +11,9 @@ export const CreateContent = () => {
                     <li className="content_item">
                         <NavLink to={"#"} className="content_link">Post</NavLink>
                     </li>
+                    <li className="content_item">
+                        <NavLink to={"#"} className="content_link">Project</NavLink>
+                    </li>
                 </ul>
             </div>
         </div>

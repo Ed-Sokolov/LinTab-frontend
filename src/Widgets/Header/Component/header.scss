@@ -14,7 +14,7 @@
     content: '';
     width: 64%;
     height: 2px;
-    top: 100%;
+    top: 80px;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -50,6 +50,16 @@
 
     a:hover {
       color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  & > .double_header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .sub_header {
+      margin: 0 auto;
     }
   }
 }
