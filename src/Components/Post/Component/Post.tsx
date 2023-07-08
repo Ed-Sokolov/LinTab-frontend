@@ -6,10 +6,12 @@ import {NavLink} from "react-router-dom";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 import {PostType} from "../../../Types/Post/PostType";
 import React from "react";
+import parse from "html-react-parser";
 
 export const Post: React.FC<PostType> = ({id, title, content, author_id, created_at}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
 
+    const parsedContent = parse(content) as Array<React.ReactElement> | string;
     return (
         <div className="post">
             <div className="post_promo">
@@ -50,46 +52,10 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, created
                     </li>
                 </ul>
                 <div className="post_content">
-                    <div className="p_wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
-                    </div>
-                    <div className="img">
-                        <img src={img}/>
-                    </div>
-                    <div className="p_wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Sit amet mauris commodo quis imperdiet massa tincidunt
-                            nunc pulvinar. Consequat ac felis donec et. Scelerisque viverra mauris in aliquam sem.
-                            Neque
-                            volutpat ac tincidunt vitae semper. Amet cursus sit amet dictum. Tristique risus nec
-                            feugiat in fermentum posuere urna. Posuere ac ut consequat semper viverra. In aliquam
-                            sem
-                            fringilla ut morbi tincidunt augue interdum. Turpis egestas integer eget aliquet nibh.
-                            Ut
-                            venenatis tellus in metus vulputate eu. Nec ullamcorper sit amet risus nullam eget. Eu
-                            scelerisque
-                            felis imperdiet proin fermentum leo. Aliquet enim tortor at auctor urna nunc id cursus.
-                            Sed ullamcorper morbi tincidunt ornare massa. In ante metus dictum at.</p>
-                    </div>
-                    <div className="img">
-                        <img src={img}/>
-                        <img src={img}/>
-                    </div>
-                    <div className="p_wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
-                    </div>
+                    {
+                        typeof parsedContent === "string" ? <div className="p_wrapper">{parsedContent}</div> :
+                            parsedContent.map((content, index) => <div className="p_wrapper" key={index}>
+                                {content}</div>)}
                 </div>
                 <div className="just_like_it_wrapper">
                     <p className="agitation">Just like it</p>
