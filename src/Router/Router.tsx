@@ -6,6 +6,7 @@ import {Sign} from "../Pages/Sign/Sign";
 import {User} from "../Pages/User/User";
 import {Settings} from "../Pages/Settings/Settings";
 import {CreatePost} from "../Pages/CreatePost/CreatePost";
+import {EditPost} from "../Pages/EditPost/EditPost";
 
 export const Routing = () => {
     return (
@@ -14,6 +15,7 @@ export const Routing = () => {
             <Route path={'/posts'} element={<Posts/>}/>
             <Route path={'/posts/create'} element={<CreatePost/>}/>
             <Route path={'/posts/:id'} element={<Post/>}/>
+            <Route path={'/posts/:id/edit'} element={<EditPost/>}/>
             <Route path={'/users/:id'} element={<User/>}/>
             <Route path={'/sign-in'} element={<Sign/>}/>
             <Route path={'/sign-up'} element={<Sign/>}/>

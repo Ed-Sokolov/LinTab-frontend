@@ -44,7 +44,7 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, created
                             by <NavLink to={`/users/${author_id}`}>author</NavLink>
                         </li>
                         <li className="edit">
-                            <NavLink to={'#'} className="edit_link">
+                            <NavLink to={`/posts/${id}/edit`} className="edit_link">
                                 <UseSvg spriteName={"edit"} className={"edit_icon"}/>
                                 edit
                             </NavLink>
