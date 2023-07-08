@@ -62,3 +62,20 @@ export const createPost = createAsyncThunk<number | any, any, { rejectValue: any
         }
     }
 )
+
+export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
+    'posts/update',
+    async (data, {rejectWithValue}) => {
+        try {
+            const {id, postData} = data;
+
+            const response = await instance.patch(`/api/posts/${id}`, postData);
+
+            return response.data.data;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response);
+            }
+        }
+    }
+)

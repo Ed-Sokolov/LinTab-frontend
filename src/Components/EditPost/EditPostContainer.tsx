@@ -1,6 +1,7 @@
 import {EditPost} from "./Component/EditPost";
-import {useGetPost} from "../../Hooks/hooks";
+import {useAppDispatch, useGetPost} from "../../Hooks/hooks";
 import {FormikHelpers} from "formik";
+import {updatePost} from "../../API/PostApi";
 
 export type EditPostFormTypes = {
     title: string;
@@ -8,6 +9,7 @@ export type EditPostFormTypes = {
 }
 
 export const EditPostContainer = () => {
+    const dispatch = useAppDispatch();
     const post = useGetPost();
 
     const initValues: EditPostFormTypes = {
@@ -16,7 +18,17 @@ export const EditPostContainer = () => {
     }
 
     const editPostSubmit = (values: EditPostFormTypes, actions: FormikHelpers<EditPostFormTypes>) => {
-        console.log(values);
+        if (post) {
+            const data = {
+                id: post.id,
+                postData: values
+            }
+
+            dispatch(updatePost(data))
+                .catch(error => {
+                    console.log(error);
+                });
+        }
     }
 
     return post ? <EditPost initValues={initValues} editPostSubmit={editPostSubmit}/> : <></>
