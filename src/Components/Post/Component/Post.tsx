@@ -4,8 +4,10 @@ import {H4} from "../../../Widgets/Headings/H4/H4";
 import {UseSvg} from "../../../Widgets/UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import {PostType} from "../../../Types/Post/PostType";
+import React from "react";
 
-export const Post = () => {
+export const Post: React.FC<PostType> = ({id, title, content, author_id, created_at}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
 
     return (
@@ -15,9 +17,9 @@ export const Post = () => {
                     <Container>
                         <div className="promo_content">
                             <div className="date_field">
-                                <p className="date">07.01.2023</p>
+                                <p className="date">{created_at.toString()}</p>
                             </div>
-                            <H4>Title. Title. Title, title, title, title, title. Title</H4>
+                            <H4>{title}</H4>
                             <ul className="interactions">
                                 <li className="interaction_item">
                                     <UseSvg spriteName={"views"} className={"interaction_icon views"}/>
@@ -39,7 +41,7 @@ export const Post = () => {
                 <>
                     <ul className="redirects">
                         <li className="author">
-                            by <NavLink to={'#'}>author</NavLink>
+                            by <NavLink to={`/users/${author_id}`}>author</NavLink>
                         </li>
                         <li className="edit">
                             <NavLink to={'#'} className="edit_link">

@@ -33,6 +33,21 @@ export const getPopularPosts = createAsyncThunk<Array<PostType>, undefined, {rej
     }
 )
 
+export const getPost = createAsyncThunk<PostType, number, {rejectValue: any}>(
+    'posts/show',
+    async (id, {rejectWithValue}) => {
+        try {
+            const response = await instance.get(`/api/posts/${id}`);
+
+            return response.data.data;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response?.data);
+            }
+        }
+    }
+)
+
 export const createPost = createAsyncThunk<number | any, any, { rejectValue: any }>(
     'posts/create',
     async (data, {rejectWithValue}) => {

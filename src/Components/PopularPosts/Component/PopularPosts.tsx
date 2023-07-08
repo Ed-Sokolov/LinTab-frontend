@@ -26,15 +26,15 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
                     <ul className="posts_columns">
                         <LeftColumn>
                             {
-                                leftColumn.map(post => <li className="post_item">
-                                    <PostCard key={post.id} id={post.id} title={post.title}/>
+                                leftColumn.map(post => <li key={post.id} className="post_item">
+                                    <PostCard id={post.id} title={post.title}/>
                                 </li>)
                             }
                         </LeftColumn>
                         <RightColumn>
                             {
-                                rightColumn.map(post => <li className="post_item">
-                                    <PostCard key={post.id} id={post.id} title={post.title}/>
+                                rightColumn.map(post => <li className="post_item" key={post.id}>
+                                    <PostCard id={post.id} title={post.title}/>
                                 </li>)
                             }
                         </RightColumn>
