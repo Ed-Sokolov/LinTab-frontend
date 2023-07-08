@@ -1,4 +1,4 @@
-.create_post {
+.form_page {
   padding-top: 228px;
 
   &::before {
@@ -15,8 +15,12 @@
     border-radius: 0 0 128px 128px;
   }
 
-  .create_post_content {
+  .form_page_content {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 
     margin: 0 64px;
 

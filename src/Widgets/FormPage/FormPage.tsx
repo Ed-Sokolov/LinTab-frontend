@@ -8,9 +8,9 @@ type FormPageTypes = {
 
 export const FormPage: React.FC<FormPageTypes> = ({children}) => {
     return (
-        <div className="create_post">
+        <div className="form_page">
             <Container>
-                <div className="create_post_content">
+                <div className="form_page_content">
                     {children}
                 </div>
             </Container>
