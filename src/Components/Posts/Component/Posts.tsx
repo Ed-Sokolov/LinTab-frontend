@@ -5,8 +5,14 @@ import {SearchField} from "../../../Widgets/SearchField/SearchField";
 import {SortList} from "../../../Widgets/SortList/SortList";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import React from "react";
+import {PostType} from "../../../Types/Post/PostType";
 
-export const Posts = () => {
+type PostsTypes = {
+    posts: Array<PostType>;
+}
+
+export const Posts: React.FC<PostsTypes> = ({posts}) => {
     return (
         <div className="posts_page">
             <Container>
@@ -17,16 +23,7 @@ export const Posts = () => {
                         <SortList/>
                     </div>
                     <div className="posts_list">
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
+                        {posts.map(post => <PostCard key={post.id} id={post.id} title={post.title}/>)}
                     </div>
                 </div>
             </Container>

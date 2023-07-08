@@ -2,8 +2,14 @@ import "./postCard.scss"
 import {H6} from "../Headings/H6/H6";
 import {UseSvg} from "../UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-export const PostCard = () => {
+type PostCardTypes = {
+    id: number;
+    title: string
+}
+
+export const PostCard: React.FC<PostCardTypes> = ({id, title}) => {
     let img = require('../../Assets/Images/PostCard/Test_post_card_image.jpg')
 
     return (
@@ -22,9 +28,9 @@ export const PostCard = () => {
                                 <p className="count">100</p>
                             </li>
                         </ul>
-                        <H6>Title. Title. Title, title, title, title, title. Title</H6>
+                        <H6>{title}</H6>
                         <p className="author">by <NavLink to="#" className="move_to_author">author</NavLink></p>
-                        <NavLink to="/posts/1" className="move_to_post">
+                        <NavLink to={`/posts/${id}`} className="move_to_post">
                             Read
                             <UseSvg spriteName={"full_arrow_right"} className={"move_to_post_icon"}></UseSvg>
                         </NavLink>

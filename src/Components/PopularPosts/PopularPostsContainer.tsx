@@ -1,5 +1,15 @@
 import {PopularPosts} from "./Component/PopularPosts";
+import {useAppDispatch, useAppSelector} from "../../Hooks/hooks";
+import {useEffect} from "react";
+import {getPopularPosts} from "../../API/PostApi";
 
 export const PopularPostsContainer = () => {
-    return <PopularPosts/>
+    const {posts} = useAppSelector(state => state.post);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getPopularPosts())
+    }, [dispatch])
+
+    return posts ? <PopularPosts posts={posts}/> : <></>;
 }
