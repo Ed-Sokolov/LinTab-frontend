@@ -26,13 +26,13 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                         <CustomInput type={"text"} className={"input"} id={"name"} name={"name"} placeholder={"Name"}
                                      errorMessage={errors.name} isTouched={touched.name}/>
                     </LabelWrapper>
-                    <LabelWrapper htmlFor={"content"} text={"Content"}>
+                    <LabelWrapper htmlFor={"about"} text={"About you"}>
                         <div className="input_wrapper">
                             <ReactQuillWrapper
                                 value={values.about}
                                 change={(e: any) => setFieldValue('about', e)}
                                 id={"about"}
-                                placeholder={"Content"}
+                                placeholder={"About you"}
                                 blur={() => setFieldTouched('about', true)}
                             />
                             {(errors.about && touched.about) && <ErrorField message={errors.about}/>}

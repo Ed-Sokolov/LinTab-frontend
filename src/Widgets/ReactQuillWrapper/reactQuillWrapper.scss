@@ -37,6 +37,10 @@
 
     &.ql-snow {
       border: none;
+
+      white-space: pre-line;
+      word-break: break-word;
+      word-wrap: break-word;
     }
   }
 

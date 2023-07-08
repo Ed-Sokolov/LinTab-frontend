@@ -17,5 +17,5 @@ export const UserContainer = () => {
         }
     }, [dispatch, id])
 
-    return <User user={user}/>
+    return user ? <User {...user}/> : <></>
 }
