@@ -1,7 +1,8 @@
 import {EditPost} from "./Component/EditPost";
 import {useGetPost} from "../../Hooks/hooks";
+import {FormikHelpers} from "formik";
 
-type EditPostFormTypes = {
+export type EditPostFormTypes = {
     title: string;
     content: string;
 }
@@ -9,5 +10,14 @@ type EditPostFormTypes = {
 export const EditPostContainer = () => {
     const post = useGetPost();
 
-    return <EditPost/>
+    const initValues: EditPostFormTypes = {
+        title: post ? post.title : '',
+        content: post ? post.content : ''
+    }
+
+    const editPostSubmit = (values: EditPostFormTypes, actions: FormikHelpers<EditPostFormTypes>) => {
+        console.log(values);
+    }
+
+    return post ? <EditPost initValues={initValues} editPostSubmit={editPostSubmit}/> : <></>
 }
