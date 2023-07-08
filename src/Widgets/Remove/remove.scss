@@ -1,0 +1,39 @@
+.remove_wrapper {
+  display: flex;
+  justify-content: center;
+
+  .remove {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    cursor: default;
+
+    opacity: .72;
+
+    transition: opacity .4s;
+
+    .remove_icon {
+      width: 38px;
+      height: 38px;
+
+      color: transparent;
+      stroke: #F00;
+    }
+
+    .remove_text {
+      color: #F00;
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

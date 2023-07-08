@@ -8,6 +8,7 @@ import {EditPostSchema} from "../Validation";
 import {LabelWrapper} from "../../../Widgets/LabelWrapper/LabelWrapper";
 import {CustomInput} from "../../../Widgets/CustomInput/CustomInput";
 import {Button} from "../../../Widgets/Button/Button";
+import {Remove} from "../../../Widgets/Remove/Remove";
 
 type EditPostTypes = {
     initValues: EditPostFormTypes;
@@ -37,6 +38,7 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues}) 
                     </Form>
                 }
             </Formik>
+            <Remove text={"remove this post"}/>
         </FormPage>
     )
 }
