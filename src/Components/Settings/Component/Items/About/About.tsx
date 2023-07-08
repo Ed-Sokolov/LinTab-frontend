@@ -5,13 +5,18 @@ import "./about.scss"
 import {AboutTypes} from "../../../Types";
 import {CustomInput} from "../../../../../Widgets/CustomInput/CustomInput";
 import {LabelWrapper} from "../../../../../Widgets/LabelWrapper/LabelWrapper";
+import {ReactQuillWrapper} from "../../../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
+import {ErrorField} from "../../../../../Widgets/ErrorField/ErrorField";
 
 export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout, AboutSchema}) => {
     return (
         <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema}
                 enableReinitialize={true}>
             {
-                ({errors, touched, isValid}) => <Form className="form">
+                ({
+                     errors, touched, isValid,
+                     values, setFieldValue, setFieldTouched
+                }) => <Form className="form">
                     <LabelWrapper htmlFor={"nickname"} text={"Nickname"}>
                         <CustomInput type={"text"} className={"input"} id={"nickname"} name={"nickname"}
                                      placeholder={"Nickname"} errorMessage={errors.nickname}
@@ -21,9 +26,17 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                         <CustomInput type={"text"} className={"input"} id={"name"} name={"name"} placeholder={"Name"}
                                      errorMessage={errors.name} isTouched={touched.name}/>
                     </LabelWrapper>
-                    <LabelWrapper htmlFor={"about"} text={"About you"}>
-                        <CustomInput as={"textarea"} type={"text"} className={"textarea"} id={"about"} name={"about"}
-                                     placeholder={"About you"} errorMessage={errors.about} isTouched={touched.about}/>
+                    <LabelWrapper htmlFor={"content"} text={"Content"}>
+                        <div className="input_wrapper">
+                            <ReactQuillWrapper
+                                value={values.about}
+                                change={(e: any) => setFieldValue('about', e)}
+                                id={"about"}
+                                placeholder={"Content"}
+                                blur={() => setFieldTouched('about', true)}
+                            />
+                            {(errors.about && touched.about) && <ErrorField message={errors.about}/>}
+                        </div>
                     </LabelWrapper>
                     <Button type={"submit"} classes="btn btn-orange" isDisabled={!isValid}>apply</Button>
                 </Form>
