@@ -7,6 +7,7 @@ import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 import {PostType} from "../../../Types/Post/PostType";
 import React from "react";
 import parse from "html-react-parser";
+import {SetLike} from "../../../Widgets/SetLike/SetLike";
 
 export const Post: React.FC<PostType> = ({id, title, content, author_id, created_at}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
@@ -57,16 +58,7 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, created
                             parsedContent.map((content, index) => <div className="p_wrapper" key={index}>
                                 {content}</div>)}
                 </div>
-                <div className="just_like_it_wrapper">
-                    <p className="agitation">Just like it</p>
-                    <div className="pointer">
-                        <UseSvg spriteName={"arrow_circle_down"} className={"pointer_icon"}/>
-                    </div>
-                    <div className="just_like_it">
-                        <UseSvg spriteName={"like"} className={"like_it_icon"}/>
-                        <p className="count">100</p>
-                    </div>
-                </div>
+                <SetLike/>
             </Container>
             <MoveToAuthTab
                 title={"Do you want to create a post or leave a comment?"}
