@@ -1,7 +1,7 @@
 .input_wrapper {
   position: relative;
 
-  .input, .textarea {
+  .input {
     outline: none;
     border: 2px solid #F6C244;
 
@@ -16,24 +16,19 @@
     border-radius: 12px;
   }
 
-  .textarea {
-    height: 196px;
-    resize: none;
-  }
-
   &:has(.error_field) {
     .input {
       padding: 12px 50px 12px 14px;
     }
-
-    .textarea {
-      padding: 12px 42px 12px 14px;
-    }
   }
 
   &:has(.textarea) {
+    .ql-toolbar.ql-snow {
+      padding-right: 32px;
+    }
+
     .error_field {
-      top: 26px;
+      top: 22px;
     }
   }
 }
