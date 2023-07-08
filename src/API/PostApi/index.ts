@@ -2,8 +2,6 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {instance} from "../Instance/instance";
 import axios from "axios";
 import {PostType} from "../../Types/Post/PostType";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 export const getPosts = createAsyncThunk<Array<PostType>, undefined, {rejectValue:any}>(
     'posts/index',

@@ -22,22 +22,25 @@ export const CreatePostContainer = () => {
     }
 
     const createPostSubmit = (values: CreatePostFormTypes, actions: FormikHelpers<CreatePostFormTypes>) => {
-        if (profileId) {
-            const data = {
-                title: values.title,
-                content: values.content,
-                author_id: profileId
-            }
-            dispatch(createPost(data))
-                .then(response => {
-                    navigate(`/posts/${response.payload}`)
-                })
-                .catch(error => {
-                    for (const errorKey in error.errors) {
-                        actions.setFieldError(errorKey, error.errors[errorKey][0]);
-                    }
-                })
-        }
+
+        console.log(values.content);
+
+        // if (profileId) {
+        //     const data = {
+        //         title: values.title,
+        //         content: values.content,
+        //         author_id: profileId
+        //     }
+        //     dispatch(createPost(data))
+        //         .then(response => {
+        //             navigate(`/posts/${response.payload}`)
+        //         })
+        //         .catch(error => {
+        //             for (const errorKey in error.errors) {
+        //                 actions.setFieldError(errorKey, error.errors[errorKey][0]);
+        //             }
+        //         })
+        // }
     }
 
     return <CreatePost initValues={initValues} createPostSubmit={createPostSubmit} CreatePostSchema={CreatePostSchema}/>

@@ -1,0 +1,46 @@
+.textarea {
+  outline: none;
+  border: 2px solid #F6C244;
+  border-radius: 12px;
+
+  .ql-toolbar.ql-snow {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+
+    border: none;
+
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 84%;
+      height: 2px;
+      top: 100%;
+      left: 50%;
+
+      border-radius: 2px;
+
+      transform: translate(-50%, -50%);
+
+      background-color: #F6C244;
+    }
+  }
+
+  .ql-container {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+
+    min-height: 256px;
+
+    &.ql-snow {
+      border: none;
+    }
+  }
+
+  .ql-editor {
+    padding: 12px 14px;
+  }
+}
