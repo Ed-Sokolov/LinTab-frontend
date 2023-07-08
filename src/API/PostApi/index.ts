@@ -2,6 +2,8 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {instance} from "../Instance/instance";
 import axios from "axios";
 import {PostType} from "../../Types/Post/PostType";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 export const getPosts = createAsyncThunk<Array<PostType>, undefined, {rejectValue:any}>(
     'posts/index',
@@ -72,6 +74,21 @@ export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
             const response = await instance.patch(`/api/posts/${id}`, postData);
 
             return response.data.data;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response);
+            }
+        }
+    }
+)
+
+export const destroyPost = createAsyncThunk<any, number, {rejectValue: any}>(
+    'posts/destroy',
+    async (id, {rejectWithValue}) =>  {
+        try {
+            const response = await instance.delete(`/api/posts/${id}`);
+
+            return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 return rejectWithValue(error.response);

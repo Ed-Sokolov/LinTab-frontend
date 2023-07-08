@@ -1,7 +1,7 @@
 import {EditPost} from "./Component/EditPost";
 import {useAppDispatch, useGetPost} from "../../Hooks/hooks";
 import {FormikHelpers} from "formik";
-import {updatePost} from "../../API/PostApi";
+import {destroyPost, updatePost} from "../../API/PostApi";
 
 export type EditPostFormTypes = {
     title: string;
@@ -31,5 +31,14 @@ export const EditPostContainer = () => {
         }
     }
 
-    return post ? <EditPost initValues={initValues} editPostSubmit={editPostSubmit}/> : <></>
+    const handleDestroyPost = () => {
+        if (post) {
+            dispatch(destroyPost(post.id))
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }
+
+    return post ? <EditPost initValues={initValues} editPostSubmit={editPostSubmit} handleDestroyPost={handleDestroyPost}/> : <></>
 }

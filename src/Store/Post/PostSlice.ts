@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {PostType} from "../../Types/Post/PostType";
-import {createPost, getPopularPosts, getPost, getPosts, updatePost} from "../../API/PostApi";
+import {createPost, destroyPost, getPopularPosts, getPost, getPosts, updatePost} from "../../API/PostApi";
 
 const initState = {
     posts: null as Array<PostType> | null,
@@ -69,6 +69,18 @@ const postSlice = createSlice({
                 state.post = action.payload;
             })
             .addCase(updatePost.rejected, (state, action) => {
+                state.isLoading = false;
+
+                throw action.payload;
+            })
+            .addCase(destroyPost.pending, state => {
+                state.isLoading = true;
+            })
+            .addCase(destroyPost.fulfilled, state => {
+                state.isLoading = false;
+                state.post = null;
+            })
+            .addCase(destroyPost.rejected, (state, action) => {
                 state.isLoading = false;
 
                 throw action.payload;

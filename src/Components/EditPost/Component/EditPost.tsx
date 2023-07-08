@@ -13,9 +13,10 @@ import {Remove} from "../../../Widgets/Remove/Remove";
 type EditPostTypes = {
     initValues: EditPostFormTypes;
     editPostSubmit: (values: EditPostFormTypes, actions: FormikHelpers<EditPostFormTypes>) => any;
+    handleDestroyPost: () => any;
 }
 
-export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues}) => {
+export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, handleDestroyPost}) => {
     return (
         <FormPage>
             <H3>Editing post</H3>
@@ -38,7 +39,7 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues}) 
                     </Form>
                 }
             </Formik>
-            <Remove text={"remove this post"}/>
+            <Remove text={"remove this post"} onEvent={handleDestroyPost}/>
         </FormPage>
     )
 }
