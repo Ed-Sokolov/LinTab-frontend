@@ -25,8 +25,8 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                     validateOnMount={true}>
                 {
                     ({
-                         errors, touched,
-                         isValid, values, setFieldValue, setFieldTouched
+                         errors, touched, isValid,
+                         values, setFieldValue, setFieldTouched
                      }) => <Form className="form">
                         <LabelWrapper htmlFor={"title"} text={"Title"}>
                             <CustomInput id={"title"} name={"title"} placeholder={"Title"}

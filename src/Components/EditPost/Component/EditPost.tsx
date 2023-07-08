@@ -9,6 +9,8 @@ import {LabelWrapper} from "../../../Widgets/LabelWrapper/LabelWrapper";
 import {CustomInput} from "../../../Widgets/CustomInput/CustomInput";
 import {Button} from "../../../Widgets/Button/Button";
 import {Remove} from "../../../Widgets/Remove/Remove";
+import {ReactQuillWrapper} from "../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
+import {ErrorField} from "../../../Widgets/ErrorField/ErrorField";
 
 type EditPostTypes = {
     initValues: EditPostFormTypes;
@@ -23,14 +25,25 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, h
             <Formik initialValues={initValues} onSubmit={editPostSubmit} validationSchema={EditPostSchema}
                     validateOnMount={true}>
                 {
-                    ({errors, touched, isValid}) => <Form className={"form"}>
+                    ({
+                         errors, touched, isValid,
+                        values, setFieldTouched, setFieldValue
+                    }) => <Form className={"form"}>
                         <LabelWrapper htmlFor={"title"} text={"Title"}>
                             <CustomInput id={"title"} name={"title"} placeholder={"Title"} errorMessage={errors.title}
                                          isTouched={touched.title} className={"input"}/>
                         </LabelWrapper>
                         <LabelWrapper htmlFor={"content"} text={"Content"}>
-                            <CustomInput as={"textarea"} id={"content"} name={"content"} placeholder={"Content"}
-                                         errorMessage={errors.content} isTouched={touched.content} className={"textarea"}/>
+                            <div className="input_wrapper">
+                                <ReactQuillWrapper
+                                    value={values.content}
+                                    change={(e: any) => setFieldValue('content', e)}
+                                    id={"content"}
+                                    placeholder={"Content"}
+                                    blur={() => setFieldTouched('content', true)}
+                                />
+                                {(errors.content && touched.content) && <ErrorField message={errors.content}/>}
+                            </div>
                         </LabelWrapper>
                         <div className="buttons">
                             <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>
