@@ -3,7 +3,7 @@ import {Container} from "../../../Widgets/Container/Container";
 import {H4} from "../../../Widgets/Headings/H4/H4";
 import {UseSvg} from "../../../Widgets/UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
-import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import {MoveToTab} from "../../../Widgets/MoveToTab/MoveToTab";
 import {PostType} from "../../../Types/Post/PostType";
 import React from "react";
 import parse from "html-react-parser";
@@ -60,7 +60,7 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, image,c
                 </div>
                 <SetLike/>
             </Container>
-            <MoveToAuthTab
+            <MoveToTab
                 title={"Do you want to create a post or leave a comment?"}
                 text={"You can create such post or leave a comment but you need to be authorized"}
                 theme={"dark_brown"}

@@ -2,7 +2,7 @@ import {Container} from "../../../Widgets/Container/Container";
 import "./popularPosts.scss"
 import {H2} from "../../../Widgets/Headings/H2/H2";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
-import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import {MoveToTab} from "../../../Widgets/MoveToTab/MoveToTab";
 import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
 import {PostCardType} from "../../../Types/Post/PostType";
 import React from "react";
@@ -41,7 +41,7 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
                     </ul>
                 </div>
             </Container>
-            <MoveToAuthTab></MoveToAuthTab>
+            <MoveToTab></MoveToTab>
             <ExtraAction></ExtraAction>
         </section>
     )

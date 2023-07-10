@@ -4,7 +4,7 @@ import {H2} from "../../../Widgets/Headings/H2/H2";
 import {SearchField} from "../../../Widgets/SearchField/SearchField";
 import {SortList} from "../../../Widgets/SortList/SortList";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
-import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
+import {MoveToTab} from "../../../Widgets/MoveToTab/MoveToTab";
 import React from "react";
 import {PostCardType} from "../../../Types/Post/PostType";
 
@@ -27,7 +27,7 @@ export const Posts: React.FC<PostsTypes> = ({posts}) => {
                     </div>
                 </div>
             </Container>
-            <MoveToAuthTab isCenter={true} theme={"yellow"}/>
+            <MoveToTab isCenter={true} theme={"yellow"}/>
         </div>
     )
 }

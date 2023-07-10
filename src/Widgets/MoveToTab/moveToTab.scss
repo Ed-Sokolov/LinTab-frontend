@@ -1,4 +1,4 @@
-@mixin move_to_auth_by_theme ($background: #632421, $color: #FFF) {
+@mixin move_to_by_theme ($background: #632421, $color: #FFF) {
   border-radius: 16px 0 0 16px;
   padding: 32px;
 
@@ -118,16 +118,16 @@
   }
 }
 
-.move_to_auth {
+.move_to {
   &.yellow {
-    @include move_to_auth_by_theme(#F6C244, #000000);
+    @include move_to_by_theme(#F6C244, #000000);
   }
 
   &.dark_brown {
-    @include move_to_auth_by_theme(#3C0D07, #FFF);
+    @include move_to_by_theme(#3C0D07, #FFF);
   }
 
   &.brown {
-    @include move_to_auth_by_theme();
+    @include move_to_by_theme();
   }
 }

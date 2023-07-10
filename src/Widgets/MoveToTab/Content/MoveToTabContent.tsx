@@ -8,7 +8,7 @@ type MoveToAuthTabContentTypes = {
     text: string;
 }
 
-export const MoveToAuthTabContent: React.FC<MoveToAuthTabContentTypes> = (
+export const MoveToTabContent: React.FC<MoveToAuthTabContentTypes> = (
     {title, text}
 ) => {
     return (
