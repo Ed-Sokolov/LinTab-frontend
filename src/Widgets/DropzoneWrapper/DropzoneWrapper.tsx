@@ -2,6 +2,7 @@ import "./dropzoneWrapper.scss";
 import {useDropzone} from "react-dropzone";
 import React, {useState} from "react";
 import {UseSvg} from "../UseSvg/UseSvg";
+import {ErrorField} from "../ErrorField/ErrorField";
 
 type DropzoneWrapperTypes = {
     isMultiple?: boolean;
@@ -44,7 +45,7 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = ({isMultiple = fa
     };
 
     return (
-        <div>
+        <div className={"dropzone_wrapper"}>
             <div {...getRootProps({className: "dropzone"})}>
                 <input {...getInputProps()} />
                 {
@@ -52,8 +53,10 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = ({isMultiple = fa
                             {files.map((file, index) => (
                                 <li key={index} className={"file_item"}>
                                     <img src={URL.createObjectURL(file)} alt={file.name} className={"file_preview"}/>
-                                    <p className="file_name">{file.name}</p>
-                                    <p className="file_size">{formatSize(file.size)}</p>
+                                    <div className="file_data">
+                                        <p className="file_name">{file.name}</p>
+                                        <p className="file_size">{formatSize(file.size)}</p>
+                                    </div>
                                     <div className="remove_file" onClick={e => remove(e, file)}>
                                         <UseSvg spriteName={"trash"} className={"remove_file_icon"}/>
                                     </div>
@@ -66,7 +69,19 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = ({isMultiple = fa
                 }
             </div>
             {
-                fileRejections.length > 0 && <div>Error</div>
+                fileRejections.length > 0 ?
+                    <div className="dropzone_error">
+                        <ErrorField message={"The type of the photo must be only jpeg, jpg or png"}/>
+                    </div> :
+                    <div className={"dropzone_help"}>
+                        <p className="dropzone_help_main">
+                            {files.length > 0 ?
+                                "You can delete this photo and upload another photo" :
+                                "Upload only one photo which will be the main one"
+                            }
+                        </p>
+                        <p className="dropzone_help_types">(Only *.jpeg, *.jpg and *.png images will be accepted)</p>
+                    </div>
             }
         </div>
     )

@@ -8,12 +8,10 @@ type ErrorFieldTypes = {
 
 export const ErrorField: React.FC<ErrorFieldTypes> = ({message}) => {
     return (
-        <div>
-            <div className="error_field">
-                <div className="error_content">
-                    <UseSvg spriteName={"warning"} className={"error_icon"}/>
-                    <p className="error_message">{message}</p>
-                </div>
+        <div className="error_field">
+            <div className="error_content">
+                <UseSvg spriteName={"warning"} className={"error_icon"}/>
+                <p className="error_message">{message}</p>
             </div>
         </div>
     )

@@ -1,97 +1,147 @@
-.dropzone {
-  width: 100%;
-  min-height: 216px;
-
+.dropzone_wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 16px;
 
-  padding: 32px;
+  .dropzone {
+    width: 100%;
+    min-height: 216px;
 
-  background-color: #F6C244;
-
-  border-radius: 16px;
-
-  color: #000;
-  font-family: "Inter", sans-serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 42px;
-  letter-spacing: 1.28px;
-  text-transform: uppercase;
-
-  cursor: default;
-
-  .files_list {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 32px;
 
-    .file_item {
+    padding: 32px;
+
+    background-color: #F6C244;
+
+    border-radius: 16px;
+
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 1.28px;
+    text-transform: uppercase;
+
+    cursor: default;
+
+    .files_list {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
 
-      padding: 4px;
-
-      .file_preview {
-        width: 270px;
-        height: 152px;
-
-        object-fit: contain;
-      }
-
-      .file_name {
-        width: 270px;
-        padding: 0 4px;
-
-        color: #000;
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: 0.64px;
-        text-transform: none;
-        text-align: center;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .remove_file {
+      .file_item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        gap: 8px;
 
-        padding: 8px;
-        background-color: #FFF;
-        border-radius: 50%;
+        padding: 4px;
 
-        box-shadow: 0 0 4px rgba(0, 0, 0, .32);
+        .file_preview {
+          width: 270px;
+          height: 152px;
 
-        .remove_file_icon {
-          width: 28px;
-          height: 28px;
-
-          color: transparent;
-          stroke: #F00;
-
-          transition: transform .4s;
+          object-fit: contain;
         }
 
-        &:hover {
+        .file_data {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          width: 270px;
+          padding: 0 4px;
+
+          color: #000;
+          font-size: 16px;
+          font-family: "Inter", sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: none;
+          text-align: center;
+
+          .file_name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .file_size {
+            font-size: 14px;
+            letter-spacing: 0.48px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .remove_file {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 8px;
+          background-color: #FFF;
+          border-radius: 50%;
+
+          box-shadow: 0 0 4px rgba(0, 0, 0, .32);
+
           .remove_file_icon {
-            transform: scale(1.1);
+            width: 28px;
+            height: 28px;
+
+            color: transparent;
+            stroke: #F00;
+
+            transition: transform .4s;
+          }
+
+          &:hover {
+            .remove_file_icon {
+              transform: scale(1.1);
+            }
           }
         }
       }
     }
+  }
+
+  .dropzone_help {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+
+    .dropzone_help_types {
+      font-style: italic;
+      color: #383838;
+      font-size: 16px;
+      letter-spacing: 0.64px;
+    }
+  }
+
+  .dropzone_error {
+    position: absolute;
+    width: 100%;
+    height: 56px;
   }
 }
