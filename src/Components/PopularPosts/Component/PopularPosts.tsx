@@ -4,13 +4,13 @@ import {H2} from "../../../Widgets/Headings/H2/H2";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
-import {PostType} from "../../../Types/Post/PostType";
+import {PostCardType} from "../../../Types/Post/PostType";
 import React from "react";
 import {LeftColumn} from "./Columns/LeftColumn";
 import {RightColumn} from "./Columns/RigthColumn";
 
 type PopularPostsTypes = {
-    posts: Array<PostType>
+    posts: Array<PostCardType>
 }
 
 export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
@@ -27,14 +27,14 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
                         <LeftColumn>
                             {
                                 leftColumn.map(post => <li key={post.id} className="post_item">
-                                    <PostCard id={post.id} title={post.title}/>
+                                    <PostCard {...post}/>
                                 </li>)
                             }
                         </LeftColumn>
                         <RightColumn>
                             {
                                 rightColumn.map(post => <li className="post_item" key={post.id}>
-                                    <PostCard id={post.id} title={post.title}/>
+                                    <PostCard {...post}/>
                                 </li>)
                             }
                         </RightColumn>

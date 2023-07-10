@@ -3,19 +3,20 @@ import {H6} from "../Headings/H6/H6";
 import {UseSvg} from "../UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
 import React from "react";
+import {PostCardType} from "../../Types/Post/PostType";
 
-type PostCardTypes = {
-    id: number;
-    title: string
-}
-
-export const PostCard: React.FC<PostCardTypes> = ({id, title}) => {
+export const PostCard: React.FC<PostCardType> = (
+    {
+        id, title, preview, author_id,
+        created_at, updated_at
+    }
+) => {
     let img = require('../../Assets/Images/PostCard/Test_post_card_image.jpg')
 
     return (
         <article className="post_card" data-aos="fade-up">
             <div className="promo_img">
-                <img src={img}/>
+                <img src={preview ? preview.prev_url : img}/>
             </div>
             <div className="content">
                 <div className="empty_field"></div>

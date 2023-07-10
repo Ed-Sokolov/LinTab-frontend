@@ -6,10 +6,10 @@ import {SortList} from "../../../Widgets/SortList/SortList";
 import {PostCard} from "../../../Widgets/PostCard/PostCard";
 import {MoveToAuthTab} from "../../../Widgets/MoveToAuthTab/MoveToAuthTab";
 import React from "react";
-import {PostType} from "../../../Types/Post/PostType";
+import {PostCardType} from "../../../Types/Post/PostType";
 
 type PostsTypes = {
-    posts: Array<PostType>;
+    posts: Array<PostCardType>;
 }
 
 export const Posts: React.FC<PostsTypes> = ({posts}) => {
@@ -23,7 +23,7 @@ export const Posts: React.FC<PostsTypes> = ({posts}) => {
                         <SortList/>
                     </div>
                     <div className="posts_list">
-                        {posts.map(post => <PostCard key={post.id} id={post.id} title={post.title}/>)}
+                        {posts.map(post => <PostCard key={post.id} {...post}/>)}
                     </div>
                 </div>
             </Container>

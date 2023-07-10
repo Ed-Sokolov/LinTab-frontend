@@ -13,7 +13,7 @@ export type PostType = {
 
 export type PostCardType = {
     id: number;
-    title: number;
+    title: string;
     author_id: number;
     preview: {
         id: number;

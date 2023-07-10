@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {instance} from "../Instance/instance";
 import axios from "axios";
-import {PostType} from "../../Types/Post/PostType";
+import {PostCardType, PostType} from "../../Types/Post/PostType";
 
-export const getPosts = createAsyncThunk<Array<PostType>, undefined, {rejectValue:any}>(
+export const getPosts = createAsyncThunk<Array<PostCardType>, undefined, {rejectValue:any}>(
     'posts/index',
     async (_, {rejectWithValue}) => {
         try {
@@ -18,7 +18,7 @@ export const getPosts = createAsyncThunk<Array<PostType>, undefined, {rejectValu
     }
 )
 
-export const getPopularPosts = createAsyncThunk<Array<PostType>, undefined, {rejectValue:any}>(
+export const getPopularPosts = createAsyncThunk<Array<PostCardType>, undefined, {rejectValue:any}>(
     'posts/popular/index',
     async (_, {rejectWithValue}) => {
         try {

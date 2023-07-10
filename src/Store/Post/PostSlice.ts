@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {PostType} from "../../Types/Post/PostType";
+import {PostCardType, PostType} from "../../Types/Post/PostType";
 import {createPost, destroyPost, getPopularPosts, getPost, getPosts, updatePost} from "../../API/PostApi";
 
 const initState = {
-    posts: null as Array<PostType> | null,
+    posts: null as Array<PostCardType> | null,
     post: null as PostType | null,
     isLoading: false as boolean
 }
