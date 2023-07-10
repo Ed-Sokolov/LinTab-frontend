@@ -54,8 +54,8 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, created
                 </ul>
                 <div className="post_content">
                     {
-                        typeof parsedContent === "string" ? <div className="p_wrapper">{parsedContent}</div> :
-                            parsedContent.map((content, index) => <div className="p_wrapper" key={index}>
+                        typeof parsedContent === "string" ? <div className="p_wrapper" data-aos="fade-up">{parsedContent}</div> :
+                            parsedContent.map((content, index) => <div className="p_wrapper" key={index} data-aos="fade-up">
                                 {content}</div>)}
                 </div>
                 <SetLike/>

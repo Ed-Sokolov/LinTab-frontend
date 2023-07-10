@@ -10,6 +10,7 @@ import {CreatePostSchema} from "../Validation";
 import {FormPage} from "../../../Widgets/FormPage/FormPage";
 import {ReactQuillWrapper} from "../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
 import {ErrorField} from "../../../Widgets/ErrorField/ErrorField";
+import {DropzoneWrapper} from "../../../Widgets/DropzoneWrapper/DropzoneWrapper";
 
 type CreatePostTypes = {
     initValues: CreatePostFormTypes;
@@ -43,6 +44,9 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                                 />
                                 {(errors.content && touched.content) && <ErrorField message={errors.content}/>}
                             </div>
+                        </LabelWrapper>
+                        <LabelWrapper htmlFor={"sadasd"} text={"Upload photo"}>
+                            <DropzoneWrapper/>
                         </LabelWrapper>
                         <div className="buttons">
                             <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>

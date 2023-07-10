@@ -1,0 +1,97 @@
+.dropzone {
+  width: 100%;
+  min-height: 216px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px;
+
+  background-color: #F6C244;
+
+  border-radius: 16px;
+
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: 1.28px;
+  text-transform: uppercase;
+
+  cursor: default;
+
+  .files_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    .file_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+
+      padding: 4px;
+
+      .file_preview {
+        width: 270px;
+        height: 152px;
+
+        object-fit: contain;
+      }
+
+      .file_name {
+        width: 270px;
+        padding: 0 4px;
+
+        color: #000;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.64px;
+        text-transform: none;
+        text-align: center;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .remove_file {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 8px;
+        background-color: #FFF;
+        border-radius: 50%;
+
+        box-shadow: 0 0 4px rgba(0, 0, 0, .32);
+
+        .remove_file_icon {
+          width: 28px;
+          height: 28px;
+
+          color: transparent;
+          stroke: #F00;
+
+          transition: transform .4s;
+        }
+
+        &:hover {
+          .remove_file_icon {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
