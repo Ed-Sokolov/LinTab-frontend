@@ -46,7 +46,9 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                             </div>
                         </LabelWrapper>
                         <LabelWrapper htmlFor={"sadasd"} text={"Upload photo"}>
-                            <DropzoneWrapper/>
+                            <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
+                                             errorMessage={errors.image} isTouched={touched.image}
+                                             file={values.image}/>
                         </LabelWrapper>
                         <div className="buttons">
                             <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>

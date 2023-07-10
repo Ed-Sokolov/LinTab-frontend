@@ -7,7 +7,8 @@ import {useNavigate} from "react-router-dom";
 
 export type CreatePostFormTypes = {
     title: string,
-    content: string
+    content: string,
+    image: File | null
 }
 
 export const CreatePostContainer = () => {
@@ -18,7 +19,8 @@ export const CreatePostContainer = () => {
 
     const initValues: CreatePostFormTypes = {
         title: '',
-        content: ''
+        content: '',
+        image: null
     }
 
     const createPostSubmit = (values: CreatePostFormTypes, actions: FormikHelpers<CreatePostFormTypes>) => {
@@ -26,6 +28,7 @@ export const CreatePostContainer = () => {
             const data = {
                 title: values.title,
                 content: values.content,
+                image: values.image,
                 author_id: profileId
             }
             dispatch(createPost(data))

@@ -9,7 +9,7 @@ import React from "react";
 import parse from "html-react-parser";
 import {SetLike} from "../../../Widgets/SetLike/SetLike";
 
-export const Post: React.FC<PostType> = ({id, title, content, author_id, created_at}) => {
+export const Post: React.FC<PostType> = ({id, title, content, author_id, image,created_at}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
 
     const parsedContent = parse(content) as Array<React.ReactElement> | string;
@@ -37,7 +37,7 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, created
                     </Container>
                 </div>
                 <div className="promo_img">
-                    <img src={img}/>
+                    <img src={image ? image.url : img}/>
                 </div>
             </div>
             <Container>

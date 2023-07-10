@@ -52,7 +52,14 @@ export const createPost = createAsyncThunk<number | any, any, { rejectValue: any
     'posts/create',
     async (data, {rejectWithValue}) => {
         try {
-            const response = await instance.post('/api/posts', data);
+            const formData = new FormData();
+
+            formData.append('title', data.title);
+            formData.append('content', data.content);
+            formData.append('image', data.image);
+            formData.append('author_id', data.author_id);
+
+            const response = await instance.post('/api/posts', formData);
 
             return (response.data.data as PostType).id;
         } catch (error) {

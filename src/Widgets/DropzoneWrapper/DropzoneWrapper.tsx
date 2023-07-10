@@ -1,18 +1,37 @@
 import "./dropzoneWrapper.scss";
 import {useDropzone} from "react-dropzone";
-import React, {useState} from "react";
-import {UseSvg} from "../UseSvg/UseSvg";
+import React from "react";
 import {ErrorField} from "../ErrorField/ErrorField";
+import {FileCard} from "./Component/FileCard";
 
-type DropzoneWrapperTypes = {
+type CommonDropzoneTypes = {
+    setFieldValue: (field: string, value: any) => any;
+    setFieldTouched: (field: string, value: boolean) => any;
+    errorMessage: string | undefined;
+    isTouched: boolean | undefined;
     isMultiple?: boolean;
     maxFiles?: number;
 }
 
-export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = ({isMultiple = false, maxFiles = 1}) => {
-    const [files, setFiles] = useState<Array<File>>([]);
+type FileDropzoneTypes = CommonDropzoneTypes & {
+    file: File | null;
+    files?: never;
+}
 
-    const {getRootProps, getInputProps, isDragActive, fileRejections} = useDropzone({
+type FilesDropzoneTypes = CommonDropzoneTypes & {
+    files: Array<File> | [];
+    file?: never;
+}
+
+type DropzoneWrapperTypes = FileDropzoneTypes | FilesDropzoneTypes
+
+export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
+    {
+        isMultiple = false, maxFiles = 1, setFieldValue, errorMessage,
+        isTouched, setFieldTouched, file, files
+    }
+) => {
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({
         accept: {
             "image/jpeg": ['.jpeg', '.jpg'],
             "image/png": ['.png'],
@@ -21,63 +40,60 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = ({isMultiple = fa
         multiple: isMultiple,
         onDrop: acceptedFiles => {
             if (isMultiple) {
-                setFiles([...files, ...acceptedFiles] as Array<File>);
+                if (files) {
+                    setFieldValue("images", [...files, ...acceptedFiles] as Array<File>);
+                } else {
+                    setFieldValue("images", acceptedFiles);
+                }
+                setFieldTouched("images", true);
             } else {
-                setFiles(acceptedFiles);
+                setFieldValue("image", acceptedFiles[0]);
+                setFieldTouched("image", true);
             }
         },
     });
 
-    const remove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, file: any) => {
+    const remove = (e: React.MouseEvent, file: any) => {
         e.stopPropagation();
-        const updatedFiles = files?.filter(f => f !== file);
-        setFiles(updatedFiles);
-    }
-
-    const formatSize = (size: number) => {
-        if (size < 1024) {
-            return size + " B";
-        } else if (size < 1024 * 1024) {
-            return (size / 1024).toFixed(2) + " KB";
+        if (isMultiple) {
+            if (files) {
+                const updatedFiles = files.filter(f => f !== file);
+                setFieldValue("images", updatedFiles);
+            }
         } else {
-            return (size / (1024 * 1024)).toFixed(2) + " MB";
+            setFieldValue("image", null);
         }
-    };
+    }
 
     return (
         <div className={"dropzone_wrapper"}>
             <div {...getRootProps({className: "dropzone"})}>
                 <input {...getInputProps()} />
                 {
-                    files.length > 0 ? <ul className={"files_list"}>
-                            {files.map((file, index) => (
-                                <li key={index} className={"file_item"}>
-                                    <img src={URL.createObjectURL(file)} alt={file.name} className={"file_preview"}/>
-                                    <div className="file_data">
-                                        <p className="file_name">{file.name}</p>
-                                        <p className="file_size">{formatSize(file.size)}</p>
-                                    </div>
-                                    <div className="remove_file" onClick={e => remove(e, file)}>
-                                        <UseSvg spriteName={"trash"} className={"remove_file_icon"}/>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul> :
-                        isDragActive ?
-                            <p>drop the photo here ...</p> :
-                            <p>drop or click to select the photo</p>
+                    isMultiple ?
+                        (files && files.length > 0) ? <ul className={"files_list"}>
+                                {files.map((file, index) => <FileCard key={index} file={file} remove={remove}/>)}
+                            </ul> :
+                            isDragActive ?
+                                <p>drop the image here ...</p> :
+                                <p>drop or click to select the image</p>
+                        :
+                        file ?
+                            <ul className={"files_list"}><FileCard file={file} remove={remove}/></ul> : isDragActive ?
+                                <p>drop the image here ...</p> :
+                                <p>drop or click to select the image</p>
                 }
             </div>
             {
-                fileRejections.length > 0 ?
+                errorMessage && isTouched ?
                     <div className="dropzone_error">
-                        <ErrorField message={"The type of the photo must be only jpeg, jpg or png"}/>
+                        <ErrorField message={errorMessage}/>
                     </div> :
                     <div className={"dropzone_help"}>
                         <p className="dropzone_help_main">
-                            {files.length > 0 ?
-                                "You can delete this photo and upload another photo" :
-                                "Upload only one photo which will be the main one"
+                            {((files && files.length > 0) || file) ?
+                                "You can delete this image and upload another image" :
+                                "Upload only one image which will be the main one"
                             }
                         </p>
                         <p className="dropzone_help_types">(Only *.jpeg, *.jpg and *.png images will be accepted)</p>
