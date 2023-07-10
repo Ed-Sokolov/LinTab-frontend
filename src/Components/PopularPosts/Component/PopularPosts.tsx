@@ -10,10 +10,11 @@ import {LeftColumn} from "./Columns/LeftColumn";
 import {RightColumn} from "./Columns/RigthColumn";
 
 type PopularPostsTypes = {
-    posts: Array<PostCardType>
+    posts: Array<PostCardType>;
+    isAuth: boolean;
 }
 
-export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
+export const PopularPosts: React.FC<PopularPostsTypes> = ({posts, isAuth}) => {
 
     const leftColumn = posts.filter((value, index) => index % 2 === 0);
     const rightColumn = posts.filter((value, index) => index % 2 === 1);
@@ -41,7 +42,12 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts}) => {
                     </ul>
                 </div>
             </Container>
-            <MoveToTab></MoveToTab>
+            {
+                isAuth ?
+                    <MoveToTab text={"You can create such posts. Just move by the link"} isCustomLink
+                               linkName={"Create post"} link={"/posts/create"}/> :
+                    <MoveToTab/>
+            }
             <ExtraAction></ExtraAction>
         </section>
     )
