@@ -1,20 +1,25 @@
 @import "src/Widgets/CommonStyles/Link/custom_link";
 
 @mixin move_to_by_theme($background: #632421, $color: #FFF) {
-  border-radius: 16px 0 0 16px;
-  padding: 32px;
+  position: relative;
 
-  background: $background;
+  border-radius: 16px 0 0 16px;
+
+  width: auto;
+
+  padding: 32px;
+  margin: 64px 0 32px auto;
+
+  background: transparent;
   color: $color;
 
-  width: 50%;
-  margin-left: auto;
-  margin-right: 0;
-
-  margin-bottom: 32px;
+  overflow: hidden;
 
   .content {
-    width: 452px;
+    position: relative;
+    margin: 0 auto;
+
+    width: 512px;
 
     display: flex;
     flex-direction: column;
@@ -88,46 +93,32 @@
     }
   }
 
-  &.center {
-    width: auto;
-    background-color: transparent;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-color: $background;
 
-    position: relative;
+    z-index: -1;
+  }
 
-    overflow: hidden;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 580px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-color: $background;
 
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 50%;
-      background-color: $background;
+    transform: translateX(-50%);
 
-      z-index: -1;
-    }
+    z-index: -1;
 
-    &:after {
-      content: '';
-      position: absolute;
-      width: 580px;
-      height: 100%;
-      top: 0;
-      left: 50%;
-      background-color: $background;
-
-      transform: translateX(-50%);
-
-      z-index: -1;
-
-      border-radius: 16px 0 0 16px;
-    }
-
-    .content {
-      position: relative;
-      margin: 0 auto;
-    }
+    border-radius: 16px 0 0 16px;
   }
 }
 

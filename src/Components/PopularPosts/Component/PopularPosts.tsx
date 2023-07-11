@@ -29,13 +29,13 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts, isAuth}) => {
                     </ul>
                 </div>
             </Container>
+            <ExtraAction/>
             {
                 isAuth ?
                     <MoveToTab text={"You can create such posts. Just move by the link"} isCustomLink
                                linkName={"Create post"} link={"/posts/create"}/> :
                     <MoveToTab/>
             }
-            <ExtraAction></ExtraAction>
         </section>
     )
 }
