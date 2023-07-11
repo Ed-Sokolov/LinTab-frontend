@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .remove_wrapper {
   display: flex;
   justify-content: center;
@@ -11,7 +13,17 @@
 
     opacity: .72;
 
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+
     transition: opacity .4s;
+
+    padding: 4px;
 
     .remove_icon {
       width: 38px;
@@ -21,19 +33,14 @@
       stroke: #F00;
     }
 
-    .remove_text {
-      color: #F00;
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 28px;
-      letter-spacing: 0.96px;
-      text-transform: uppercase;
-    }
-
     &:hover {
       opacity: 1;
     }
+  }
+
+  .custom_link {
+    @include custom_link(#f00);
+
+    display: flex;
   }
 }

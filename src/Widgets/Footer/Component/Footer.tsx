@@ -14,21 +14,21 @@ export const Footer = () => {
                             <H4>Lintab</H4>
                             <ul className="social_list">
                                 <li className="social_item">
-                                    <NavLink to={"#"} className="social_link">
+                                    <NavLink to={"#"} className="social_link custom_link">
                                         <UseSvg spriteName={"telegram"} className={"social_icon"}></UseSvg>
-                                        telegram
+                                        <p>telegram</p>
                                     </NavLink>
                                 </li>
                                 <li className="social_item">
-                                    <NavLink to={"#"} className="social_link">
+                                    <NavLink to={"#"} className="social_link custom_link">
                                         <UseSvg spriteName={"instagram"} className={"social_icon"}></UseSvg>
-                                        instagram
+                                        <p>instagram</p>
                                     </NavLink>
                                 </li>
                                 <li className="social_item">
-                                    <NavLink to={"mailto:lintab@gmail.com"} className="social_link">
+                                    <NavLink to={"mailto:lintab@gmail.com"} className="social_link custom_link">
                                         <UseSvg spriteName={"email"} className={"social_icon"}></UseSvg>
-                                        lintab@gmail.com
+                                        <p>lintab@gmail.com</p>
                                     </NavLink>
                                 </li>
                             </ul>
@@ -38,16 +38,16 @@ export const Footer = () => {
                             <nav className="nav">
                                 <ul className="menu_list">
                                     <li className="menu_item">
-                                        <NavLink to={"/"}>Main</NavLink>
+                                        <NavLink to={"/"} className={"custom_link"}>Main</NavLink>
                                     </li>
                                     <li className="menu_item">
-                                        <NavLink to={"/posts"}>Posts</NavLink>
+                                        <NavLink to={"/posts"} className={"custom_link"}>Posts</NavLink>
                                     </li>
                                     <li className="menu_item">
-                                        <NavLink to={"#"}>Projects</NavLink>
+                                        <NavLink to={"#"} className={"custom_link"}>Projects</NavLink>
                                     </li>
                                     <li className="menu_item">
-                                        <NavLink to={"#"}>Help</NavLink>
+                                        <NavLink to={"#"} className={"custom_link"}>Help</NavLink>
                                     </li>
                                 </ul>
                             </nav>

@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .auth {
   display: flex;
   gap: 18px;
@@ -15,21 +17,13 @@
       flex-basis: 50%;
 
       &:first-child {
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
       }
 
       &:last-child {
-        text-align: left;
-      }
-
-      a {
-        color: rgba(255, 255, 255, 0.78);
-
-        transition: color .4s;
-
-        &:hover {
-          color: rgba(255, 255, 255, 1);
-        }
+        display: flex;
+        justify-content: flex-start;
       }
     }
   }
@@ -54,10 +48,6 @@
   &.header_auth {
     gap: 14px;
 
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0.54px;
-
     .line {
       .line_icon {
         width: 2px;
@@ -67,8 +57,14 @@
       }
     }
 
-    .sign_out:hover {
-      color: #000;
+    .custom_link {
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0.54px;
     }
+  }
+
+  .custom_link {
+    @include custom_link(#FFF);
   }
 }

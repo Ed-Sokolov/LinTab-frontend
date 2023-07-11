@@ -11,12 +11,22 @@ type AuthFieldTypes = {
     handleLogOut?: () => any;
 }
 
-export const AuthField: React.FC<AuthFieldTypes> = ({isHeader = false, isCenter = false, isAuth = false, profileId, handleLogOut}) => {
+export const AuthField: React.FC<AuthFieldTypes> = (
+    {
+        isHeader = false,
+        isCenter = false,
+        isAuth = false,
+        profileId,
+        handleLogOut
+    }
+) => {
     return (
         <ul className={`auth ${isCenter && 'center'} ${isHeader && 'header_auth'}`}>
             <li className="auth_item">
                 {
-                    isAuth ? <NavLink to={profileId ? `/users/${profileId}` : '#'}>profile</NavLink> : <NavLink to={'/sign-in'}>sign in</NavLink>
+                    isAuth ? <NavLink to={profileId ? `/users/${profileId}` : '#'}
+                                      className={"custom_link"}>profile</NavLink> :
+                        <NavLink to={'/sign-in'} className={"custom_link"}>sign in</NavLink>
                 }
             </li>
             <li className="line">
@@ -24,7 +34,8 @@ export const AuthField: React.FC<AuthFieldTypes> = ({isHeader = false, isCenter 
             </li>
             <li className="auth_item">
                 {
-                    isAuth ? <p onClick={handleLogOut} className="sign_out">sign out</p> : <NavLink to={'/sign-up'}>sign up</NavLink>
+                    isAuth ? <p onClick={handleLogOut} className="sign_out custom_link">sign out</p> :
+                        <NavLink to={'/sign-up'} className={"custom_link"}>sign up</NavLink>
                 }
             </li>
         </ul>

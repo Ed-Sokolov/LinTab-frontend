@@ -30,8 +30,8 @@ export const PostCard: React.FC<PostCardType> = (
                             </li>
                         </ul>
                         <H6>{title}</H6>
-                        <p className="author">by <NavLink to="#" className="move_to_author">author</NavLink></p>
-                        <NavLink to={`/posts/${id}`} className="move_to_post">
+                        <p className="author">by <NavLink to="#" className="custom_link">author</NavLink></p>
+                        <NavLink to={`/posts/${id}`} className="move_to_post custom_link">
                             Read
                             <UseSvg spriteName={"full_arrow_right"} className={"move_to_post_icon"}></UseSvg>
                         </NavLink>

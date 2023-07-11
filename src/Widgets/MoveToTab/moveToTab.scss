@@ -1,4 +1,6 @@
-@mixin move_to_by_theme ($background: #632421, $color: #FFF) {
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
+@mixin move_to_by_theme($background: #632421, $color: #FFF) {
   border-radius: 16px 0 0 16px;
   padding: 32px;
 
@@ -74,19 +76,15 @@
       }
     }
 
+
     .custom_link {
+      @include custom_link($color);
+
       font-family: "Aldrich", sans-serif;
       font-size: 20px;
       line-height: 24px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: rgba($color, .78);
-
-      transition: color .4s;
-
-      &:hover {
-        color: rgba($color, 1);
-      }
     }
   }
 

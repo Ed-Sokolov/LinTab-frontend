@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .create_field {
   position: relative;
 
@@ -7,42 +9,45 @@
 
   padding: 8px;
 
-  .create_content_icon {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.96px;
+
+  .add_circle_wrapper {
     flex-shrink: 0;
 
-    width: 42px;
-    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    color: transparent;
-    stroke: #000;
+    .create_content_icon {
+      width: 42px;
+      height: 42px;
 
-    transition: transform .4s;
+      color: transparent;
+      stroke: #000;
+
+      transition: transform .4s;
+    }
   }
 
   .create_link_wrapper {
     flex-basis: 50%;
 
-    &:first-child {
-      text-align: right;
+    .custom_link {
+      @include custom_link(#000);
     }
+  }
 
-    &:last-child {
-      text-align: left;
-    }
+  .left_link {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-    .create_link {
-      color: rgba(0, 0, 0, 0.78);
-      font-family: 'Aldrich', sans-serif;
-      font-size: 20px;
-      line-height: 26px;
-      letter-spacing: 0.96px;
-
-      transition: color .4s;
-
-      &:hover {
-        color: rgba(0, 0, 0, 1);
-      }
-    }
+  .right_link {
+    display: flex;
+    justify-content: flex-start;
   }
 
   .create_content {
@@ -71,18 +76,8 @@
       align-items: center;
       gap: 16px;
 
-      .content_link {
-        color: rgba(255, 255, 255, 0.78);
-        font-family: 'Aldrich', sans-serif;
-        font-size: 20px;
-        line-height: 26px;
-        letter-spacing: 0.96px;
-
-        transition: color .4s;
-
-        &:hover {
-          color: rgba(255, 255, 255, 1);
-        }
+      .custom_link {
+        @include custom_link(#FFF);
       }
     }
   }
@@ -90,7 +85,6 @@
 
 @media screen and (max-width: 428px) {
   .create_field {
-
     .create_link_wrapper {
       display: none;
     }

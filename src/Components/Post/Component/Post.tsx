@@ -9,7 +9,7 @@ import React from "react";
 import parse from "html-react-parser";
 import {SetLike} from "../../../Widgets/SetLike/SetLike";
 
-export const Post: React.FC<PostType> = ({id, title, content, author_id, image,created_at}) => {
+export const Post: React.FC<PostType> = ({id, title, content, author_id, image, created_at}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
 
     const parsedContent = parse(content) as Array<React.ReactElement> | string;
@@ -43,10 +43,10 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, image,c
             <Container>
                 <ul className="redirects">
                     <li className="author">
-                        by <NavLink to={`/users/${author_id}`}>author</NavLink>
+                        by <NavLink to={`/users/${author_id}`} className={"custom_link"}>author</NavLink>
                     </li>
                     <li className="edit">
-                        <NavLink to={`/posts/${id}/edit`} className="edit_link">
+                        <NavLink to={`/posts/${id}/edit`} className="edit_link custom_link">
                             <UseSvg spriteName={"edit"} className={"edit_icon"}/>
                             edit
                         </NavLink>
@@ -54,8 +54,10 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, image,c
                 </ul>
                 <div className="post_content">
                     {
-                        typeof parsedContent === "string" ? <div className="p_wrapper" data-aos="fade-up">{parsedContent}</div> :
-                            parsedContent.map((content, index) => <div className="p_wrapper" key={index} data-aos="fade-up">
+                        typeof parsedContent === "string" ?
+                            <div className="p_wrapper" data-aos="fade-up">{parsedContent}</div> :
+                            parsedContent.map((content, index) => <div className="p_wrapper" key={index}
+                                                                       data-aos="fade-up">
                                 {content}</div>)}
                 </div>
                 <SetLike/>

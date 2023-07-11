@@ -1,0 +1,38 @@
+@mixin custom_link($color: #000) {
+  display: inline-block;
+
+  position: relative;
+
+  width: max-content;
+
+  color: rgba($color, .78);
+
+  transition: color .4s;
+
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: $color;
+
+    border-radius: 2px;
+
+    transition: width .4s;
+  }
+
+  &:hover {
+    color: $color;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}

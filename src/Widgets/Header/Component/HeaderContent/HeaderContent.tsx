@@ -16,16 +16,16 @@ export const HeaderContent: React.FC<HeaderContentTypes> = ({isAuth, profileId, 
             <nav className="nav">
                 <ul className="list">
                     <li className="list_item">
-                        <NavLink to={'/'}>main</NavLink>
+                        <NavLink to={'/'} className={"custom_link"}>main</NavLink>
                     </li>
                     <li className="list_item">
-                        <NavLink to={'/posts'}>posts</NavLink>
+                        <NavLink to={'/posts'} className={"custom_link"}>posts</NavLink>
                     </li>
                     <li className="list_item">
-                        <NavLink to={'#'}>projects</NavLink>
+                        <NavLink to={'#'} className={"custom_link"}>projects</NavLink>
                     </li>
                     <li className="list_item">
-                        <NavLink to={'#'}>help</NavLink>
+                        <NavLink to={'#'} className={"custom_link"}>help</NavLink>
                     </li>
                 </ul>
             </nav>

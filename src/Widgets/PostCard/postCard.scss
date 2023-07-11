@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .post_card {
   position: relative;
   width: 516px;
@@ -108,10 +110,6 @@
 
         .author {
           margin-bottom: 16px;
-
-          .move_to_author {
-            text-decoration: underline;
-          }
         }
 
         .move_to_post {
@@ -119,14 +117,20 @@
           align-items: center;
           gap: 8px;
 
-          font-size: 16px;
-          letter-spacing: 0.64px;
-
           .move_to_post_icon {
             width: 16px;
             height: 16px;
-            stroke: #000000;
+
+            stroke: rgba(#000, .78);
             color: transparent;
+
+            transition: stroke .4s;
+          }
+
+          &:hover {
+            .move_to_post_icon {
+              stroke: #000;
+            }
           }
         }
       }
@@ -182,5 +186,12 @@
         border-width: 8px;
       }
     }
+  }
+
+  .custom_link {
+    @include custom_link(#000);
+
+    font-size: 16px;
+    letter-spacing: 0.64px;
   }
 }
