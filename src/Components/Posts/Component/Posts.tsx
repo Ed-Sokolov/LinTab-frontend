@@ -27,7 +27,7 @@ export const Posts: React.FC<PostsTypes> = ({posts}) => {
                     </div>
                 </div>
             </Container>
-            <MoveToTab isCenter={true} theme={"yellow"}/>
+            <MoveToTab theme={"yellow"}/>
         </div>
     )
 }

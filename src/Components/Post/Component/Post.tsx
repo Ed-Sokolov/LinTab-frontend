@@ -66,7 +66,6 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, image, 
                 title={"Do you want to create a post or leave a comment?"}
                 text={"You can create such post or leave a comment but you need to be authorized"}
                 theme={"dark_brown"}
-                isCenter={true}
             />
         </div>
     )
