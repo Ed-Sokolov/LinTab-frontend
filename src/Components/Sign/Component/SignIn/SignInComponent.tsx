@@ -55,7 +55,7 @@ export const SignInComponent: React.FC = () => {
             </Formik>
             <div className="switch">
                 <p className="text">You are here at the first time?</p>
-                <NavLink to={"/sign-up"} className="switch_link">
+                <NavLink to={"/sign-up"} className="switch_link custom_link">
                     sign up
                     <UseSvg spriteName={"full_arrow_right"} className={"full_arrow_icon"}/>
                 </NavLink>

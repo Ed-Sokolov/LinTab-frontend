@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .sign_wrapper {
   position: relative;
   overflow: hidden;
@@ -121,16 +123,20 @@
             letter-spacing: .9px;
             text-transform: uppercase;
 
-            width: max-content;
-
-            cursor: pointer;
-
             .full_arrow_icon {
               width: 28px;
               height: 28px;
 
               color: transparent;
-              stroke: #FFF;
+              stroke: rgba(#FFF, .78);
+
+              transition: stroke .4s;
+            }
+
+            &:hover {
+              .full_arrow_icon {
+                stroke: #FFF;
+              }
             }
           }
         }
@@ -148,5 +154,11 @@
         transform: translateY(-50%);
       }
     }
+  }
+
+  .custom_link {
+    @include custom_link(#FFF);
+
+    padding-bottom: 4px;
   }
 }
