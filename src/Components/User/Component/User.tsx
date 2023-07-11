@@ -6,6 +6,7 @@ import {H3} from "../../../Widgets/Headings/H3/H3";
 import {UseSvg} from "../../../Widgets/UseSvg/UseSvg";
 import {NavLink} from "react-router-dom";
 import parse from "html-react-parser";
+import {MoveToSettings} from "../../../Widgets/MoveToSettings/MoveToSettings";
 
 export const User: React.FC<UserType> = ({id, nickname, name, about, email, avatar}) => {
     const parsedAbout = parse(about);
@@ -31,12 +32,7 @@ export const User: React.FC<UserType> = ({id, nickname, name, about, email, avat
                                 {parsedAbout}
                             </div>
                         </div>
-                        <div className="move_to_setting_wrapper">
-                            <NavLink to={'/settings'} className="move_to_setting">
-                                <UseSvg spriteName={'settings'} className={"setting_icon"}/>
-                                settings
-                            </NavLink>
-                        </div>
+                        <MoveToSettings/>
                     </div>
                 </Container>
             </div>
