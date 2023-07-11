@@ -1,3 +1,5 @@
+@import "src/Widgets/CommonStyles/Link/custom_link";
+
 .hint {
   position: relative;
 
@@ -106,5 +108,9 @@
         visibility: visible;
       }
     }
+  }
+
+  .custom_link {
+    @include custom_link(#FFF);
   }
 }
