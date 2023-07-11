@@ -6,8 +6,6 @@ import {MoveToTab} from "../../../Widgets/MoveToTab/MoveToTab";
 import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
 import {PostCardType} from "../../../Types/Post/PostType";
 import React from "react";
-import {LeftColumn} from "./Columns/LeftColumn";
-import {RightColumn} from "./Columns/RigthColumn";
 
 type PopularPostsTypes = {
     posts: Array<PostCardType>;
@@ -15,30 +13,19 @@ type PopularPostsTypes = {
 }
 
 export const PopularPosts: React.FC<PopularPostsTypes> = ({posts, isAuth}) => {
-
-    const leftColumn = posts.filter((value, index) => index % 2 === 0);
-    const rightColumn = posts.filter((value, index) => index % 2 === 1);
-
     return (
         <section className="popular_posts_section">
             <Container>
                 <div className="popular_posts_content">
                     <div data-aos="fade-right"><H2 color="gold">popular posts</H2></div>
-                    <ul className="posts_columns">
-                        <LeftColumn>
-                            {
-                                leftColumn.map(post => <li key={post.id} className="post_item">
+                    <ul className="popular_posts_list">
+                        {
+                            posts.map((post, index) => (
+                                <li className="popular_post_card" data-aos={index === 0 ? "fade-right" : index === 1 ? "fade-left" : "fade-up"} key={index}>
                                     <PostCard {...post}/>
-                                </li>)
-                            }
-                        </LeftColumn>
-                        <RightColumn>
-                            {
-                                rightColumn.map(post => <li className="post_item" key={post.id}>
-                                    <PostCard {...post}/>
-                                </li>)
-                            }
-                        </RightColumn>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </Container>

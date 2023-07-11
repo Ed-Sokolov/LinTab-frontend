@@ -7,23 +7,13 @@
   margin-bottom: 128px;
 
   .popular_posts_content {
-    .posts_columns {
+    .popular_posts_list {
       display: flex;
       justify-content: center;
-      gap: 94px;
-      padding: 0 46px;
+      flex-wrap: wrap;
+      gap: 78px 128px;
 
-      .posts_list {
-        display: flex;
-        flex-direction: column;
-        gap: 170px;
-      }
-
-      .right_column {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
+      padding-bottom: 64px;
     }
   }
 }
