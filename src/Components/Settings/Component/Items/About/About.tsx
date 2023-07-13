@@ -26,7 +26,7 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                         <CustomInput type={"text"} className={"input"} id={"name"} name={"name"} placeholder={"Name"}
                                      errorMessage={errors.name} isTouched={touched.name}/>
                     </LabelWrapper>
-                    <LabelWrapper htmlFor={"about"} text={"About you"}>
+                    <LabelWrapper text={"About you"}>
                         <div className="input_wrapper">
                             <ReactQuillWrapper
                                 value={values.about}

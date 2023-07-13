@@ -2,7 +2,7 @@ import React from "react";
 import "./labelWrapper.scss"
 
 type LabelWrapperTypes = {
-    htmlFor: string;
+    htmlFor?: string;
     text: string;
     children: React.ReactElement;
 }
@@ -10,7 +10,11 @@ type LabelWrapperTypes = {
 export const LabelWrapper: React.FC<LabelWrapperTypes> = ({htmlFor, text, children}) => {
     return (
         <div className="form_group">
-            <label className="label" htmlFor={htmlFor}>{text}</label>
+            {
+                htmlFor ?
+                    <label className="label" htmlFor={htmlFor}>{text}</label> :
+                    <div className="label">{text}</div>
+            }
             {children}
         </div>
     )

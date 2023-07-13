@@ -38,7 +38,7 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, h
                             <CustomInput id={"title"} name={"title"} placeholder={"Title"} errorMessage={errors.title}
                                          isTouched={touched.title} className={"input"}/>
                         </LabelWrapper>
-                        <LabelWrapper htmlFor={"content"} text={"Content"}>
+                        <LabelWrapper text={"Content"}>
                             <div className="input_wrapper">
                                 <ReactQuillWrapper
                                     value={values.content}
@@ -53,7 +53,7 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, h
                         <LabelWrapper htmlFor={"image"} text={"Change Image"}>
                             <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
                                              errorMessage={errors.image} isTouched={touched.image} file={values.image}
-                                             isEdit originalImage={originalPhoto}
+                                             isEdit originalImage={originalPhoto} id={"image"}
                             />
                         </LabelWrapper>
                         <div className="buttons">

@@ -17,6 +17,7 @@ type CommonDropzoneTypes = {
         id: number;
         url: string;
     };
+    id:string;
 }
 
 type FileDropzoneTypes = CommonDropzoneTypes & {
@@ -35,7 +36,7 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
     {
         isMultiple = false, maxFiles = 1, setFieldValue, errorMessage,
         isTouched, setFieldTouched, file, files,
-        isEdit = false, originalImage
+        isEdit = false, originalImage, id
     }
 ) => {
     const {getRootProps, getInputProps, isDragActive} = useDropzone({
@@ -75,7 +76,7 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
     return (
         <div className={"dropzone_wrapper"}>
             <div {...getRootProps({className: "dropzone"})}>
-                <input {...getInputProps()} />
+                <input {...getInputProps()} id={id}/>
                 {
                     isMultiple ?
                         (files && files.length > 0) ? <ul className={"files_list"}>

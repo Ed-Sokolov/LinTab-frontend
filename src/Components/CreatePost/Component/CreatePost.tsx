@@ -33,7 +33,7 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                             <CustomInput id={"title"} name={"title"} placeholder={"Title"}
                                          errorMessage={errors.title} isTouched={touched.title}/>
                         </LabelWrapper>
-                        <LabelWrapper htmlFor={"content"} text={"Content"}>
+                        <LabelWrapper text={"Content"}>
                             <div className="input_wrapper">
                                 <ReactQuillWrapper
                                     value={values.content}
@@ -48,7 +48,7 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                         <LabelWrapper htmlFor={"image"} text={"Upload photo"}>
                             <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
                                              errorMessage={errors.image} isTouched={touched.image}
-                                             file={values.image}/>
+                                             file={values.image} id={"image"}/>
                         </LabelWrapper>
                         <div className="buttons">
                             <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>
