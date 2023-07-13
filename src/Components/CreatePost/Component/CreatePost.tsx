@@ -37,15 +37,15 @@ export const CreatePost: React.FC<CreatePostTypes> = ({createPostSubmit, initVal
                             <div className="input_wrapper">
                                 <ReactQuillWrapper
                                     value={values.content}
-                                    change={(e: any) => setFieldValue('content', e)}
+                                    setFieldValue={setFieldValue}
                                     id={"content"}
                                     placeholder={"Content"}
-                                    blur={() => setFieldTouched('content', true)}
+                                    setFieldTouched={setFieldTouched}
                                 />
                                 {(errors.content && touched.content) && <ErrorField message={errors.content}/>}
                             </div>
                         </LabelWrapper>
-                        <LabelWrapper htmlFor={"sadasd"} text={"Upload photo"}>
+                        <LabelWrapper htmlFor={"image"} text={"Upload photo"}>
                             <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
                                              errorMessage={errors.image} isTouched={touched.image}
                                              file={values.image}/>

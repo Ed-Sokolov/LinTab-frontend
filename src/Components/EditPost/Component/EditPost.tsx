@@ -11,14 +11,19 @@ import {Button} from "../../../Widgets/Button/Button";
 import {Remove} from "../../../Widgets/Remove/Remove";
 import {ReactQuillWrapper} from "../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
 import {ErrorField} from "../../../Widgets/ErrorField/ErrorField";
+import {DropzoneWrapper} from "../../../Widgets/DropzoneWrapper/DropzoneWrapper";
 
 type EditPostTypes = {
     initValues: EditPostFormTypes;
     editPostSubmit: (values: EditPostFormTypes, actions: FormikHelpers<EditPostFormTypes>) => any;
     handleDestroyPost: () => any;
+    originalPhoto: {
+        id: number;
+        url: string;
+    };
 }
 
-export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, handleDestroyPost}) => {
+export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, handleDestroyPost, originalPhoto}) => {
     return (
         <FormPage>
             <H3>Editing post</H3>
@@ -27,8 +32,8 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, h
                 {
                     ({
                          errors, touched, isValid,
-                        values, setFieldTouched, setFieldValue
-                    }) => <Form className={"form"}>
+                         values, setFieldTouched, setFieldValue
+                     }) => <Form className={"form"}>
                         <LabelWrapper htmlFor={"title"} text={"Title"}>
                             <CustomInput id={"title"} name={"title"} placeholder={"Title"} errorMessage={errors.title}
                                          isTouched={touched.title} className={"input"}/>
@@ -37,17 +42,24 @@ export const EditPost: React.FC<EditPostTypes> = ({editPostSubmit, initValues, h
                             <div className="input_wrapper">
                                 <ReactQuillWrapper
                                     value={values.content}
-                                    change={(e: any) => setFieldValue('content', e)}
+                                    setFieldValue={setFieldValue}
                                     id={"content"}
                                     placeholder={"Content"}
-                                    blur={() => setFieldTouched('content', true)}
+                                    setFieldTouched={setFieldTouched}
                                 />
                                 {(errors.content && touched.content) && <ErrorField message={errors.content}/>}
                             </div>
                         </LabelWrapper>
+                        <LabelWrapper htmlFor={"image"} text={"Change Image"}>
+                            <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
+                                             errorMessage={errors.image} isTouched={touched.image} file={values.image}
+                                             isEdit originalImage={originalPhoto}
+                            />
+                        </LabelWrapper>
                         <div className="buttons">
                             <Button type={"button"} classes={"btn btn-outline-dark"}>cancel</Button>
-                            <Button type={"submit"} classes={"btn btn-orange"} isDisabled={!isValid}>save changes</Button>
+                            <Button type={"submit"} classes={"btn btn-orange"} isDisabled={!isValid || (JSON.stringify(values) === JSON.stringify(initValues))}>save
+                                changes</Button>
                         </div>
                     </Form>
                 }

@@ -30,10 +30,10 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                         <div className="input_wrapper">
                             <ReactQuillWrapper
                                 value={values.about}
-                                change={(e: any) => setFieldValue('about', e)}
+                                setFieldValue={setFieldValue}
                                 id={"about"}
                                 placeholder={"About you"}
-                                blur={() => setFieldTouched('about', true)}
+                                setFieldTouched={setFieldTouched}
                             />
                             {(errors.about && touched.about) && <ErrorField message={errors.about}/>}
                         </div>

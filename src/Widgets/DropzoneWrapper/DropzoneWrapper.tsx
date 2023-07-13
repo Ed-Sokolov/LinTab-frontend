@@ -3,6 +3,7 @@ import {useDropzone} from "react-dropzone";
 import React from "react";
 import {ErrorField} from "../ErrorField/ErrorField";
 import {FileCard} from "./Component/FileCard";
+import {H5} from "../Headings/H5/H5";
 
 type CommonDropzoneTypes = {
     setFieldValue: (field: string, value: any) => any;
@@ -11,6 +12,11 @@ type CommonDropzoneTypes = {
     isTouched: boolean | undefined;
     isMultiple?: boolean;
     maxFiles?: number;
+    isEdit?: boolean;
+    originalImage?: {
+        id: number;
+        url: string;
+    };
 }
 
 type FileDropzoneTypes = CommonDropzoneTypes & {
@@ -28,7 +34,8 @@ type DropzoneWrapperTypes = FileDropzoneTypes | FilesDropzoneTypes
 export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
     {
         isMultiple = false, maxFiles = 1, setFieldValue, errorMessage,
-        isTouched, setFieldTouched, file, files
+        isTouched, setFieldTouched, file, files,
+        isEdit = false, originalImage
     }
 ) => {
     const {getRootProps, getInputProps, isDragActive} = useDropzone({
@@ -76,29 +83,36 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
                             </ul> :
                             isDragActive ?
                                 <p>drop the image here ...</p> :
-                                <p>drop or click to select the image</p>
+                                <p>{isEdit ? 'if you want to change the image, drop or click to select the image' : 'drop or click to select the image'}</p>
                         :
                         file ?
-                            <ul className={"files_list"}><FileCard file={file} remove={remove}/></ul> : isDragActive ?
+                            <ul className={"files_list"}><FileCard file={file} remove={remove}/>
+                            </ul> : isDragActive ?
                                 <p>drop the image here ...</p> :
-                                <p>drop or click to select the image</p>
+                                <p>{isEdit ? 'if you want to change the image, drop or click to select the image' : 'drop or click to select the image'}</p>
                 }
             </div>
             {
-                errorMessage && isTouched ?
-                    <div className="dropzone_error">
-                        <ErrorField message={errorMessage}/>
-                    </div> :
-                    <div className={"dropzone_help"}>
-                        <p className="dropzone_help_main">
-                            {((files && files.length > 0) || file) ?
-                                "You can delete this image and upload another image" :
-                                "Upload only one image which will be the main one"
-                            }
-                        </p>
-                        <p className="dropzone_help_types">(Only *.jpeg, *.jpg and *.png images will be accepted)</p>
-                    </div>
+                (errorMessage && isTouched) &&
+                <div className="dropzone_error">
+                    <ErrorField message={errorMessage}/>
+                </div>
             }
+            {
+                isEdit && originalImage && <div className="original_image_field">
+                    <H5>Original Image</H5>
+                    <img src={originalImage.url} alt="" className={"original_image"}/>
+                </div>
+            }
+            <div className={"dropzone_help"}>
+                <p className="dropzone_help_main">
+                    {((files && files.length > 0) || file) ?
+                        "You can delete this image and upload another image" :
+                        "Upload only one image which will be the main one"
+                    }
+                </p>
+                <p className="dropzone_help_types">(Only *.jpeg, *.jpg and *.png images will be accepted)</p>
+            </div>
         </div>
     )
 }

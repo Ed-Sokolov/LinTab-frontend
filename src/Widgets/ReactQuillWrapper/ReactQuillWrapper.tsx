@@ -5,14 +5,14 @@ import "./reactQuillWrapper.scss"
 
 type ReactQuillWrapperTypes = {
     value: any,
-    change: (e: any) => any;
-    blur: () => any;
+    setFieldValue: (field: string, value: any) => any;
+    setFieldTouched: (field: string, isTouched: boolean) => any;
     id: string;
     placeholder: string;
 }
 
 export const ReactQuillWrapper: React.FC<ReactQuillWrapperTypes> = (
-    {value, change, id, placeholder, blur}
+    {value, setFieldValue, id, placeholder, setFieldTouched}
 ) => {
     const modules = {
         toolbar: [
@@ -31,9 +31,10 @@ export const ReactQuillWrapper: React.FC<ReactQuillWrapperTypes> = (
         'link'
     ]
 
-    return <ReactQuill theme={"snow"} className={"textarea"}
-                       modules={modules} formats={formats}
-                       value={value} onChange={change} onBlur={blur}
+    return <ReactQuill theme={"snow"} className={"textarea"} modules={modules}
+                       formats={formats} value={value}
                        id={id} placeholder={placeholder}
+                       onChange={e => setFieldValue('content', e)}
+                       onBlur={() => setFieldTouched('content', true)}
     />
 }

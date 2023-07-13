@@ -6,6 +6,7 @@ import {destroyPost, updatePost} from "../../API/PostApi";
 export type EditPostFormTypes = {
     title: string;
     content: string;
+    image: File | null;
 }
 
 export const EditPostContainer = () => {
@@ -14,8 +15,9 @@ export const EditPostContainer = () => {
 
     const initValues: EditPostFormTypes = {
         title: post ? post.title : '',
-        content: post ? post.content : ''
-    }
+        content: post ? post.content : '',
+        image: null
+    };
 
     const editPostSubmit = (values: EditPostFormTypes, actions: FormikHelpers<EditPostFormTypes>) => {
         if (post) {
@@ -40,5 +42,8 @@ export const EditPostContainer = () => {
         }
     }
 
-    return post ? <EditPost initValues={initValues} editPostSubmit={editPostSubmit} handleDestroyPost={handleDestroyPost}/> : <></>
+    return post ?
+        <EditPost initValues={initValues} editPostSubmit={editPostSubmit}
+                  handleDestroyPost={handleDestroyPost} originalPhoto={post.image}
+        /> : <></>
 }
