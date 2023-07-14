@@ -18,10 +18,10 @@ export const PostCard: React.FC<PostCardType> = (
             <div className="promo_img">
                 <img src={preview ? preview.prev_url : img}/>
             </div>
-            <div className="content">
+            <div className="content" data-aos="fade-up">
                 <div className="empty_field"></div>
                 <div className="main_content_wrapper">
-                    <div className="main_content" data-aos="fade-right">
+                    <div className="main_content">
                         <ul className="information">
                             <li className="created_at">06.29.2023</li>
                             <li className="views">
@@ -37,7 +37,7 @@ export const PostCard: React.FC<PostCardType> = (
                         </NavLink>
                     </div>
                 </div>
-                <ul className="interactions" data-aos="fade-left">
+                <ul className="interactions" data-aos="zoom-in-down">
                     <li className="interaction">
                         <UseSvg spriteName="like" className="interaction_icon"></UseSvg>
                         <p className="count">100</p>
