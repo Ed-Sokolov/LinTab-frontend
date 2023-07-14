@@ -6,14 +6,45 @@
 
   margin-bottom: 128px;
 
+  overflow-x: clip;
+
   .popular_posts_content {
     .popular_posts_list {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 78px 128px;
+      flex-direction: column;
 
-      padding-bottom: 64px;
+      padding: 0 32px 64px;
+
+      .popular_post_card:nth-child(even) {
+        margin: -128px 0 -128px auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1164px) {
+  .popular_posts_section {
+    .popular_posts_content {
+      .popular_posts_list {
+        padding: 0 0 64px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1084px) {
+  .popular_posts_section {
+    .popular_posts_content {
+      .popular_posts_list {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 78px 128px;
+
+        .popular_post_card:nth-child(even) {
+          margin: 0;
+        }
+      }
     }
   }
 }

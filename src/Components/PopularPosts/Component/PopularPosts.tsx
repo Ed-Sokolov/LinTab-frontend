@@ -6,6 +6,7 @@ import {MoveToTab} from "../../../Widgets/MoveToTab/MoveToTab";
 import {ExtraAction} from "../../../Widgets/ExtraAction/ExtraAction";
 import {PostCardType} from "../../../Types/Post/PostType";
 import React from "react";
+import {useMediaQuery} from "react-responsive";
 
 type PopularPostsTypes = {
     posts: Array<PostCardType>;
@@ -13,6 +14,15 @@ type PopularPostsTypes = {
 }
 
 export const PopularPosts: React.FC<PopularPostsTypes> = ({posts, isAuth}) => {
+    const isOneColumn = useMediaQuery({maxWidth: 1084});
+
+    const getAnimationDirection = (index: number): "fade-right" | "fade-left" | "fade-up" => {
+        if (isOneColumn) return "fade-up";
+
+        if (index % 2 === 0) return "fade-right";
+        else return "fade-left";
+    }
+
     return (
         <section className="popular_posts_section">
             <Container>
@@ -21,7 +31,9 @@ export const PopularPosts: React.FC<PopularPostsTypes> = ({posts, isAuth}) => {
                     <ul className="popular_posts_list">
                         {
                             posts.map((post, index) => (
-                                <li className="popular_post_card" data-aos={index === 0 ? "fade-right" : index === 1 ? "fade-left" : "fade-up"} key={index}>
+                                <li className="popular_post_card"
+                                    data-aos={getAnimationDirection(index)}
+                                    key={index}>
                                     <PostCard {...post}/>
                                 </li>
                             ))
