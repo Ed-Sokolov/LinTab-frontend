@@ -76,7 +76,17 @@ export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
         try {
             const {id, postData} = data;
 
-            const response = await instance.patch(`/api/posts/${id}`, postData);
+            const formData = new FormData();
+
+            formData.append("title", postData.title);
+            formData.append("content", postData.content);
+            formData.append("_method", "PATCH");
+
+            if(postData.image) {
+                formData.append("image", postData.image);
+            }
+
+            const response = await instance.post(`/api/posts/${id}`, formData);
 
             return response.data.data;
         } catch (error) {
