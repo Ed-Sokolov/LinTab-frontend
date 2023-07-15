@@ -9,7 +9,7 @@ export const Avatar = () => {
             <div className="settings_avatar">
                 <UserAvatar size={"m"}/>
                 <DropzoneWrapper setFieldValue={() => 1} setFieldTouched={() => 1}
-                                 errorMessage={""} isTouched={false} id={"avatar"} file={null}/>
+                                 errorMessage={""} isTouched={false} id={"avatar"} file={null} size={"m"}/>
             </div>
             <Remove text={"remove the avatar"} onEvent={() => 1}/>
         </div>

@@ -4,6 +4,12 @@
   flex-direction: column;
   gap: 16px;
 
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+
   .dropzone {
     width: 100%;
     min-height: 216px;
@@ -19,15 +25,9 @@
 
     border-radius: 16px;
 
-    color: #000;
-    font-family: "Inter", sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 42px;
     letter-spacing: 1.28px;
     text-transform: uppercase;
-    text-align: center;
 
     cursor: default;
 
@@ -45,14 +45,8 @@
     flex-direction: column;
     gap: 8px;
 
-    color: #000;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
     line-height: normal;
     letter-spacing: 0.8px;
-    text-align: center;
 
     .dropzone_help_types {
       font-style: italic;
@@ -88,5 +82,32 @@
     position: absolute;
     width: 100%;
     height: 56px;
+  }
+
+  &.l {
+    .dropzone {
+      font-size: 32px;
+    }
+
+    .dropzone_help {
+      font-size: 20px;
+    }
+  }
+
+  &.m {
+    .dropzone {
+      min-height: 184px;
+
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.94px;
+    }
+    .dropzone_help {
+      font-size: 16px;
+
+      .dropzone_help_types {
+        font-size: 14px;
+      }
+    }
   }
 }
