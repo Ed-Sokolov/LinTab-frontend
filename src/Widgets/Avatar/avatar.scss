@@ -1,4 +1,6 @@
 .user_avatar_wrapper {
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,12 +33,12 @@
   }
 
   &.m {
-    width: 328px;
-    height: 328px;
+    width: 224px;
+    height: 224px;
 
     .user_avatar {
-      width: 304px;
-      height: 304px;
+      width: 208px;
+      height: 208px;
     }
   }
 }
