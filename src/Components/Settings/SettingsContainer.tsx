@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {Settings} from "./Component/Settings";
 import {useNavigate, useParams} from "react-router-dom";
-import {Avatar} from "./Component/Items/Avatar/Avatar";
 import {Privacy} from "./Component/Items/Privacy/Privacy";
 import {Setups} from "./Component/Items/Setups/Setups";
 import {ActivatedItemType, ContentsType} from "./Types";
 import {useAppDispatch, useAppSelector} from "../../Hooks/hooks";
 import {getUser} from "../../API/UserApi";
 import {AboutContainer} from "./Component/Items/About/AboutContainer";
+import {AvatarContainer} from "./Component/Items/Avatar/AvatarContainer";
 
 export const SettingsContainer = () => {
     let {profileId} = useAppSelector(state => state.auth);
@@ -45,7 +45,7 @@ export const SettingsContainer = () => {
     }, [item, navigate]);
 
     const contents: ContentsType = {
-        avatar: <Avatar/>,
+        avatar: <AvatarContainer user={user}/>,
         about: <AboutContainer user={user}/>,
         privacy: <Privacy/>,
         setups: <Setups/>

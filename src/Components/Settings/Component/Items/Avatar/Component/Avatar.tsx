@@ -1,7 +1,7 @@
-import {Avatar as UserAvatar} from "../../../../../Widgets/Avatar/Avatar";
+import {Avatar as UserAvatar} from "../../../../../../Widgets/Avatar/Avatar";
 import "./avatar.scss";
-import {Remove} from "../../../../../Widgets/Remove/Remove";
-import {DropzoneWrapper} from "../../../../../Widgets/DropzoneWrapper/DropzoneWrapper";
+import {Remove} from "../../../../../../Widgets/Remove/Remove";
+import {DropzoneWrapper} from "../../../../../../Widgets/DropzoneWrapper/DropzoneWrapper";
 
 export const Avatar = () => {
     return (
