@@ -9,9 +9,9 @@ import {ReactQuillWrapper} from "../../../../../../Widgets/ReactQuillWrapper/Rea
 import {ErrorField} from "../../../../../../Widgets/ErrorField/ErrorField";
 import {AboutSchema} from "../../../../Validation/About";
 
-export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout}) => {
+export const About: React.FC<AboutTypes> = ({initValues, handleSubmit}) => {
     return (
-        <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema}
+        <Formik initialValues={initValues} onSubmit={handleSubmit} validationSchema={AboutSchema}
                 enableReinitialize={true}>
             {
                 ({

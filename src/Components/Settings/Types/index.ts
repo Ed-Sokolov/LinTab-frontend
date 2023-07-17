@@ -1,6 +1,6 @@
 import {JSX} from "react";
 import {FormikHelpers} from "formik";
-import {AboutSchema} from "../Validation/About";
+import {UserType} from "../../../Types/User/UserType";
 
 export type ActivatedItemType = 'avatar' | 'about' | 'privacy' | 'setups';
 
@@ -12,12 +12,22 @@ export type ContentsType = {
 }
 
 export type AboutTypes = {
-    initValuesAbout: AboutFormTypes;
-    handleSubmitAbout: (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => void;
+    initValues: AboutFormTypes;
+    handleSubmit: (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => void;
+}
+
+export type AvatarTypes = {
+    user: UserType | null;
+    initValues: AvatarFormTypes;
+    handleSubmit: (values: AvatarFormTypes, actions: FormikHelpers<AvatarFormTypes>) => void;
 }
 
 export type AboutFormTypes = {
     nickname: string;
     name: string;
     about: string;
+}
+
+export type AvatarFormTypes = {
+    avatar: File | null;
 }

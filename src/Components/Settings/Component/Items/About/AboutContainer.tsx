@@ -13,13 +13,13 @@ type AboutContainerTypes = {
 export const AboutContainer: React.FC<AboutContainerTypes> = ({user}) => {
     const dispatch = useAppDispatch();
 
-    const initValuesAbout: AboutFormTypes = {
+    const initValues: AboutFormTypes = {
         nickname: user?.nickname ? user.nickname : '',
         name: user?.name ? user.name : '',
         about: user?.about ? user.about : ''
     }
 
-    const handleSubmitAbout = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
+    const handleSubmit = (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => {
         dispatch(updateAbout(values))
             .catch(error => {
                 for (const errorKey in error.errors) {
@@ -28,5 +28,5 @@ export const AboutContainer: React.FC<AboutContainerTypes> = ({user}) => {
             });
     }
 
-    return <About initValuesAbout={initValuesAbout} handleSubmitAbout={handleSubmitAbout}/>
+    return <About initValues={initValues} handleSubmit={handleSubmit}/>
 }
