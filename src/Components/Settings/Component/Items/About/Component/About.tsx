@@ -1,14 +1,15 @@
 import {Form, Formik} from "formik";
 import React from "react";
-import {Button} from "../../../../../Widgets/Button/Button";
+import {Button} from "../../../../../../Widgets/Button/Button";
 import "./about.scss"
-import {AboutTypes} from "../../../Types";
-import {CustomInput} from "../../../../../Widgets/CustomInput/CustomInput";
-import {LabelWrapper} from "../../../../../Widgets/LabelWrapper/LabelWrapper";
-import {ReactQuillWrapper} from "../../../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
-import {ErrorField} from "../../../../../Widgets/ErrorField/ErrorField";
+import {AboutTypes} from "../../../../Types";
+import {CustomInput} from "../../../../../../Widgets/CustomInput/CustomInput";
+import {LabelWrapper} from "../../../../../../Widgets/LabelWrapper/LabelWrapper";
+import {ReactQuillWrapper} from "../../../../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
+import {ErrorField} from "../../../../../../Widgets/ErrorField/ErrorField";
+import {AboutSchema} from "../../../../Validation/About";
 
-export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout, AboutSchema}) => {
+export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout}) => {
     return (
         <Formik initialValues={initValuesAbout} onSubmit={handleSubmitAbout} validationSchema={AboutSchema}
                 enableReinitialize={true}>
@@ -16,7 +17,7 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                 ({
                      errors, touched, isValid,
                      values, setFieldValue, setFieldTouched
-                }) => <Form className="form">
+                 }) => <Form className="form">
                     <LabelWrapper htmlFor={"nickname"} text={"Nickname"}>
                         <CustomInput type={"text"} className={"input"} id={"nickname"} name={"nickname"}
                                      placeholder={"Nickname"} errorMessage={errors.nickname}

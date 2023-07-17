@@ -14,7 +14,6 @@ export type ContentsType = {
 export type AboutTypes = {
     initValuesAbout: AboutFormTypes;
     handleSubmitAbout: (values: AboutFormTypes, actions: FormikHelpers<AboutFormTypes>) => void;
-    AboutSchema: typeof AboutSchema;
 }
 
 export type AboutFormTypes = {
