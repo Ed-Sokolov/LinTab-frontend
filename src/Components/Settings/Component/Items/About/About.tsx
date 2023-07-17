@@ -34,6 +34,7 @@ export const About: React.FC<AboutTypes> = ({initValuesAbout, handleSubmitAbout,
                                 id={"about"}
                                 placeholder={"About you"}
                                 setFieldTouched={setFieldTouched}
+                                field={"about"}
                             />
                             {(errors.about && touched.about) && <ErrorField message={errors.about}/>}
                         </div>

@@ -9,10 +9,11 @@ type ReactQuillWrapperTypes = {
     setFieldTouched: (field: string, isTouched: boolean) => any;
     id: string;
     placeholder: string;
+    field?: string;
 }
 
 export const ReactQuillWrapper: React.FC<ReactQuillWrapperTypes> = (
-    {value, setFieldValue, id, placeholder, setFieldTouched}
+    {value, setFieldValue, id, placeholder, setFieldTouched, field = 'content'}
 ) => {
     const modules = {
         toolbar: [
@@ -34,7 +35,7 @@ export const ReactQuillWrapper: React.FC<ReactQuillWrapperTypes> = (
     return <ReactQuill theme={"snow"} className={"textarea"} modules={modules}
                        formats={formats} value={value}
                        id={id} placeholder={placeholder}
-                       onChange={e => setFieldValue('content', e)}
-                       onBlur={() => setFieldTouched('content', true)}
+                       onChange={e => setFieldValue(field, e)}
+                       onBlur={() => setFieldTouched(field, true)}
     />
 }

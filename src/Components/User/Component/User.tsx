@@ -8,7 +8,7 @@ import {MoveToSettings} from "../../../Widgets/MoveToSettings/MoveToSettings";
 import {Avatar} from "../../../Widgets/Avatar/Avatar";
 
 export const User: React.FC<UserType> = ({id, nickname, name, about, email, avatar}) => {
-    const parsedAbout = parse(about);
+    const parsedAbout = about ? parse(about) : null;
 
     return (
         <div className="profile_wrapper">
