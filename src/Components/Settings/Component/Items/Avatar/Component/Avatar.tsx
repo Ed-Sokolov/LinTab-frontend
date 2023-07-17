@@ -4,14 +4,27 @@ import {Remove} from "../../../../../../Widgets/Remove/Remove";
 import {DropzoneWrapper} from "../../../../../../Widgets/DropzoneWrapper/DropzoneWrapper";
 import React from "react";
 import {AvatarTypes} from "../../../../Types";
+import {Form, Formik} from "formik";
+import {AvatarSchema} from "../../../../Validation/Avatar";
 
 export const Avatar: React.FC<AvatarTypes> = ({user, initValues, handleSubmit}) => {
     return (
         <div className={"settings_avatar_wrapper"}>
             <div className="settings_avatar">
-                <UserAvatar size={"m"}/>
-                <DropzoneWrapper setFieldValue={() => 1} setFieldTouched={() => 1}
-                                 errorMessage={""} isTouched={false} id={"avatar"} file={null} size={"m"}/>
+                <UserAvatar size={"m"} avatar={user.avatar}/>
+                <Formik initialValues={initValues} onSubmit={handleSubmit} validationSchema={AvatarSchema}>
+                    {
+                        ({
+                             values, errors, touched,
+                             setFieldValue, setFieldTouched, submitForm, validateForm
+                         }) => <Form>
+                            <DropzoneWrapper setFieldValue={setFieldValue} setFieldTouched={setFieldTouched}
+                                             errorMessage={errors.avatar} isTouched={touched.avatar} id={"avatar"}
+                                             file={values.avatar} size={"m"} fieldName={"avatar"}
+                                             submitForm={submitForm} validateForm={validateForm}/>
+                        </Form>
+                    }
+                </Formik>
             </div>
             <Remove text={"remove the avatar"} onEvent={() => 1}/>
         </div>

@@ -17,7 +17,7 @@ export type AboutTypes = {
 }
 
 export type AvatarTypes = {
-    user: UserType | null;
+    user: UserType;
     initValues: AvatarFormTypes;
     handleSubmit: (values: AvatarFormTypes, actions: FormikHelpers<AvatarFormTypes>) => void;
 }

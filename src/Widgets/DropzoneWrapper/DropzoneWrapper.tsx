@@ -1,9 +1,10 @@
 import "./dropzoneWrapper.scss";
 import {useDropzone} from "react-dropzone";
-import React from "react";
+import React, {useEffect} from "react";
 import {ErrorField} from "../ErrorField/ErrorField";
 import {FileCard} from "./Component/FileCard";
 import {H5} from "../Headings/H5/H5";
+import {FormikErrors} from "formik";
 
 type CommonDropzoneTypes = {
     setFieldValue: (field: string, value: any) => any;
@@ -17,8 +18,11 @@ type CommonDropzoneTypes = {
         id: number;
         url: string;
     };
-    id:string;
+    id: string;
     size?: "l" | "m";
+    fieldName?: string;
+    submitForm?: (() => Promise<void>) & (() => Promise<any>);
+    validateForm?: (values?: any) => Promise<FormikErrors<any>>
 }
 
 type FileDropzoneTypes = CommonDropzoneTypes & {
@@ -37,7 +41,8 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
     {
         isMultiple = false, maxFiles = 1, setFieldValue, errorMessage,
         isTouched, setFieldTouched, file, files,
-        isEdit = false, originalImage, id, size = "l"
+        isEdit = false, originalImage, id, size = "l",
+        fieldName = "image", submitForm, validateForm
     }
 ) => {
     const {getRootProps, getInputProps, isDragActive} = useDropzone({
@@ -56,11 +61,20 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
                 }
                 setFieldTouched("images", true);
             } else {
-                setFieldValue("image", acceptedFiles[0]);
-                setFieldTouched("image", true);
+                setFieldValue(fieldName, acceptedFiles[0]);
+                setFieldTouched(fieldName, true);
             }
         },
     });
+
+    useEffect(() => {
+        if (submitForm && validateForm && file) {
+            validateForm().then(() => submitForm().then(() => {
+                // setFieldValue(fieldName, null);
+                // setFieldTouched(fieldName, false);
+            }))
+        }
+    }, [file, submitForm, validateForm])
 
     const remove = (e: React.MouseEvent, file: any) => {
         e.stopPropagation();
@@ -70,7 +84,7 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
                 setFieldValue("images", updatedFiles);
             }
         } else {
-            setFieldValue("image", null);
+            setFieldValue(fieldName, null);
         }
     }
 

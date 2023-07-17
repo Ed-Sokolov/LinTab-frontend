@@ -4,5 +4,8 @@ export type UserType = {
     nickname: string;
     name: string;
     about: string;
-    avatar: string;
+    avatar: {
+        id: number;
+        url: string;
+    };
 }
