@@ -4,7 +4,7 @@ import React from "react";
 import {AvatarFormTypes} from "../../../Types";
 import {FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../../Hooks/hooks";
-import {updateAvatar} from "../../../../../API/SettingsApi";
+import {destroyAvatar, updateAvatar} from "../../../../../API/SettingsApi";
 
 type AvatarContainerTypes = {
     user: UserType | null
@@ -21,5 +21,9 @@ export const AvatarContainer: React.FC<AvatarContainerTypes> = ({user}) => {
         dispatch(updateAvatar(values));
     }
 
-    return user && <Avatar user={user} initValues={initValues} handleSubmit={handleSubmit}/>
+    const handleDestroyAvatar = () => {
+        dispatch(destroyAvatar());
+    }
+
+    return user && <Avatar user={user} initValues={initValues} handleSubmit={handleSubmit} handleDestroyAvatar={handleDestroyAvatar}/>
 }

@@ -3,9 +3,9 @@ import {instance} from "../Instance/instance";
 import axios from "axios";
 import {updateUser} from "../../Store/User/UserSlice";
 
-export const updateAbout = createAsyncThunk<any, any, {rejectValue: any}>(
+export const updateAbout = createAsyncThunk<any, any, { rejectValue: any }>(
     'settings/about',
-    async(data, {rejectWithValue}) => {
+    async (data, {rejectWithValue}) => {
         try {
             await instance.patch('/api/settings/about', data);
         } catch (error) {
@@ -16,8 +16,8 @@ export const updateAbout = createAsyncThunk<any, any, {rejectValue: any}>(
     }
 )
 
-export const updateAvatar = createAsyncThunk<any, any, {rejectValue: any}>(
-    'settings/avatar',
+export const updateAvatar = createAsyncThunk<any, any, { rejectValue: any }>(
+    'settings/avatar/update',
     async (data, {rejectWithValue, dispatch}) => {
         try {
             const formData = new FormData();
@@ -33,6 +33,21 @@ export const updateAvatar = createAsyncThunk<any, any, {rejectValue: any}>(
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 return rejectWithValue(error.response?.data);
+            }
+        }
+    }
+)
+
+export const destroyAvatar = createAsyncThunk<any, undefined, { rejectValue: any }>(
+    'settings/avatar/destroy',
+    async (_, {rejectWithValue, dispatch}) => {
+        try {
+            const response = await instance.delete('/api/settings/avatar');
+
+            dispatch(updateUser(response.data.data));
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response);
             }
         }
     }

@@ -7,7 +7,7 @@ import {AvatarTypes} from "../../../../Types";
 import {Form, Formik} from "formik";
 import {AvatarSchema} from "../../../../Validation/Avatar";
 
-export const Avatar: React.FC<AvatarTypes> = ({user, initValues, handleSubmit}) => {
+export const Avatar: React.FC<AvatarTypes> = ({user, initValues, handleSubmit, handleDestroyAvatar}) => {
     return (
         <div className={"settings_avatar_wrapper"}>
             <div className="settings_avatar">
@@ -26,7 +26,7 @@ export const Avatar: React.FC<AvatarTypes> = ({user, initValues, handleSubmit}) 
                     }
                 </Formik>
             </div>
-            <Remove text={"remove the avatar"} onEvent={() => 1}/>
+            <Remove text={"remove the avatar"} onEvent={handleDestroyAvatar}/>
         </div>
     )
 }

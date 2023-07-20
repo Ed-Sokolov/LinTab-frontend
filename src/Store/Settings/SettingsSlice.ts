@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {updateAbout, updateAvatar} from "../../API/SettingsApi";
+import {destroyAvatar, updateAbout, updateAvatar} from "../../API/SettingsApi";
 
 const settingsSlice = createSlice({
     name: "settings",
@@ -31,6 +31,19 @@ const settingsSlice = createSlice({
                 state.isError = false;
             })
             .addCase(updateAvatar.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+
+                throw action.payload;
+            })
+            .addCase(destroyAvatar.pending, state => {
+                state.isLoading = true;
+            })
+            .addCase(destroyAvatar.fulfilled, state => {
+                state.isLoading = false;
+                state.isError = false;
+            })
+            .addCase(destroyAvatar.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
 

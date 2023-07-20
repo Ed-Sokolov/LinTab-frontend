@@ -20,6 +20,7 @@ export type AvatarTypes = {
     user: UserType;
     initValues: AvatarFormTypes;
     handleSubmit: (values: AvatarFormTypes, actions: FormikHelpers<AvatarFormTypes>) => void;
+    handleDestroyAvatar: () => any;
 }
 
 export type AboutFormTypes = {
