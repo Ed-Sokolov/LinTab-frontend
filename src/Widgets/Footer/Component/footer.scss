@@ -10,97 +10,99 @@
   overflow: hidden;
 
   .footer_content {
-    position: relative;
-
     display: flex;
-    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 175px;
+    row-gap: 64px;
 
     margin-bottom: 128px;
 
-    .footer_content_body {
-      width: 60%;
-
+    .company_links {
       display: flex;
-      flex-wrap: wrap;
-      column-gap: 175px;
-      row-gap: 64px;
+      flex-direction: column;
+      gap: 32px;
 
-      .company_links {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-
-        .title {
-          color: #FFFFFF;
-          font-size: 32px;
-          font-weight: 700;
-          text-transform: uppercase;
-          line-height: normal;
-          letter-spacing: 2.56px;
-        }
-
-        .social_list {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-
-          .social_item {
-            font-size: 20px;
-            letter-spacing: 0.8px;
-
-            .social_link {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-
-              padding: 4px 0;
-
-              .social_icon {
-                width: 24px;
-                height: 24px;
-              }
-            }
-          }
-        }
+      .title {
+        color: #FFFFFF;
+        font-size: 32px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: normal;
+        letter-spacing: 2.56px;
       }
 
-      .menu {
+      .social_list {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 16px;
 
-        .menu_title {
-          font-size: 24px;
-          letter-spacing: 0.96px;
-        }
+        .social_item {
+          font-size: 20px;
+          letter-spacing: 0.8px;
 
-        .nav .menu_list {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
+          .social_link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-          .menu_item {
-            font-size: 20px;
-            letter-spacing: 0.8px;
+            padding: 4px 0;
+
+            .social_icon {
+              width: 24px;
+              height: 24px;
+            }
           }
         }
       }
     }
 
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .menu_title {
+        font-size: 24px;
+        letter-spacing: 0.96px;
+      }
+
+      .nav .menu_list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .menu_item {
+          font-size: 20px;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+
     .move_to_contact {
-      position: absolute;
-      width: 40%;
+      flex-grow: 1;
 
-      left: auto;
-      right: 0;
+      position: relative;
 
-      border-radius: 16px 0px 0px 16px;
+      height: max-content;
+
+      border-radius: 16px 0 0 16px;
       background: #F6C244;
       padding: 32px 64px;
 
       color: #1B040E;
       font-size: 20px;
       letter-spacing: 0.8px;
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 100vw;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        background: #F6C244;
+      }
     }
   }
 
