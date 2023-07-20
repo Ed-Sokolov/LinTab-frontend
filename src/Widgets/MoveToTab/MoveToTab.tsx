@@ -23,7 +23,7 @@ export const MoveToTab: React.FC<MoveToAuthTabTypes> = (
     }
 ) => {
     return (
-        <div className={`move_to ${theme}`} data-aos="fade-up">
+        <div className={`move_to ${theme}`} data-aos="fade-left">
             {
                 <Container>
                     <MoveToTabContent title={title} text={text} isCustomLink={isCustomLink} linkName={linkName}
