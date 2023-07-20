@@ -69,10 +69,15 @@ export const DropzoneWrapper: React.FC<DropzoneWrapperTypes> = (
 
     useEffect(() => {
         if (submitForm && validateForm && file) {
-            validateForm().then(() => submitForm().then(() => {
-                // setFieldValue(fieldName, null);
-                // setFieldTouched(fieldName, false);
-            }))
+            validateForm({[fieldName]: file})
+                .then((error) => {
+                    if (Object.keys(error).length === 0) {
+                        submitForm().then(() => {
+                            setFieldValue(fieldName, null);
+                            setFieldTouched(fieldName, false);
+                        });
+                    }
+                })
         }
     }, [file, submitForm, validateForm])
 

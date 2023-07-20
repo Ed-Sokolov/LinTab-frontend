@@ -26,7 +26,7 @@ const settingsSlice = createSlice({
             .addCase(updateAvatar.pending, state => {
                 state.isLoading = true;
             })
-            .addCase(updateAvatar.fulfilled, state => {
+            .addCase(updateAvatar.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isError = false;
             })

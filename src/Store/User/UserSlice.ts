@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {UserType} from "../../Types/User/UserType";
 import {getUser} from "../../API/UserApi";
 
@@ -9,7 +9,11 @@ const initialState = {
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        updateUser(state, action: PayloadAction<UserType>) {
+            state.user = action.payload;
+        }
+    },
     extraReducers: (builder) : void => {
         builder
             .addCase(getUser.fulfilled, (state, action) => {
@@ -17,5 +21,7 @@ const userSlice = createSlice({
             })
     }
 })
+
+export const { updateUser } = userSlice.actions;
 
 export default userSlice.reducer;

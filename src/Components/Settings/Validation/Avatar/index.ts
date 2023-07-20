@@ -12,7 +12,7 @@ const imageSchema = object({
 
 export const AvatarSchema = object({
     avatar: mixed()
-        .required("The photo is required")
+        .nullable()
         .test('fileFormat', 'The extension must be jpeg, jpg or png', (value) => {
             if (!value) return true;
             return supportedFormats.includes((value as File).type);
@@ -21,7 +21,7 @@ export const AvatarSchema = object({
             if (!value) return true;
             return value ? (value as File).size <= maxFileSize : true;
         })
-        .test('imageSize', 'Minimum size of a photo must be 1280x720', function (value) {
+        .test('imageSize', 'Minimum size of a photo must be 500x500', function (value) {
             if (!value) return true;
             return new Promise((resolve) => {
                 const img = new Image();

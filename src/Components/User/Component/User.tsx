@@ -16,7 +16,7 @@ export const User: React.FC<UserType> = ({id, nickname, name, about, email, avat
                 <Container>
                     <div className="user_data">
                         <div className="main_data">
-                            <Avatar size={"l"}/>
+                            <Avatar size={"l"} avatar={avatar}/>
                             <div className="user_names">
                                 <H3>{nickname}</H3>
                                 <p className="user_name">{name}</p>

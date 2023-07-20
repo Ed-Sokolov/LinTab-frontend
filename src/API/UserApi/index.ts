@@ -9,7 +9,7 @@ export const getUser = createAsyncThunk<UserType, number, {rejectValue: any}>(
         try {
             const response = await instance.get(`/api/users/${id}`);
 
-            return response.data;
+            return response.data.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log(error.response);
