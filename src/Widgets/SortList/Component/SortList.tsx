@@ -1,5 +1,5 @@
 import "./sortList.scss"
-import {UseSvg} from "../UseSvg/UseSvg";
+import {UseSvg} from "../../UseSvg/UseSvg";
 
 export const SortList = () => {
     return (
