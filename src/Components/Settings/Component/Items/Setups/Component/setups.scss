@@ -26,10 +26,8 @@
 
       .new_password_wrapper {
         @include use_flex_column();
-      }
 
-      .btn {
-        margin-top: 16px;
+        margin-bottom: 16px;
       }
     }
   }
