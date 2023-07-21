@@ -7,8 +7,6 @@
 
   color: $color;
 
-  overflow: hidden;
-
   .content {
     position: relative;
     margin: 0 auto;
@@ -105,16 +103,20 @@
   }
 }
 
-.move_to {
-  &.yellow {
-    @include move_to_by_theme(#F6C244, #000000);
-  }
+.move_to_wrapper {
+  overflow: hidden;
 
-  &.dark_brown {
-    @include move_to_by_theme(#3C0D07, #FFF);
-  }
+  .move_to {
+    &.yellow {
+      @include move_to_by_theme(#F6C244, #000000);
+    }
 
-  &.brown {
-    @include move_to_by_theme();
+    &.dark_brown {
+      @include move_to_by_theme(#3C0D07, #FFF);
+    }
+
+    &.brown {
+      @include move_to_by_theme();
+    }
   }
 }
