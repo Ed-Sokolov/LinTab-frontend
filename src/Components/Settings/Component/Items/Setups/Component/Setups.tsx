@@ -3,6 +3,7 @@ import {Form, Formik, FormikHelpers} from "formik";
 import {LabelWrapper} from "../../../../../../Widgets/LabelWrapper/LabelWrapper";
 import {CustomInput} from "../../../../../../Widgets/CustomInput/CustomInput";
 import {Button} from "../../../../../../Widgets/Button/Button";
+import {ChangePasswordSchema} from "../../../../Validation/Setups";
 
 export const Setups = () => {
     const initValues = {
@@ -19,9 +20,12 @@ export const Setups = () => {
         <div className={"setups"}>
             <div className="change_password_field">
                 <h4 className={"setups_title"}>Change password</h4>
-                <Formik initialValues={initValues} onSubmit={handleSubmit}>
+                <Formik initialValues={initValues} onSubmit={handleSubmit} validationSchema={ChangePasswordSchema}
+                        validateOnMount={true}>
                     {
-                        ({errors, touched}) => <Form className={"change_password_form"}>
+                        ({
+                             errors, touched, isValid
+                         }) => <Form className={"change_password_form"}>
                             <LabelWrapper htmlFor={"old_password"} text={"Old password"}>
                                 <CustomInput id={"old_password"} name={"old_password"} placeholder={"Old password"}
                                              errorMessage={errors.old_password} isTouched={touched.old_password}/>
@@ -38,7 +42,8 @@ export const Setups = () => {
                                                  isTouched={touched.confirmed_password}/>
                                 </LabelWrapper>
                             </div>
-                            <Button type={"submit"} classes={"btn btn-outline-dark"}>CHANGE</Button>
+                            <Button type={"submit"} classes={"btn btn-outline-dark"}
+                                    isDisabled={!isValid}>CHANGE</Button>
                         </Form>
                     }
                 </Formik>
