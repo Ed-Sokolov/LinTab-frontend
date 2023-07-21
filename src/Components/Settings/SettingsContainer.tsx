@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Settings} from "./Component/Settings";
 import {useNavigate, useParams} from "react-router-dom";
 import {Privacy} from "./Component/Items/Privacy/Privacy";
-import {Setups} from "./Component/Items/Setups/Setups";
+import {SetupsContainer} from "./Component/Items/Setups/SetupsContainer";
 import {ActivatedItemType, ContentsType} from "./Types";
 import {useAppDispatch, useAppSelector} from "../../Hooks/hooks";
 import {getUser} from "../../API/UserApi";
@@ -48,7 +48,7 @@ export const SettingsContainer = () => {
         avatar: <AvatarContainer user={user}/>,
         about: <AboutContainer user={user}/>,
         privacy: <Privacy/>,
-        setups: <Setups/>
+        setups: <SetupsContainer/>
     }
 
     return user && <Settings activatedItem={activatedItem} contents={contents}/>
