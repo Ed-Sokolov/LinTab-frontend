@@ -1,22 +1,22 @@
-.sort_list {
+.sort_content {
   display: flex;
   justify-content: center;
   gap: 16px;
 
   width: 516px;
 
-  .sort_item {
+  .sort_list_wrapper {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     text-align: center;
 
-    .icons_list {
+    .sort_list {
       display: flex;
       gap: 16px;
 
-      .icon_item {
+      .sort_item {
         position: relative;
 
         width: 48px;
