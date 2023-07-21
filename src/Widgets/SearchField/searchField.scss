@@ -79,7 +79,7 @@
     background-color: transparent;
     border-radius: 34px;
 
-    transition: top .4s, left .4s, background-color .4s;
+    transition: transform .4s, background-color .4s;
   }
 
   &:hover {
@@ -90,8 +90,7 @@
 
   &:focus-within {
     &:before {
-      top: 8px;
-      left: 8px;
+      transform: translate(8px, 8px);
       background-color: #F6C244;
     }
   }
