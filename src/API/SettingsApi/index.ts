@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {instance} from "../Instance/instance";
 import axios from "axios";
 import {updateUser} from "../../Store/User/UserSlice";
+import {ChangePasswordFormTypes} from "../../Components/Settings/Types";
 
 export const updateAbout = createAsyncThunk<any, any, { rejectValue: any }>(
     'settings/about',
@@ -48,6 +49,21 @@ export const destroyAvatar = createAsyncThunk<any, undefined, { rejectValue: any
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 return rejectWithValue(error.response);
+            }
+        }
+    }
+)
+
+export const changePassword = createAsyncThunk<any, ChangePasswordFormTypes, {rejectValue: any}>(
+    'settings/setups/password/change',
+    async (data, {rejectWithValue}) => {
+        try {
+            const response = await instance.patch('/api/settings/setups/password', data);
+
+            return response.data.data;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response?.data);
             }
         }
     }

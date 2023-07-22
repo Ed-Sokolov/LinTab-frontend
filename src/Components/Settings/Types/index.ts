@@ -41,5 +41,5 @@ export type SetupsTypes = {
 export type ChangePasswordFormTypes = {
     old_password: string,
     new_password: string,
-    password_confirmation: string
+    new_password_confirmation: string
 }

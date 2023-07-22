@@ -24,7 +24,7 @@
     .change_password_form {
       @include use_flex_column(48px);
 
-      .new_password_wrapper {
+      .form_groups {
         @include use_flex_column();
 
         margin-bottom: 16px;

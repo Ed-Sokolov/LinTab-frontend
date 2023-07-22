@@ -9,7 +9,7 @@ export const ChangePasswordSchema = object({
         .required('You must write your new password')
         .min(8, "New Password must be more than 8 characters")
         .max(24, "New Password must be less than 24 characters"),
-    password_confirmation: string()
+    new_password_confirmation: string()
         .required('You must confirm your new password')
         .oneOf([ref('new_password')], 'Confirmed password must match the new password'),
 })
