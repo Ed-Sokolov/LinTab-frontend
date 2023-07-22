@@ -7,6 +7,7 @@ export type PostType = {
         id: number;
         url: string;
     };
+    views: number;
     created_at: Date;
     updated_at: Date
 }
@@ -19,6 +20,7 @@ export type PostCardType = {
         id: number;
         prev_url: string;
     };
+    views: number;
     created_at: Date;
     updated_at: Date
 }
