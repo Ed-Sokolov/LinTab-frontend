@@ -17,6 +17,7 @@
 
       .popular_post_card:nth-child(even) {
         margin: -128px 0 -128px auto;
+        z-index: 5;
       }
     }
   }
