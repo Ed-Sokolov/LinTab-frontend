@@ -13,7 +13,14 @@ export const SetupsContainer = () => {
     }
 
     const handleSubmit = (values: typeof initValues, actions: FormikHelpers<typeof initValues>) => {
-        dispatch(changePassword(values));
+        dispatch(changePassword(values))
+            .catch(errors => {
+                for (const errorKey in errors) {
+                    if (errorKey in values) {
+                        actions.setFieldError(errorKey, errors[errorKey]);
+                    }
+                }
+            });
     }
 
     return <Setups initValues={initValues} handleSubmit={handleSubmit}/>
