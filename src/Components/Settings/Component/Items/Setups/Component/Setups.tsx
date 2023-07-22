@@ -1,21 +1,13 @@
 import "./setups.scss";
-import {Form, Formik, FormikHelpers} from "formik";
+import {Form, Formik} from "formik";
 import {LabelWrapper} from "../../../../../../Widgets/LabelWrapper/LabelWrapper";
 import {CustomInput} from "../../../../../../Widgets/CustomInput/CustomInput";
 import {Button} from "../../../../../../Widgets/Button/Button";
 import {ChangePasswordSchema} from "../../../../Validation/Setups";
+import React from "react";
+import {SetupsTypes} from "../../../../Types";
 
-export const Setups = () => {
-    const initValues = {
-        old_password: '',
-        new_password: '',
-        password_confirmation: ''
-    }
-
-    const handleSubmit = (values: typeof initValues, actions: FormikHelpers<typeof initValues>) => {
-        console.log(values);
-    }
-
+export const Setups: React.FC<SetupsTypes> = ({initValues, handleSubmit}) => {
     return (
         <div className={"setups"}>
             <div className="change_password_field">

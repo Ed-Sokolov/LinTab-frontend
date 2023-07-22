@@ -32,3 +32,14 @@ export type AboutFormTypes = {
 export type AvatarFormTypes = {
     avatar: File | null;
 }
+
+export type SetupsTypes = {
+    initValues: ChangePasswordFormTypes,
+    handleSubmit: (values: ChangePasswordFormTypes, actions: FormikHelpers<ChangePasswordFormTypes>) => any
+}
+
+export type ChangePasswordFormTypes = {
+    old_password: string,
+    new_password: string,
+    password_confirmation: string
+}
