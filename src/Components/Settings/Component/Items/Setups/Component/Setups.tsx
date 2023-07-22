@@ -28,18 +28,20 @@ export const Setups = () => {
                          }) => <Form className={"change_password_form"}>
                             <LabelWrapper htmlFor={"old_password"} text={"Old password"}>
                                 <CustomInput id={"old_password"} name={"old_password"} placeholder={"Old password"}
-                                             errorMessage={errors.old_password} isTouched={touched.old_password}/>
+                                             errorMessage={errors.old_password} isTouched={touched.old_password}
+                                             type={"password"}/>
                             </LabelWrapper>
                             <div className="new_password_wrapper">
                                 <LabelWrapper htmlFor={"new_password"} text={"New password"}>
                                     <CustomInput id={"new_password"} name={"new_password"} placeholder={"New password"}
-                                                 errorMessage={errors.new_password} isTouched={touched.new_password}/>
+                                                 errorMessage={errors.new_password} isTouched={touched.new_password}
+                                                 type={"password"}/>
                                 </LabelWrapper>
                                 <LabelWrapper htmlFor={"confirmed_password"} text={"Confirm password"}>
                                     <CustomInput id={"confirmed_password"} name={"confirmed_password"}
                                                  placeholder={"Confirm password"}
                                                  errorMessage={errors.confirmed_password}
-                                                 isTouched={touched.confirmed_password}/>
+                                                 isTouched={touched.confirmed_password} type={"password"}/>
                                 </LabelWrapper>
                             </div>
                             <Button type={"submit"} classes={"btn btn-outline-dark"}

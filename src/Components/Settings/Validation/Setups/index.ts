@@ -1,4 +1,4 @@
-import {object, string} from "yup";
+import {object, string, ref} from "yup";
 
 export const ChangePasswordSchema = object({
     old_password: string()
@@ -11,6 +11,5 @@ export const ChangePasswordSchema = object({
         .max(50, "New Password must be less than 50 characters"),
     confirmed_password: string()
         .required('You must confirm your new password')
-        .min(8, "Confirmed Password must be more than 8 characters")
-        .max(50, "Confirmed Password must be less than 50 characters"),
+        .oneOf([ref('new_password')], 'Confirmed password must match the new password'),
 })
