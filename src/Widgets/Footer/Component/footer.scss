@@ -1,7 +1,11 @@
 @import "src/Widgets/CommonStyles/Link/custom_link";
 
+.footer_wrapper {
+  padding-top: 256px;
+  overflow: hidden;
+}
+
 .footer {
-  margin-top: 256px;
   background-color: #2D2D2D;
   padding: 128px 0 32px;
 
