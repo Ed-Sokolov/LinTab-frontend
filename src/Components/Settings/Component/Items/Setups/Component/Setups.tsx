@@ -9,7 +9,7 @@ export const Setups = () => {
     const initValues = {
         old_password: '',
         new_password: '',
-        confirmed_password: ''
+        password_confirmation: ''
     }
 
     const handleSubmit = (values: typeof initValues, actions: FormikHelpers<typeof initValues>) => {
@@ -37,11 +37,11 @@ export const Setups = () => {
                                                  errorMessage={errors.new_password} isTouched={touched.new_password}
                                                  type={"password"}/>
                                 </LabelWrapper>
-                                <LabelWrapper htmlFor={"confirmed_password"} text={"Confirm password"}>
-                                    <CustomInput id={"confirmed_password"} name={"confirmed_password"}
+                                <LabelWrapper htmlFor={"password_confirmation"} text={"Confirm password"}>
+                                    <CustomInput id={"password_confirmation"} name={"password_confirmation"}
                                                  placeholder={"Confirm password"}
-                                                 errorMessage={errors.confirmed_password}
-                                                 isTouched={touched.confirmed_password} type={"password"}/>
+                                                 errorMessage={errors.password_confirmation}
+                                                 isTouched={touched.password_confirmation} type={"password"}/>
                                 </LabelWrapper>
                             </div>
                             <Button type={"submit"} classes={"btn btn-outline-dark"}
