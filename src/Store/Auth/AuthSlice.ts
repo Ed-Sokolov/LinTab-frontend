@@ -10,7 +10,12 @@ const initialState = {
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+    reducers: {
+        resetAuth(state) {
+            state.isAuth = false;
+            state.profileId = null;
+        }
+    },
     extraReducers: (builder): void => {
         builder
             .addCase(login.fulfilled, (state, action) => {
@@ -45,5 +50,7 @@ const authSlice = createSlice({
             })
     }
 })
+
+export const {resetAuth} = authSlice.actions;
 
 export default authSlice.reducer;

@@ -2,6 +2,7 @@ import {Setups} from "./Component/Setups";
 import {FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../../Hooks/hooks";
 import {changePassword, destroyUser} from "../../../../../API/SettingsApi";
+import {resetAuth} from "../../../../../Store/Auth/AuthSlice";
 
 export const SetupsContainer = () => {
     const dispatch = useAppDispatch();
@@ -24,7 +25,8 @@ export const SetupsContainer = () => {
     }
 
     const handleDestroyUser = () => {
-        dispatch(destroyUser());
+        dispatch(destroyUser())
+            .then(() => dispatch(resetAuth()));
     }
 
     return <Setups initValues={initValues} handleSubmit={handleSubmit} handleDestroyUser={handleDestroyUser}/>
