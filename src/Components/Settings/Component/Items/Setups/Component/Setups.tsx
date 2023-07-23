@@ -6,8 +6,9 @@ import {Button} from "../../../../../../Widgets/Button/Button";
 import {ChangePasswordSchema} from "../../../../Validation/Setups";
 import React from "react";
 import {SetupsTypes} from "../../../../Types";
+import {Remove} from "../../../../../../Widgets/Remove/Remove";
 
-export const Setups: React.FC<SetupsTypes> = ({initValues, handleSubmit}) => {
+export const Setups: React.FC<SetupsTypes> = ({initValues, handleSubmit, handleDestroyUser}) => {
     return (
         <div className={"setups"}>
             <div className="change_password_field">
@@ -43,6 +44,7 @@ export const Setups: React.FC<SetupsTypes> = ({initValues, handleSubmit}) => {
                     }
                 </Formik>
             </div>
+            <Remove text={"delete this account"} onEvent={handleDestroyUser}/>
         </div>
     )
 }

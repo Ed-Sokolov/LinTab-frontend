@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {changePassword, destroyAvatar, updateAbout, updateAvatar} from "../../API/SettingsApi";
+import {changePassword, destroyAvatar, destroyUser, updateAbout, updateAvatar} from "../../API/SettingsApi";
 
 const settingsSlice = createSlice({
     name: "settings",
@@ -57,6 +57,19 @@ const settingsSlice = createSlice({
                 state.isError = false;
             })
             .addCase(changePassword.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+
+                throw action.payload;
+            })
+            .addCase(destroyUser.pending, state => {
+                state.isLoading = true;
+            })
+            .addCase(destroyUser.fulfilled, state => {
+                state.isLoading = false;
+                state.isError = false;
+            })
+            .addCase(destroyUser.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
 

@@ -1,7 +1,7 @@
 import {Setups} from "./Component/Setups";
 import {FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../../Hooks/hooks";
-import {changePassword} from "../../../../../API/SettingsApi";
+import {changePassword, destroyUser} from "../../../../../API/SettingsApi";
 
 export const SetupsContainer = () => {
     const dispatch = useAppDispatch();
@@ -23,5 +23,9 @@ export const SetupsContainer = () => {
             });
     }
 
-    return <Setups initValues={initValues} handleSubmit={handleSubmit}/>
+    const handleDestroyUser = () => {
+        dispatch(destroyUser());
+    }
+
+    return <Setups initValues={initValues} handleSubmit={handleSubmit} handleDestroyUser={handleDestroyUser}/>
 }

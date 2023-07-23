@@ -35,7 +35,8 @@ export type AvatarFormTypes = {
 
 export type SetupsTypes = {
     initValues: ChangePasswordFormTypes,
-    handleSubmit: (values: ChangePasswordFormTypes, actions: FormikHelpers<ChangePasswordFormTypes>) => any
+    handleSubmit: (values: ChangePasswordFormTypes, actions: FormikHelpers<ChangePasswordFormTypes>) => any;
+    handleDestroyUser: () => any;
 }
 
 export type ChangePasswordFormTypes = {

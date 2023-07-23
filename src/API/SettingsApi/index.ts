@@ -68,3 +68,18 @@ export const changePassword = createAsyncThunk<any, ChangePasswordFormTypes, {re
         }
     }
 )
+
+export const destroyUser = createAsyncThunk<any, undefined, {rejectValue: any}>(
+    'settings/user/destroy',
+    async (_, {rejectWithValue}) => {
+        try {
+            const response = await instance.delete('/api/settings/user');
+
+            return response.data;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                return rejectWithValue(error.response);
+            }
+        }
+    }
+)
