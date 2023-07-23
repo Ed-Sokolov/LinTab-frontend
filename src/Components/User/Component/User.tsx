@@ -6,29 +6,42 @@ import {H3} from "../../../Widgets/Headings/H3/H3";
 import parse from "html-react-parser";
 import {MoveToSettings} from "../../../Widgets/MoveToSettings/MoveToSettings";
 import {Avatar} from "../../../Widgets/Avatar/Avatar";
+import {Deleted} from "../../../Widgets/Deleted/Deleted";
 
-export const User: React.FC<UserType> = ({id, nickname, name, about, email, avatar}) => {
+export const User: React.FC<UserType> = ({id, nickname, name, about, email, avatar, isDeleted}) => {
     const parsedAbout = about ? parse(about) : null;
 
     return (
         <div className="profile_wrapper">
             <div className="profile_back">
                 <Container>
-                    <div className="user_data">
-                        <div className="main_data">
-                            <Avatar size={"l"} avatar={avatar}/>
-                            <div className="user_names">
-                                <H3>{nickname}</H3>
-                                <p className="user_name">{name}</p>
+                    {
+                        isDeleted ?
+                            <div className="user_data">
+                                <div className="main_data">
+                                    <Avatar size={"l"} avatar={avatar}/>
+                                    <div className="user_names">
+                                        <H3>{nickname}</H3>
+                                    </div>
+                                </div>
+                                <Deleted/>
+                            </div> :
+                            <div className="user_data">
+                                <div className="main_data">
+                                    <Avatar size={"l"} avatar={avatar}/>
+                                    <div className="user_names">
+                                        <H3>{nickname}</H3>
+                                        <p className="user_name">{name}</p>
+                                    </div>
+                                </div>
+                                <div className="about_field">
+                                    <div className="about_information">
+                                        {parsedAbout}
+                                    </div>
+                                </div>
+                                <MoveToSettings/>
                             </div>
-                        </div>
-                        <div className="about_field">
-                            <div className="about_information">
-                                {parsedAbout}
-                            </div>
-                        </div>
-                        <MoveToSettings/>
-                    </div>
+                    }
                 </Container>
             </div>
         </div>

@@ -8,4 +8,5 @@ export type UserType = {
         id: number;
         url: string;
     };
+    isDeleted: boolean;
 }
