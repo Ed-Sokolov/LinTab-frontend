@@ -1,15 +1,14 @@
-import {H2} from "../../../../Widgets/Headings/H2/H2";
 import {Button} from "../../../../Widgets/Button/Button";
 import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../../Widgets/UseSvg/UseSvg";
 import React from "react";
-import {Field, Form, Formik, FormikHelpers} from "formik";
+import {Form, Formik, FormikHelpers} from "formik";
 import {useAppDispatch} from "../../../../Hooks/hooks";
 import {login} from "../../../../API/AuthApi";
 import {SignInSchema} from "../../Validation/SignIn";
-import {ErrorField} from "../../../../Widgets/ErrorField/ErrorField";
 import {CustomInput} from "../../../../Widgets/CustomInput/CustomInput";
 import {LabelWrapper} from "../../../../Widgets/LabelWrapper/LabelWrapper";
+import {H3} from "../../../../Widgets/Headings/H3/H3";
 
 type SignInTypes = {
     email: string;
@@ -35,7 +34,7 @@ export const SignInComponent: React.FC = () => {
 
     return (
         <div className="sign__content">
-            <H2>Sign In</H2>
+            <H3>Sign In</H3>
             <Formik initialValues={initValues} onSubmit={signIn} validationSchema={SignInSchema} validateOnMount={true}>
                 {
                     ({errors, touched, isValid}) => <Form className="sign_form">
