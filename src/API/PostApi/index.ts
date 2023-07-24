@@ -3,11 +3,11 @@ import {instance} from "../Instance/instance";
 import axios from "axios";
 import {PostCardType, PostType} from "../../Types/Post/PostType";
 
-export const getPosts = createAsyncThunk<Array<PostCardType>, undefined, {rejectValue:any}>(
+export const getPosts = createAsyncThunk<Array<PostCardType>, URLSearchParams, { rejectValue: any }>(
     'posts/index',
-    async (_, {rejectWithValue}) => {
+    async (params, {rejectWithValue}) => {
         try {
-            const response = await instance.get('/api/posts');
+            const response = await instance.get('/api/posts', {params});
 
             return response.data.data;
         } catch (error) {
@@ -18,7 +18,7 @@ export const getPosts = createAsyncThunk<Array<PostCardType>, undefined, {reject
     }
 )
 
-export const getPopularPosts = createAsyncThunk<Array<PostCardType>, undefined, {rejectValue:any}>(
+export const getPopularPosts = createAsyncThunk<Array<PostCardType>, undefined, { rejectValue: any }>(
     'posts/popular/index',
     async (_, {rejectWithValue}) => {
         try {
@@ -33,7 +33,7 @@ export const getPopularPosts = createAsyncThunk<Array<PostCardType>, undefined, 
     }
 )
 
-export const getPost = createAsyncThunk<PostType, number, {rejectValue: any}>(
+export const getPost = createAsyncThunk<PostType, number, { rejectValue: any }>(
     'posts/show',
     async (id, {rejectWithValue}) => {
         try {
@@ -70,7 +70,7 @@ export const createPost = createAsyncThunk<number | any, any, { rejectValue: any
     }
 )
 
-export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
+export const updatePost = createAsyncThunk<PostType, any, { rejectValue: any }>(
     'posts/update',
     async (data, {rejectWithValue}) => {
         try {
@@ -82,7 +82,7 @@ export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
             formData.append("content", postData.content);
             formData.append("_method", "PATCH");
 
-            if(postData.image) {
+            if (postData.image) {
                 formData.append("image", postData.image);
             }
 
@@ -97,9 +97,9 @@ export const updatePost = createAsyncThunk<PostType, any, {rejectValue: any}>(
     }
 )
 
-export const destroyPost = createAsyncThunk<any, number, {rejectValue: any}>(
+export const destroyPost = createAsyncThunk<any, number, { rejectValue: any }>(
     'posts/destroy',
-    async (id, {rejectWithValue}) =>  {
+    async (id, {rejectWithValue}) => {
         try {
             const response = await instance.delete(`/api/posts/${id}`);
 

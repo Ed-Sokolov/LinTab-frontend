@@ -1,97 +1,157 @@
-.search_field {
+.search_field_wrapper {
+  flex-basis: 50%;
+
   display: flex;
-  width: max-content;
-  border-radius: 34px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 
-  height: max-content;
+  padding-right: 16px;
 
-  position: relative;
-
-  .search_input {
-    position: relative;
-    width: 448px;
-    outline: none;
-    border-radius: 34px 0 0 34px;
-    border: 2px solid #1B040E;
-    border-right-width: 0;
-    background: rgba(255, 255, 255, 0.64);
-    backdrop-filter: blur(4px);
-
-    padding: 14px 16px 14px 24px;
-
-    font-size: 20px;
-    letter-spacing: .84px;
-
-    &::placeholder {
-      text-transform: uppercase;
-    }
+  &:has(.reset.hide) {
+    //gap: 0;
   }
 
-  .search_btn {
-    outline: none;
-    border-radius: 0 34px 34px 0;
-    border: 2px solid #1B040E;
-    border-left-width: 0;
-    background: rgba(255, 255, 255, 0.64);
-    backdrop-filter: blur(4px);
+  transition: gap .4s;
 
+  .search_field {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: max-content;
+    border-radius: 34px;
 
-    padding: 16px;
+    height: max-content;
 
-    transition: background-color .8s;
+    position: relative;
 
-    .search_icon {
-      width: 20px;
-      height: 20px;
+    .search_input {
+      position: relative;
+      width: 448px;
+      outline: none;
+      border-radius: 34px 0 0 34px;
+      border: 2px solid #1B040E;
+      border-right-width: 0;
+      background: rgba(255, 255, 255, 0.64);
+      backdrop-filter: blur(4px);
 
-      transition: transform .1s;
+      padding: 14px 16px 14px 24px;
+
+      font-size: 20px;
+      letter-spacing: .84px;
+
+      &::placeholder {
+        text-transform: uppercase;
+      }
     }
 
-    &:hover {
-      background-color: #F6C244;
-    }
+    .search_btn {
+      outline: none;
+      border-radius: 0 34px 34px 0;
+      border: 2px solid #1B040E;
+      border-left-width: 0;
+      background: rgba(255, 255, 255, 0.64);
+      backdrop-filter: blur(4px);
 
-    &:active .search_icon {
-      transform: rotate(-32deg);
-    }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    &:disabled {
+      padding: 16px;
+
+      transition: background-color .8s;
+
+      .search_icon {
+        width: 20px;
+        height: 20px;
+
+        transition: transform .1s;
+      }
+
       &:hover {
-        background: rgba(255, 255, 255, 0.64);
+        background-color: #F6C244;
       }
 
       &:active .search_icon {
-        transform: rotate(0);
+        transform: rotate(-32deg);
+      }
+
+      &:disabled {
+        &:hover {
+          background: rgba(255, 255, 255, 0.64);
+        }
+
+        &:active .search_icon {
+          transform: rotate(0);
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      border-radius: 34px;
+
+      transition: transform .4s, background-color .4s;
+    }
+
+    &:hover {
+      &:before {
+        background-color: #FED655;
+      }
+    }
+
+    &:focus-within {
+      &:before {
+        transform: translate(8px, 8px);
+        background-color: #F6C244;
       }
     }
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-    border-radius: 34px;
+  .reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    transition: transform .4s, background-color .4s;
-  }
+    width: 32px;
+    height: 32px;
 
-  &:hover {
-    &:before {
-      background-color: #FED655;
+    border-radius: 50%;
+
+    transform-origin: left center;
+
+    transform: rotateY(0deg);
+    opacity: 1;
+    visibility: visible;
+
+    transition: width .4s, transform .4s, opacity .4s, visibility .4s;
+
+    .reset_icon {
+      width: 100%;
+      height: 100%;
+
+      color: transparent;
+      stroke: #000;
+
+      transition: transform .4s;
     }
-  }
 
-  &:focus-within {
-    &:before {
-      transform: translate(8px, 8px);
-      background-color: #F6C244;
+    &.hide {
+      width: 0;
+
+      transform: rotateY(90deg);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &:hover {
+      .reset_icon {
+        transform: scale(1.1);
+      }
     }
   }
 }
