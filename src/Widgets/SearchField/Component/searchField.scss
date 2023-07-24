@@ -8,12 +8,6 @@
 
   padding-right: 16px;
 
-  &:has(.reset.hide) {
-    //gap: 0;
-  }
-
-  transition: gap .4s;
-
   .search_field {
     display: flex;
     width: max-content;
