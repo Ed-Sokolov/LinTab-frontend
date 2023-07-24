@@ -6,14 +6,15 @@ type SearchFieldTypes = {
     searchedValue: string;
     setSearchedValue: (value: string) => any;
     handleSubmit: () => any;
+    searchBtn:   React.RefObject<HTMLButtonElement>
 }
 
-export const SearchField: React.FC<SearchFieldTypes> = ({searchedValue, setSearchedValue, handleSubmit}) => {
+export const SearchField: React.FC<SearchFieldTypes> = ({searchedValue, setSearchedValue, handleSubmit, searchBtn}) => {
     return (
         <div className="search_field" data-aos="fade-right">
             <input className="search_input" type="text" placeholder="search by title"
                    onChange={e => setSearchedValue(e.target.value)} value={searchedValue}/>
-            <button className="search_btn" disabled={!(searchedValue.length > 0)} onClick={handleSubmit}>
+            <button className="search_btn" disabled={!(searchedValue.length > 0)} onClick={handleSubmit} ref={searchBtn}>
                 <UseSvg spriteName={"search"} className={"search_icon"}/>
             </button>
         </div>
