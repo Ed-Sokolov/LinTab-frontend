@@ -5,6 +5,8 @@
   width: 48px;
   height: 48px;
 
+  cursor: pointer;
+
   .sort_icon_wrapper {
     display: flex;
     align-items: center;
@@ -57,7 +59,7 @@
     }
   }
 
-  &.sort_active {
+  &.active {
     &:before {
       transform: translate(4px, 4px);
       background-color: #F6C244;

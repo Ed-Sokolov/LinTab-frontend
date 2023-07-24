@@ -1,22 +1,23 @@
-import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../../UseSvg/UseSvg";
 import React from "react";
 import "./sortItem.scss";
+import {SortTypes} from "../../SortListContainer";
 
 type SortItemTypes = {
     iconName: string;
-    link: { pathname: string, search: string };
     className: string;
+    setSort: (value: SortTypes) => any;
+    sortName: SortTypes;
 }
 
-export const SortItem: React.FC<SortItemTypes> = ({iconName, link, className}) => {
+export const SortItem: React.FC<SortItemTypes> = ({iconName, className, setSort, sortName}) => {
     return (
         <li className="sort_item">
-            <NavLink to={link} className={className}>
+            <div className={className} onClick={() => setSort(sortName)}>
                 <div className="sort_icon_wrapper">
                     <UseSvg spriteName={iconName} className={"sort_icon"}/>
                 </div>
-            </NavLink>
+            </div>
         </li>
     )
 }
