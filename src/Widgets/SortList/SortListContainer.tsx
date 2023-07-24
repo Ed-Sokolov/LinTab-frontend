@@ -19,8 +19,10 @@ export const SortListContainer = () => {
             case 'date_down':
             case 'views_up':
             case 'views_down':
-                searchParams.set('sort', currentSort);
-                setSearchParams(searchParams);
+                if (currentSort !== sortName) {
+                    searchParams.set('sort', currentSort);
+                    setSearchParams(searchParams);
+                }
                 break;
             default:
                 setCurrentSort('date_down');
