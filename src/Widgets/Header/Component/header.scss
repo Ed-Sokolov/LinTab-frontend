@@ -41,7 +41,6 @@
 
     .nav .list {
       display: flex;
-      gap: 28px;
     }
   }
 
@@ -53,6 +52,8 @@
 
   .custom_link {
     @include custom_link(#000);
+
+    padding: 8px 12px;
 
     font-size: 20px;
     line-height: 26px;

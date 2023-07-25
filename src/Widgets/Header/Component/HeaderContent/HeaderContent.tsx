@@ -2,6 +2,8 @@ import {NavLink} from "react-router-dom";
 import {Hint} from "../../../Hint/Hint";
 import {AuthField} from "../../../AuthField/AuthField";
 import React from "react";
+import {SubNav} from "../../../SubNav/SubNav";
+import {UseSvg} from "../../../UseSvg/UseSvg";
 
 type HeaderContentTypes = {
     isAuth: boolean;
@@ -22,10 +24,14 @@ export const HeaderContent: React.FC<HeaderContentTypes> = ({isAuth, profileId, 
                         <NavLink to={'/posts'} className={"custom_link"}>posts</NavLink>
                     </li>
                     <li className="list_item">
-                        <NavLink to={'#'} className={"custom_link"}>projects</NavLink>
+                        <NavLink to={'/projects'} className={"custom_link"}>projects</NavLink>
                     </li>
-                    <li className="list_item">
-                        <NavLink to={'#'} className={"custom_link"}>help</NavLink>
+                    <li className="list_item parent">
+                        <div className={"sub_nav_link custom_link header_sub_nav"}>
+                            <span>help</span>
+                            <UseSvg spriteName={"arrow_right"} className={"parent_icon"}/>
+                        </div>
+                        <SubNav/>
                     </li>
                 </ul>
             </nav>
