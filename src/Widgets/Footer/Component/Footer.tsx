@@ -3,6 +3,8 @@ import "./footer.scss"
 import {H4} from "../../Headings/H4/H4";
 import {NavLink} from "react-router-dom";
 import {UseSvg} from "../../UseSvg/UseSvg";
+import React from "react";
+import {SubNav} from "../../SubNav/SubNav";
 
 export const Footer = () => {
     return (
@@ -46,8 +48,12 @@ export const Footer = () => {
                                     <li className="menu_item">
                                         <NavLink to={"#"} className={"custom_link"}>Projects</NavLink>
                                     </li>
-                                    <li className="menu_item">
-                                        <NavLink to={"#"} className={"custom_link"}>Help</NavLink>
+                                    <li className="menu_item sub_nav_parent">
+                                        <div className={"sub_nav_link custom_link"}>
+                                            <span>Help</span>
+                                            <UseSvg spriteName={"arrow_right"} className={"sub_nav_icon"}/>
+                                        </div>
+                                        <SubNav/>
                                     </li>
                                 </ul>
                             </nav>
