@@ -29,7 +29,7 @@ export const HeaderContent: React.FC<HeaderContentTypes> = ({isAuth, profileId, 
                     <li className="list_item parent">
                         <div className={"sub_nav_link custom_link header_sub_nav"}>
                             <span>help</span>
-                            <UseSvg spriteName={"arrow_right"} className={"parent_icon"}/>
+                            <UseSvg spriteName={"arrow_right"} className={"sub_nav_icon"}/>
                         </div>
                         <SubNav/>
                     </li>

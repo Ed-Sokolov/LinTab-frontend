@@ -8,7 +8,7 @@
     align-items: center;
     gap: 4px;
 
-    .parent_icon {
+    .sub_nav_icon {
       width: 16px;
       height: 16px;
 
@@ -55,7 +55,7 @@
 
   &:hover {
     .custom_link {
-      .parent_icon {
+      .sub_nav_icon {
         transform: rotate(90deg);
       }
     }
