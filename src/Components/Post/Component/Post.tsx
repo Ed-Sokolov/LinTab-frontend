@@ -8,8 +8,9 @@ import {PostType} from "../../../Types/Post/PostType";
 import React from "react";
 import parse from "html-react-parser";
 import {SetLike} from "../../../Widgets/SetLike/SetLike";
+import {Created} from "../../../Widgets/Created/Created";
 
-export const Post: React.FC<PostType> = ({id, title, content, author_id, image, created_at, views}) => {
+export const Post: React.FC<PostType> = ({id, title, content, author_id, image, created_at, updated_at, views}) => {
     const img = require('../../../Assets/Images/PostCard/Test_post_card_image.jpg');
 
     const parsedContent = parse(content) as Array<React.ReactElement> | string;
@@ -20,7 +21,7 @@ export const Post: React.FC<PostType> = ({id, title, content, author_id, image, 
                     <Container>
                         <div className="promo_content">
                             <div className="date_field">
-                                <p className="date">{created_at.toString()}</p>
+                                <Created created_at={created_at} updated_at={updated_at} size={'l'}/>
                             </div>
                             <H4>{title}</H4>
                             <ul className="interactions">
