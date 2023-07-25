@@ -15,28 +15,28 @@ export const SortList: React.FC<SortListTypes> = ({currentSort, setCurrentSort})
         <div className="sort_content" data-aos="fade-left">
             <div className="sort_list_wrapper">
                 <ul className="sort_list">
-                    <SortItem iconName={"sort_title_down"} className={getClass("title_down")} setSort={setCurrentSort}
-                              sortName={"title_down"}/>
-                    <SortItem iconName={"sort_title_up"} className={getClass("title_up")} setSort={setCurrentSort}
-                              sortName={"title_up"}/>
+                    <SortItem iconName={"sort_title_down"} className={getClass("title")} setSort={setCurrentSort}
+                              sortName={"title"}/>
+                    <SortItem iconName={"sort_title_up"} className={getClass("title,desc")} setSort={setCurrentSort}
+                              sortName={"title,desc"}/>
                 </ul>
                 <p className="sort_name">by title</p>
             </div>
             <div className="sort_list_wrapper">
                 <ul className="sort_list">
-                    <SortItem iconName={"sort_date_down"} className={getClass("date_down")} setSort={setCurrentSort}
-                              sortName={"date_down"}/>
-                    <SortItem iconName={"sort_date_up"} className={getClass("date_up")} setSort={setCurrentSort}
-                              sortName={"date_up"}/>
+                    <SortItem iconName={"sort_date_down"} className={getClass("date")} setSort={setCurrentSort}
+                              sortName={"date"}/>
+                    <SortItem iconName={"sort_date_up"} className={getClass("date,desc")} setSort={setCurrentSort}
+                              sortName={"date,desc"}/>
                 </ul>
                 <p className="sort_name">by date</p>
             </div>
             <div className="sort_list_wrapper">
                 <ul className="sort_list">
-                    <SortItem iconName={"sort_views_down"} className={getClass("views_down")} setSort={setCurrentSort}
-                              sortName={"views_down"}/>
-                    <SortItem iconName={"sort_views_up"} className={getClass("views_up")} setSort={setCurrentSort}
-                              sortName={"views_up"}/>
+                    <SortItem iconName={"sort_views_up"} className={getClass("views")} setSort={setCurrentSort}
+                              sortName={"views"}/>
+                    <SortItem iconName={"sort_views_down"} className={getClass("views,desc")} setSort={setCurrentSort}
+                              sortName={"views,desc"}/>
                 </ul>
                 <p className="sort_name">by views</p>
             </div>

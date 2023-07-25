@@ -10,8 +10,6 @@ export const PostsContainer = () => {
 
     const [searchedParams] = useSearchParams();
 
-    searchedParams.forEach((value, key) => console.log(key, value));
-
     useEffect(() => {
         dispatch(getPosts(searchedParams))
     }, [dispatch, searchedParams])
