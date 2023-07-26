@@ -1,0 +1,25 @@
+.feedback_form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  padding: 0 64px;
+
+  .group_line {
+    display: flex;
+    gap: 32px 64px;
+
+    .form_group {
+      flex-basis: 50%;
+    }
+  }
+
+  .textarea {
+    border-color: transparent;
+    background-color: #FFF;
+
+    .ql-container {
+      min-height: 196px;
+    }
+  }
+}

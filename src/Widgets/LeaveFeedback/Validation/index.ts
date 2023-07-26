@@ -1,6 +1,6 @@
 import {object, string} from "yup";
 
-export const ContactFormSchema = object({
+export const FeedbackFormSchema = object({
     email: string()
         .email("Email must be email type")
         .required("Email is required"),
