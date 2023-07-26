@@ -1,3 +1,3 @@
-import {MainPage} from "../../Components/MainPage/MainPage";
+import {MainContainer} from "../../Components/Main/MainContainer";
 
-export const Main = () => <MainPage/>
+export const Main = () => <MainContainer/>

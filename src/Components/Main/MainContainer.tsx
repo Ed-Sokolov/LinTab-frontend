@@ -1,11 +1,11 @@
 import {Promo} from "../../Widgets/Promo/Promo";
 import {PopularPostsContainer} from "../PopularPosts/PopularPostsContainer";
 
-export const MainPage = () => {
+export const MainContainer = () => {
     return (
         <div>
-            <Promo></Promo>
-            <PopularPostsContainer></PopularPostsContainer>
+            <Promo/>
+            <PopularPostsContainer/>
         </div>
     )
 }
