@@ -13,8 +13,8 @@ export const About = () => {
                         <div className="about_content">
                             <p className={"paragraph"}>
                                 LINTAB is a project for blogging and sharing your projects with other users in this
-                                website. I’d like to add an opportunity for communication between users so it can be a
-                                social network in a future.
+                                website. I’d like to add an opportunity to communicate between users so it can be a
+                                social network in the future.
                             </p>
                             <p className={"paragraph"}>
                                 This project is my way to IT so I’m trying to made my best to get the result.
@@ -25,11 +25,11 @@ export const About = () => {
                                 works.
                             </p>
                             <p className={"paragraph"}>
-                                If you don’t like something you can move to Contact and write me what you’ll want to add
-                                or change in the website in a future updating.
+                                If you don't like something you can move to Contact and write me what you'll want to add
+                                or change in the website in the future update.
                             </p>
                             <p className={"paragraph"}>
-                                You can scroll down and read about all the updating.
+                                You can scroll down and read about all the updates.
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ export const About = () => {
                                     <div className="version_link">1.1. Release</div>
                                 </li>
                                 <li className="version_item">
-                                    <div className="version_link">Soon</div>
+                                    <div className="version_link">Next updating</div>
                                 </li>
                             </ul>
                         </div>
@@ -67,20 +67,25 @@ export const About = () => {
                                 <p className="selected_version_paragraph">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan
-                                    lacus vel facilisis volutpat. Arcu felis bibendum ut tristique et egestas quis ipsum.
-                                    Adipiscing diam donec adipiscing tristique risus nec feugiat. Sem integer vitae justo
+                                    lacus vel facilisis volutpat. Arcu felis bibendum ut tristique et egestas quis
+                                    ipsum.
+                                    Adipiscing diam donec adipiscing tristique risus nec feugiat. Sem integer vitae
+                                    justo
                                     eget. Suspendisse in est ante in. Purus in massa tempor nec feugiat nisl pretium. Ac
                                     tortor vitae purus faucibus.
                                 </p>
                                 <p className="selected_version_paragraph">
-                                    Ut faucibus pulvinar elementum integer. Enim sit amet venenatis urna cursus eget. Odio
+                                    Ut faucibus pulvinar elementum integer. Enim sit amet venenatis urna cursus eget.
+                                    Odio
                                     aenean sed adipiscing diam donec. Sit amet cursus sit amet dictum sit. Diam sit amet
-                                    nisl suscipit adipiscing bibendum. Nunc aliquet bibendum enim facilisis gravida neque
+                                    nisl suscipit adipiscing bibendum. Nunc aliquet bibendum enim facilisis gravida
+                                    neque
                                     convallis. Risus in hendrerit gravida rutrum quisque non tellus orci.
                                 </p>
                                 <p className="selected_version_paragraph">
                                     Semper viverra nam libero justo laoreet. Nunc sed velit dignissim sodales ut eu.
-                                    Faucibus nisl tincidunt eget nullam non nisi est sit. Lorem dolor sed viverra ipsum nunc
+                                    Faucibus nisl tincidunt eget nullam non nisi est sit. Lorem dolor sed viverra ipsum
+                                    nunc
                                     aliquet bibendum enim facilisis. Quisque sagittis purus sit amet volutpat consequat.
                                 </p>
                             </div>

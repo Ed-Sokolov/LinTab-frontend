@@ -19,7 +19,7 @@
 
     box-shadow: -40px -40px 0 40px #F6C244;
   }
-  
+
   .about_inner {
     position: relative;
 
@@ -77,54 +77,70 @@
     }
 
     .versions_list {
+      position: sticky;
+      top: 16px;
+
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 18px;
 
-      font-size: 22px;
-      line-height: 30px;
-      letter-spacing: 0.96px;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.72px;
 
-      .version_link {
-        position: relative;
-        cursor: pointer;
+      .version_item {
+        width: 84%;
 
-        opacity: .72;
+        .version_link {
+          position: relative;
+          cursor: pointer;
 
-        transition: text-align .4s, opacity .4s, transform .4s;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
 
-        &::before {
-          position: absolute;
-          content: '';
-          width: 32px;
-          height: 2px;
-          top: 100%;
-          left: 0;
-          border-radius: 2px;
-          background-color: #F6C244;
+          width: 100%;
 
-          transition: left .4s, width .4s, transform .4s;
-        }
+          opacity: .72;
 
-        &:hover {
-          transform: translateX(16px);
+          padding: 4px 0;
 
-          opacity: .84;
+          transition: opacity .4s, transform .4s;
 
           &::before {
-            width: 48px;
+            position: absolute;
+            content: '';
+            width: 16px;
+            height: 2px;
+            top: 100%;
+            left: 0;
+
+            transform: translateY(-2px);
+
+            border-radius: 2px;
+            background-color: #F6C244;
+
+            transition: width .4s;
           }
-        }
 
-        &.active {
-          transform: translateX(32px);
+          &:hover {
+            transform: translateX(16px);
 
-          opacity: 1;
+            opacity: .84;
 
-          &::before {
-            width: 64px;
-            left: 25%;
-            transform: translateX(-25%);
+            &::before {
+              width: 32px;
+            }
+          }
+
+          &.active {
+            transform: translateX(32px);
+
+            opacity: 1;
+
+            &::before {
+              width: 64px;
+            }
           }
         }
       }
@@ -132,6 +148,7 @@
   }
 
   .selected_version {
+    position: relative;
     width: 100%;
 
     padding: 32px;
@@ -145,10 +162,22 @@
       flex-direction: column;
       gap: 24px;
 
-      font-size: 24px;
-      line-height: 36px;
-      letter-spacing: 0.96px;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.88px;
       text-indent: 24px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: translateX(-50%);
+      background-color: #F6C244;
+      border-radius: 2px;
     }
   }
 
