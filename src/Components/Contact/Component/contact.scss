@@ -1,0 +1,31 @@
+.contact_page {
+  padding: 208px 0 64px;
+  background-color: #F6C244;
+  border-radius: 0 0 128px 128px;
+
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    padding: 0 64px;
+
+    .group_line {
+      display: flex;
+      gap: 32px 64px;
+
+      .form_group {
+        flex-grow: 1;
+      }
+    }
+
+    .textarea {
+      border-color: transparent;
+      background-color: #FFF;
+
+      .ql-container {
+        min-height: 196px;
+      }
+    }
+  }
+}
