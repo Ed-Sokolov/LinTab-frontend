@@ -1,0 +1,159 @@
+.about {
+  position: relative;
+  padding: 208px 64px 64px;
+  margin-bottom: 72px;
+
+  background-color: #F6C244;
+  border-bottom-right-radius: 220px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 220px;
+    height: 220px;
+    background-color: transparent;
+    top: 100%;
+    left: 0;
+
+    border-top-left-radius: 220px;
+
+    box-shadow: -40px -40px 0 40px #F6C244;
+  }
+  
+  .about_inner {
+    position: relative;
+
+    .title {
+      margin-bottom: 64px;
+    }
+
+    .about_content {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      padding: 32px;
+
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.8px;
+      text-indent: 24px;
+
+      .paragraph {
+        position: relative;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 100vw;
+        height: 100%;
+
+        top: 0;
+        right: 0;
+
+        border-radius: 0 16px 16px 0;
+        background: rgba(255, 255, 255, 0.64);
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.64);
+        backdrop-filter: blur(4px);
+      }
+    }
+  }
+}
+
+.versions_content {
+  display: flex;
+
+  .versions_nav {
+    width: 372px;
+    padding: 32px;
+
+    .title {
+      margin-bottom: 36px;
+
+      text-align: center;
+    }
+
+    .versions_list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: 0.96px;
+
+      .version_link {
+        position: relative;
+        cursor: pointer;
+
+        opacity: .72;
+
+        transition: text-align .4s, opacity .4s, transform .4s;
+
+        &::before {
+          position: absolute;
+          content: '';
+          width: 32px;
+          height: 2px;
+          top: 100%;
+          left: 0;
+          border-radius: 2px;
+          background-color: #F6C244;
+
+          transition: left .4s, width .4s, transform .4s;
+        }
+
+        &:hover {
+          transform: translateX(16px);
+
+          opacity: .84;
+
+          &::before {
+            width: 48px;
+          }
+        }
+
+        &.active {
+          transform: translateX(32px);
+
+          opacity: 1;
+
+          &::before {
+            width: 64px;
+            left: 25%;
+            transform: translateX(-25%);
+          }
+        }
+      }
+    }
+  }
+
+  .selected_version {
+    width: 100%;
+
+    padding: 32px;
+
+    .title {
+      margin: 0 0 32px 32px;
+    }
+
+    .selected_version_content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.96px;
+      text-indent: 24px;
+    }
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 400;
+  }
+}
