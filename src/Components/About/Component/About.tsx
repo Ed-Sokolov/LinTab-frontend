@@ -2,6 +2,7 @@ import "./about.scss";
 import {Container} from "../../../Widgets/Container/Container";
 import {H2} from "../../../Widgets/Headings/H2/H2";
 import {H4} from "../../../Widgets/Headings/H4/H4";
+import {NavLink} from "react-router-dom";
 
 export const About = () => {
     return (
@@ -25,7 +26,9 @@ export const About = () => {
                                 works.
                             </p>
                             <p className={"paragraph"}>
-                                If you don't like something you can move to Contact and write me what you'll want to add
+                                If you don't like something you can move
+                                to <NavLink to={"/contact"} className={"about_link"}>Contact</NavLink> and
+                                write me what you'll want to add
                                 or change in the website in the future update.
                             </p>
                             <p className={"paragraph"}>
@@ -57,7 +60,7 @@ export const About = () => {
                                     <div className="version_link">1.1. Release</div>
                                 </li>
                                 <li className="version_item">
-                                    <div className="version_link">Next updating</div>
+                                    <div className="version_link">Next update</div>
                                 </li>
                             </ul>
                         </div>
