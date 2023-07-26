@@ -9,6 +9,7 @@ import {CreatePost} from "../Pages/CreatePost/CreatePost";
 import {EditPost} from "../Pages/EditPost/EditPost";
 import {About} from "../Pages/About/About";
 import {Contact} from "../Pages/Contact/Contact";
+import {FAQ} from "../Pages/FAQ/FAQ";
 
 export const Routing = () => {
     return (
@@ -24,6 +25,7 @@ export const Routing = () => {
             <Route path={'/settings/:item?'} element={<Settings/>}/>
             <Route path={'/about'} element={<About/>}/>
             <Route path={'/contact'} element={<Contact/>}/>
+            <Route path={'/faq'} element={<FAQ/>}/>
         </Routes>
     )
 }
