@@ -27,11 +27,11 @@ export const Contact = () => {
                     {
                         ({setFieldValue, setFieldTouched}) => <Form className={"contact_form"}>
                             <div className="group_line">
-                                <LabelWrapper text={'Email'}>
+                                <LabelWrapper htmlFor={'email'} text={'Email'}>
                                     <CustomInput id={'email'} name={'email'} placeholder={'Email'} errorMessage={''}
                                                  isTouched={false}/>
                                 </LabelWrapper>
-                                <LabelWrapper text={'Name'}>
+                                <LabelWrapper htmlFor={'name'} text={'Name'}>
                                     <CustomInput id={'name'} name={'name'} placeholder={'Name'} errorMessage={''}
                                                  isTouched={false}/>
                                 </LabelWrapper>
