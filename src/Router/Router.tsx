@@ -8,7 +8,7 @@ import {Settings} from "../Pages/Settings/Settings";
 import {CreatePost} from "../Pages/CreatePost/CreatePost";
 import {EditPost} from "../Pages/EditPost/EditPost";
 import {About} from "../Pages/About/About";
-import {Contact} from "../Components/Contact/Component/Contact";
+import {Contact} from "../Pages/Contact/Contact";
 
 export const Routing = () => {
     return (

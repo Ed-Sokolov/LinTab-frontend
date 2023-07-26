@@ -1,39 +1,41 @@
 import "./contact.scss";
 import {Container} from "../../../Widgets/Container/Container";
 import {H2} from "../../../Widgets/Headings/H2/H2";
-import {Form, Formik} from "formik";
+import {Form, Formik, FormikHelpers} from "formik";
 import {LabelWrapper} from "../../../Widgets/LabelWrapper/LabelWrapper";
 import {CustomInput} from "../../../Widgets/CustomInput/CustomInput";
 import {ReactQuillWrapper} from "../../../Widgets/ReactQuillWrapper/ReactQuillWrapper";
 import React from "react";
 import {Button} from "../../../Widgets/Button/Button";
+import {ContactFormTypes} from "../ContactContainer";
+import {ContactFormSchema} from "../Validation";
+import {ErrorField} from "../../../Widgets/ErrorField/ErrorField";
 
-export const Contact = () => {
-    const values = {
-        name: '',
-        email: '',
-        message: ''
-    }
+type ContactTypes = {
+    initValues: ContactFormTypes;
+    handleSubmit: (values: ContactFormTypes, actions: FormikHelpers<ContactFormTypes>) => any
+}
 
-    const handleSubmit = (values: any, actions: any) => {
-        console.log(values);
-    }
-
+export const Contact: React.FC<ContactTypes> = ({initValues, handleSubmit}) => {
     return (
         <div className={"contact_page"}>
             <Container>
                 <H2>Contact</H2>
-                <Formik initialValues={values} onSubmit={handleSubmit}>
+                <Formik initialValues={initValues} onSubmit={handleSubmit} validationSchema={ContactFormSchema}
+                        validateOnMount={true}>
                     {
-                        ({setFieldValue, setFieldTouched}) => <Form className={"contact_form"}>
+                        ({
+                             values, errors, touched,
+                             setFieldValue, setFieldTouched, isValid
+                         }) => <Form className={"contact_form"}>
                             <div className="group_line">
                                 <LabelWrapper htmlFor={'email'} text={'Email'}>
-                                    <CustomInput id={'email'} name={'email'} placeholder={'Email'} errorMessage={''}
-                                                 isTouched={false}/>
+                                    <CustomInput id={'email'} name={'email'} placeholder={'Email'} errorMessage={errors.email}
+                                                 isTouched={touched.email}/>
                                 </LabelWrapper>
                                 <LabelWrapper htmlFor={'name'} text={'Name'}>
-                                    <CustomInput id={'name'} name={'name'} placeholder={'Name'} errorMessage={''}
-                                                 isTouched={false}/>
+                                    <CustomInput id={'name'} name={'name'} placeholder={'Name'} errorMessage={errors.name}
+                                                 isTouched={touched.name}/>
                                 </LabelWrapper>
                             </div>
                             <LabelWrapper text={'Message'}>
@@ -46,9 +48,10 @@ export const Contact = () => {
                                         setFieldTouched={setFieldTouched}
                                         field={"message"}
                                     />
+                                    {(errors.message && touched.message) && <ErrorField message={errors.message}/>}
                                 </div>
                             </LabelWrapper>
-                            <Button type={"submit"} classes={"btn btn-outline-dark"}>SEND</Button>
+                            <Button type={"submit"} classes={"btn btn-outline-dark"} isDisabled={!isValid}>SEND</Button>
                         </Form>
                     }
                 </Formik>
