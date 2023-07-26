@@ -1,5 +1,3 @@
 import {PostContainer} from "../../Components/Post/PostContainer";
 
-export const Post = () => {
-    return <PostContainer/>
-}
+export const Post = () => <PostContainer/>

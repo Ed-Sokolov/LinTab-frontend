@@ -1,11 +1,3 @@
-import {Promo} from "../../Widgets/Promo/Promo";
-import {PopularPostsContainer} from "../../Components/PopularPosts/PopularPostsContainer";
+import {MainPage} from "../../Components/MainPage/MainPage";
 
-export const Main = () => {
-    return (
-        <div>
-            <Promo></Promo>
-            <PopularPostsContainer></PopularPostsContainer>
-        </div>
-    )
-}
+export const Main = () => <MainPage/>

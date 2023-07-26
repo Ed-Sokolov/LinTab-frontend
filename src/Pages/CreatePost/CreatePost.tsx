@@ -1,5 +1,3 @@
 import {CreatePostContainer} from "../../Components/CreatePost/CreatePostContainer";
 
-export const CreatePost = () => {
-    return <CreatePostContainer/>
-}
+export const CreatePost = () => <CreatePostContainer/>
