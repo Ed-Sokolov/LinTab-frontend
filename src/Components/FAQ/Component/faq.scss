@@ -9,6 +9,95 @@
 
       .faq_content_inner {
         padding: 208px 32px 128px;
+
+        .faq_list {
+          display: flex;
+          flex-direction: column;
+          gap: 54px;
+
+          color: #1B040E;
+
+          .faq_item {
+            display: flex;
+
+            .faq_item_title_wrapper {
+              flex-basis: 256px;
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              padding: 32px;
+
+              .title {
+                text-align: center;
+                font-size: 28px;
+                line-height: 36px;
+                color: #1B040E;
+                letter-spacing: 1.08px;
+              }
+            }
+
+            .faq_item_content {
+              flex-basis: 90%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 24px;
+              padding: 16px 32px;
+
+              font-size: 20px;
+              letter-spacing: 0.96px;
+
+              ul {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                li {
+                  display: flex;
+                  align-items: center;
+                  gap: 16px;
+
+                  &::before {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    background: url("../../../Assets/Icons/list_style_img.svg") no-repeat;
+                  }
+                }
+              }
+
+              a {
+                position: relative;
+
+                &::after {
+                  position: absolute;
+                  content: '';
+                  width: 100%;
+                  height: 2px;
+                  top: 100%;
+                  left: 0;
+                  background-color: #1B040E;
+                  border-radius: 2px;
+                }
+              }
+
+              &::before {
+                position: absolute;
+                content: '';
+                width: 4px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                border-radius: 2px;
+                transform: translateX(-50%);
+                background-color: #694A00;
+              }
+            }
+          }
+        }
       }
     }
 
