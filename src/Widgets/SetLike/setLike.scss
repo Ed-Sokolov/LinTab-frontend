@@ -12,29 +12,6 @@
     letter-spacing: 0.82px;
   }
 
-  .pointer {
-    height: 36px;
-
-    .pointer_icon {
-      width: 28px;
-      height: 28px;
-
-      color: transparent;
-      stroke: #000;
-
-      animation: .5s linear 0s infinite alternate pointer;
-    }
-
-    @keyframes pointer {
-      from {
-        transform: translateY(8px);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-  }
-
   .just_like_it {
     display: flex;
     flex-direction: column;

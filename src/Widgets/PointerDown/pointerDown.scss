@@ -1,0 +1,23 @@
+.pointer {
+  height: 28px;
+
+  .pointer_icon {
+    width: 24px;
+    height: 24px;
+
+    color: transparent;
+
+    stroke: #000;
+
+    animation: .4s linear 0s infinite alternate pointer;
+  }
+
+  @keyframes pointer {
+    from {
+      transform: translateY(4px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}

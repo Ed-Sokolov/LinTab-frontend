@@ -3,6 +3,7 @@ import {UseSvg} from "../../UseSvg/UseSvg";
 import {AuthField} from "../../AuthField/AuthField";
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {PointerDown} from "../../PointerDown/PointerDown";
 
 type MoveToAuthTabContentTypes = {
     title: string;
@@ -19,9 +20,7 @@ export const MoveToTabContent: React.FC<MoveToAuthTabContentTypes> = (
         <div className="content">
             <H5>{title}</H5>
             <p className="subtitle">{text}</p>
-            <div className="pointer">
-                <UseSvg spriteName={"arrow_circle_down"} className={"pointer_icon"}/>
-            </div>
+            <PointerDown/>
             {
                 isCustomLink ?
                     <NavLink to={link} className={"custom_link"}>{linkName}</NavLink> :
