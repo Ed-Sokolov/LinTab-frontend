@@ -5,13 +5,9 @@ import {H5} from "../Headings/H5/H5";
 import {AuthField} from "../AuthField/AuthField";
 import {ListItem} from "../ListItem/ListItem";
 
-type HintTypes = {
-    alignment?: 'center' | 'left';
-}
-
-export const Hint: React.FC<HintTypes> = ({alignment = 'center'}) => {
+export const Hint = () => {
     return (
-        <div className={`hint ${alignment}`}>
+        <div className="hint">
             <UseSvg spriteName={"warning"} className={"hint_icon"}></UseSvg>
             <div className="hint_content">
                 <H5>If you want:</H5>

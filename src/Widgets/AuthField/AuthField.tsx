@@ -22,6 +22,16 @@ export const AuthField: React.FC<AuthFieldTypes> = (
 ) => {
     return (
         <ul className={`auth ${isCenter && 'center'} ${isHeader && 'header_auth'}`}>
+            {
+                (isHeader && isAuth) && <>
+                    <li className="auth_item">
+                        <NavLink to={'/admin'} className={"custom_link"}>admin</NavLink>
+                    </li>
+                    <li className="slash">
+                        <UseSvg spriteName={"slash"} className={"slash_icon"}/>
+                    </li>
+                </>
+            }
             <li className="auth_item">
                 {
                     isAuth ? <NavLink to={profileId ? `/users/${profileId}` : '#'}
@@ -30,7 +40,7 @@ export const AuthField: React.FC<AuthFieldTypes> = (
                 }
             </li>
             <li className="line">
-                <UseSvg spriteName={"line"} className={"line_icon"}></UseSvg>
+                <UseSvg spriteName={"line"} className={"line_icon"}/>
             </li>
             <li className="auth_item">
                 {

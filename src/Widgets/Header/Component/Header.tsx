@@ -3,6 +3,7 @@ import {Container} from "../../Container/Container";
 import React from "react";
 import {HeaderContent} from "./HeaderContent/HeaderContent";
 import {CreateContent} from "../../CreateContent/CreateContent";
+import {Hint} from "../../Hint/Hint";
 
 type HeaderTypes = {
     isAuth: boolean;
@@ -16,18 +17,15 @@ export const Header: React.FC<HeaderTypes> = ({isAuth, profileId, handleLogOut, 
         <header className="header" data-aos="fade-down" data-aos-delay={600}>
             <Container>
                 <div className="header_content_wrapper">
-                    {
-                        isAuth ?
-                            <div className="double_header">
-                                <HeaderContent isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}
-                                               isShowComponent={isShowComponent}/>
-                                <div className="sub_header">
-                                    <CreateContent/>
-                                </div>
-                            </div> :
-                            <HeaderContent isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}
-                                           isShowComponent={isShowComponent}/>
-                    }
+                    <div className="double_header">
+                        <HeaderContent isAuth={isAuth} profileId={profileId} handleLogOut={handleLogOut}
+                                       isShowComponent={isShowComponent}/>
+                        <div className="sub_header">
+                            <div className="plug"></div>
+                            {isAuth && <CreateContent/>}
+                            {isShowComponent ? <Hint/> : <div className="plug"></div>}
+                        </div>
+                    </div>
                 </div>
             </Container>
         </header>

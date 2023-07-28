@@ -28,6 +28,19 @@
     }
   }
 
+  .slash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .slash_icon {
+      width: 12px;
+      height: 38px;
+
+      stroke: #000;
+    }
+  }
+
   .line {
     display: flex;
     align-items: center;

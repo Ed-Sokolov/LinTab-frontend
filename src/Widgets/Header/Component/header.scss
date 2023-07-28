@@ -48,6 +48,19 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    .sub_header {
+      display: flex;
+      justify-content: space-between;
+
+      .plug {
+        width: 52px;
+      }
+
+      .create_field {
+        flex-grow: 1;
+      }
+    }
   }
 
   .custom_link {
@@ -69,8 +82,12 @@
       gap: 8px;
 
       .sub_header {
-        display: flex;
-        justify-content: center;
+        //display: flex;
+        //justify-content: center;
+
+        .create_field {
+          flex-grow: 0;
+        }
       }
     }
   }

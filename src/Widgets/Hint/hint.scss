@@ -41,6 +41,7 @@
     position: absolute;
     width: max-content;
     top: 100%;
+    left: 100%;
 
     display: flex;
     flex-direction: column;
@@ -56,6 +57,7 @@
     padding: 16px;
     border-radius: 8px;
 
+    transform: translate(-100%, 0%) rotateX(90deg);
     transition: transform .8s, opacity .8s, visibility .8s;
 
     z-index: 5;
@@ -78,35 +80,11 @@
     }
   }
 
-  &.center {
+  &:hover {
     .hint_content {
-      left: 50%;
-
-      transform: translate(-50%, 0%) rotateX(90deg);
-    }
-
-    &:hover {
-      .hint_content {
-        transform: translate(-50%, 0%) rotateX(0deg);
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-  }
-
-  &.left {
-    .hint_content {
-      left: 100%;
-
-      transform: translate(-100%, 0%) rotateX(90deg);
-    }
-
-    &:hover {
-      .hint_content {
-        transform: translate(-100%, 0%) rotateX(0deg);
-        opacity: 1;
-        visibility: visible;
-      }
+      transform: translate(-100%, 0%) rotateX(0deg);
+      opacity: 1;
+      visibility: visible;
     }
   }
 

@@ -176,6 +176,10 @@
         <path d="M1 1L0.999998 39" stroke="currentStroke" stroke-width="2" stroke-linecap="round"/>
     </symbol>
 
+    <symbol id="slash" width="currentWidth" height="currentHeight" viewBox="0 0 12 40" fill="currentColor">
+        <path d="M10.918 1.6474L1.08285 38.3526" stroke="currentStroke" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
     <symbol id="lines" width="currentWidth" height="currentHeight" viewBox="0 0 36 36" fill="currentColor">
         <g>
             <line id="Line 30" x1="7" y1="1" x2="7" y2="17" stroke="currentStroke" stroke-width="2"

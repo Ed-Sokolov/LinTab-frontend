@@ -33,12 +33,9 @@ export const HeaderContent: React.FC<HeaderContentTypes> = ({isAuth, profileId, 
                         </div>
                         <SubNav/>
                     </li>
-                    <li className="list_item">
-                        <NavLink to={'/admin'} className={"custom_link"}>admin</NavLink>
-                    </li>
                 </ul>
             </nav>
-            <Hint alignment={isShowComponent ? 'center' : 'left'}/>
+            {!isShowComponent && <Hint/>}
             {isShowComponent && <AuthField isHeader={true} isAuth={isAuth} profileId={profileId}
                                            handleLogOut={handleLogOut}/>}
         </div>
