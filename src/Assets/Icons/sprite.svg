@@ -63,6 +63,15 @@
         </g>
     </symbol>
 
+    <symbol id="arrow_up" width="currentWidth" height="currentHeight" viewBox="0 0 16 16" fill="currentColor">
+        <g>
+            <path id="Vector"
+                  d="M13.2788 10.0601L8.93208 5.71339C8.41875 5.20006 7.57875 5.20006 7.06542 5.71339L2.71875 10.0601"
+                  stroke="currentStroke" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+        </g>
+    </symbol>
+
     <symbol id="camera" width="currentWidth" height="currentHeight" viewBox="0 0 24 24" fill="currentColor">
         <g>
             <path id="Vector"
