@@ -1,7 +1,6 @@
 .statistic_card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   border-radius: 8px;
   color: #FFF;
   overflow: hidden;
@@ -27,19 +26,57 @@
     background-color: #DC07FF;
   }
 
-  .statistic_card__title {
-    font-size: 28px;
-    letter-spacing: .86px;
-    padding: 16px 16px 0;
-  }
+  .statistic_card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    position: relative;
+    padding: 16px;
 
-  .statistic_card__count {
-    padding: 0 16px;
+    .statistic_card__content-title {
+      font-size: 28px;
+      letter-spacing: .86px;
+    }
+
+    .statistic_card__content-count {
+      font-size: 18px;
+      letter-spacing: .64px;
+    }
+
+    .statistic_card__content-background {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translate(-4%, -50%);
+      opacity: .5;
+      filter: brightness(0);
+    }
   }
 
   .statistic_card__link-wrapper {
+    position: relative;
     text-align: center;
     padding: 8px 16px;
     background-color: rgba(0, 0, 0, 0.4);
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 16%;
+      height: 4px;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #FFF;
+      border-radius: 2px;
+      transition: width .4s;
+    }
+
+    &:has(.statistic_card__link:hover) {
+      &::before {
+        width: 32%;
+      }
+    }
   }
 }
