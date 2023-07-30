@@ -6,7 +6,7 @@ export const AdminApp = () => {
     return (
         <div className="admin_panel">
             <SidebarContainer/>
-            <div className="admin_content">
+            <div className="admin_panel__content">
                 <AdminRoutes/>
             </div>
         </div>

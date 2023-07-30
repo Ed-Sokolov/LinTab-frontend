@@ -3,4 +3,11 @@
 
   font-family: 'Inter', sans-serif;
   font-weight: normal;
+
+  .admin_panel__content {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 32px;
+  }
 }

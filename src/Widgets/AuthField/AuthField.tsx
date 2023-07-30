@@ -25,7 +25,7 @@ export const AuthField: React.FC<AuthFieldTypes> = (
             {
                 (isHeader && isAuth) && <>
                     <li className="auth_item">
-                        <NavLink to={'/admin'} className={"custom_link"}>admin</NavLink>
+                        <NavLink to={'/admin/main'} className={"custom_link"}>admin</NavLink>
                     </li>
                     <li className="slash">
                         <UseSvg spriteName={"slash"} className={"slash_icon"}/>
