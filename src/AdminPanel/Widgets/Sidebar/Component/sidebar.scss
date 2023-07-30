@@ -11,6 +11,8 @@
   width: 256px;
   height: 100vh;
 
+  overflow-y: scroll;
+
   .sidebar__profile {
     position: relative;
     padding: 8px 8px 16px;
