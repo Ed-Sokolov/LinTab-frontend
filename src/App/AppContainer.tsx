@@ -4,7 +4,7 @@ import {checkAuth} from "../API/AuthApi";
 import Aos from "aos";
 import {App} from "./App";
 import {useLocation} from "react-router-dom";
-import {AdminApp} from "../AdminPanel/AdminApp/AdminApp";
+import {AdminAppContainer} from "../AdminPanel/AdminApp/AdminAppContainer";
 
 export const AppContainer = () => {
     const dispatch = useAppDispatch();
@@ -19,5 +19,5 @@ export const AppContainer = () => {
         })
     }, [dispatch])
 
-    return paths[0] === 'admin' ? <AdminApp/> : <App/>
+    return paths[0] === 'admin' ? <AdminAppContainer/> : <App/>
 }
