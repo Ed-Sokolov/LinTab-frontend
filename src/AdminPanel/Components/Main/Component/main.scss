@@ -1,0 +1,9 @@
+.statistics__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .statistic__item {
+    flex-basis: calc(25% - 12px);
+  }
+}

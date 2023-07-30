@@ -1,5 +1,5 @@
+import {Main} from "./Component/Main";
+
 export const MainContainer = () => {
-    return (
-        <div>Admin panel</div>
-    )
+    return <Main/>
 }

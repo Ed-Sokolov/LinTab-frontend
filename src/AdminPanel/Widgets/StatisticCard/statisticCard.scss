@@ -1,0 +1,45 @@
+.statistic_card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  color: #FFF;
+  overflow: hidden;
+  min-width: 256px;
+
+  &.green {
+    background-color: #248F2F;
+  }
+
+  &.pink {
+    background-color: #E4007B;
+  }
+
+  &.orange {
+    background-color: #FFAB07;
+  }
+
+  &.blue {
+    background-color: #075BFF;
+  }
+
+  &.violet {
+    background-color: #DC07FF;
+  }
+
+  .statistic_card__title {
+    font-size: 28px;
+    letter-spacing: .86px;
+    padding: 16px 16px 0;
+  }
+
+  .statistic_card__count {
+    padding: 0 16px;
+  }
+
+  .statistic_card__link-wrapper {
+    text-align: center;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
