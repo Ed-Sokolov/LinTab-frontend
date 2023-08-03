@@ -41,6 +41,12 @@
       white-space: pre-line;
       word-break: break-word;
       word-wrap: break-word;
+
+      .ql-editor.ql-blank {
+        &::before {
+          font-style: normal;
+        }
+      }
     }
   }
 
